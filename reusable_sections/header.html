@@ -48,7 +48,7 @@
     </button>
 
     <!-- Navbar -->
-    <nav id="navbar" class="navbar">
+    <!-- <nav id="navbar" class="navbar">
       <ul>
         <li><a href="/index.html">Home</a></li>
         <li><a href="/about-us-advanced.html">About</a></li>
@@ -68,11 +68,143 @@
         </li>
         <li><a href="/#gform">Request a Callback</a></li>
       </ul>
-    </nav>
+    </nav> -->
 
     <!-- Mobile nav toggles -->
     <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
     <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+      <!-- Button to Open Navbar -->
+  <button id="openNavbar" style="font-size: 20px; cursor: pointer; background-color: #333; color: white; border: none; padding: 10px 20px; margin: 10px;">
+    ☰ Open Navbar
+  </button>
+
+  <!-- Navbar -->
+  <div id="myNavbar" style="
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #004d40;
+    overflow-x: hidden;
+    transition: width 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    box-shadow: -2px 0 15px rgba(0, 0, 0, 0.3);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  ">
+
+    <!-- Close Button -->
+    <button id="closeNavbar" style="
+      align-self: flex-end;
+      font-size: 36px;
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out, color 0.3s ease-in-out;
+    " 
+    onmouseover="this.style.transform='rotate(90deg)'; this.style.color='#80cbc4';" 
+    onmouseout="this.style.transform='rotate(0deg)'; this.style.color='white';">
+      &times;
+    </button>
+
+    <!-- Navbar Links -->
+    <a href="/index.html" style="
+      padding: 15px 20px;
+      margin: 5px 0;
+      text-decoration: none;
+      font-size: 18px;
+      color: white;
+      display: inline-block;
+      text-align: left;
+      transition: all 0.3s ease-in-out;
+      font-family: 'Arial', sans-serif;
+      background-color: transparent;
+      border: 2px solid transparent;
+      border-radius: 5px;
+      width: calc(100% - 40px);
+    " 
+    onmouseover="this.style.backgroundColor='#00796b'; this.style.borderColor='#80cbc4'; this.style.color='#80cbc4';" 
+    onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='transparent'; this.style.color='white';">
+      Home
+    </a>
+    <a href="/about-us-advanced.html" style="
+      padding: 15px 20px;
+      margin: 5px 0;
+      text-decoration: none;
+      font-size: 18px;
+      color: white;
+      display: inline-block;
+      text-align: left;
+      transition: all 0.3s ease-in-out;
+      font-family: 'Arial', sans-serif;
+      background-color: transparent;
+      border: 2px solid transparent;
+      border-radius: 5px;
+      width: calc(100% - 40px);
+    " 
+    onmouseover="this.style.backgroundColor='#00796b'; this.style.borderColor='#80cbc4'; this.style.color='#80cbc4';" 
+    onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='transparent'; this.style.color='white';">
+      About
+    </a>
+    <a href="/demo-industry-factory-about-us.html" style="
+      padding: 15px 20px;
+      margin: 5px 0;
+      text-decoration: none;
+      font-size: 18px;
+      color: white;
+      display: inline-block;
+      text-align: left;
+      transition: all 0.3s ease-in-out;
+      font-family: 'Arial', sans-serif;
+      background-color: transparent;
+      border: 2px solid transparent;
+      border-radius: 5px;
+      width: calc(100% - 40px);
+    " 
+    onmouseover="this.style.backgroundColor='#00796b'; this.style.borderColor='#80cbc4'; this.style.color='#80cbc4';" 
+    onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='transparent'; this.style.color='white';">
+      Services
+    </a>
+    <a href="/#gform" style="
+      padding: 15px 20px;
+      margin: 5px 0;
+      text-decoration: none;
+      font-size: 18px;
+      color: white;
+      display: inline-block;
+      text-align: left;
+      transition: all 0.3s ease-in-out;
+      font-family: 'Arial', sans-serif;
+      background-color: transparent;
+      border: 2px solid transparent;
+      border-radius: 5px;
+      width: calc(100% - 40px);
+    " 
+    onmouseover="this.style.backgroundColor='#00796b'; this.style.borderColor='#80cbc4'; this.style.color='#80cbc4';" 
+    onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='transparent'; this.style.color='white';">
+      Contact
+    </a>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const navbar = document.getElementById('myNavbar');
+    const openBtn = document.getElementById('openNavbar');
+    const closeBtn = document.getElementById('closeNavbar');
+
+    openBtn.addEventListener('click', () => {
+      navbar.style.width = '300px';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      navbar.style.width = '0';
+    });
+  </script>
   </div>
 </header>
 <!-- End Header -->
