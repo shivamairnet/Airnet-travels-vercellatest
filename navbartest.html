@@ -12,41 +12,119 @@
     ☰ Open Navbar
   </button>
 
-  <!-- Navbar -->
-  <div id="myNavbar" style="
-    height: 100%; 
-    width: 0; 
-    position: fixed; 
-    top: 0; 
-    right: 0; 
-    background-color: #006a5d; 
-    overflow-x: hidden; 
-    transition: 0.5s; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: flex-start; 
-    padding-top: 60px;
-    ">
-    
-    <!-- Close Button -->
-    <button id="closeNavbar" style="
-      position: absolute; 
-      top: 10px; 
-      left: 10px; 
-      font-size: 36px; 
-      color: white; 
-      background: none; 
-      border: none; 
-      cursor: pointer;">
-      &times;
-    </button>
+<!-- Navbar -->
+<div id="myNavbar" style="
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #004d40;
+  overflow-x: hidden;
+  transition: width 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  box-shadow: -2px 0 15px rgba(0, 0, 0, 0.3);
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+">
 
-    <!-- Navbar Links -->
-    <a href="index.html" style="padding: 10px 20px; text-decoration: none; font-size: 18px; color: white; display: block; transition: 0.3s;">Home</a>
-    <a href="about.html" style="padding: 10px 20px; text-decoration: none; font-size: 18px; color: white; display: block; transition: 0.3s;">About</a>
-    <a href="services.html" style="padding: 10px 20px; text-decoration: none; font-size: 18px; color: white; display: block; transition: 0.3s;">Services</a>
-    <a href="#" style="padding: 10px 20px; text-decoration: none; font-size: 18px; color: white; display: block; transition: 0.3s;">Contact</a>
-  </div>
+  <!-- Close Button -->
+  <button id="closeNavbar" style="
+    align-self: flex-end;
+    font-size: 36px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, color 0.3s ease-in-out;
+  " 
+  onmouseover="this.style.transform='rotate(90deg)'; this.style.color='#80cbc4';" 
+  onmouseout="this.style.transform='rotate(0deg)'; this.style.color='white';">
+    &times;
+  </button>
+
+  <!-- Navbar Links -->
+  <a href="index.html" style="
+    padding: 15px 20px;
+    margin: 5px 0;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: inline-block;
+    text-align: left;
+    transition: all 0.3s ease-in-out;
+    font-family: 'Arial', sans-serif;
+    background-color: transparent;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    width: calc(100% - 40px);
+  " 
+  onmouseover="this.style.backgroundColor='#00796b'; this.style.borderColor='#80cbc4'; this.style.color='#80cbc4';" 
+  onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='transparent'; this.style.color='white';">
+    Home
+  </a>
+  <a href="about.html" style="
+    padding: 15px 20px;
+    margin: 5px 0;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: inline-block;
+    text-align: left;
+    transition: all 0.3s ease-in-out;
+    font-family: 'Arial', sans-serif;
+    background-color: transparent;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    width: calc(100% - 40px);
+  " 
+  onmouseover="this.style.backgroundColor='#00796b'; this.style.borderColor='#80cbc4'; this.style.color='#80cbc4';" 
+  onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='transparent'; this.style.color='white';">
+    About
+  </a>
+  <a href="services.html" style="
+    padding: 15px 20px;
+    margin: 5px 0;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: inline-block;
+    text-align: left;
+    transition: all 0.3s ease-in-out;
+    font-family: 'Arial', sans-serif;
+    background-color: transparent;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    width: calc(100% - 40px);
+  " 
+  onmouseover="this.style.backgroundColor='#00796b'; this.style.borderColor='#80cbc4'; this.style.color='#80cbc4';" 
+  onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='transparent'; this.style.color='white';">
+    Services
+  </a>
+  <a href="#" style="
+    padding: 15px 20px;
+    margin: 5px 0;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: inline-block;
+    text-align: left;
+    transition: all 0.3s ease-in-out;
+    font-family: 'Arial', sans-serif;
+    background-color: transparent;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    width: calc(100% - 40px);
+  " 
+  onmouseover="this.style.backgroundColor='#00796b'; this.style.borderColor='#80cbc4'; this.style.color='#80cbc4';" 
+  onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='transparent'; this.style.color='white';">
+    Contact
+  </a>
+</div>
+
 
   <!-- JavaScript -->
   <script>
