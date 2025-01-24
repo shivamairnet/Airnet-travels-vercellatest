@@ -52,9 +52,9 @@
     <nav id="navbar" class="navbar" style="background-color: bisque !important;">
       <ul>
         <li><a href="/index.html">Home</a></li>
-        <li><a href="/about-us-advanced.html">About</a></li>
+        <li><a href="/about-us.html">About</a></li>
         <li class="dropdown">
-          <a href="/page-services3.html">
+          <a href="/services.html">
             <span>Services</span>
             <i class="bi bi-chevron-down dropdown-indicator"></i>
           </a>
@@ -75,83 +75,22 @@
     <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
     <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
+    <div id="formDiv" style="height: 10px;background-color: aquamarine;"></div>
+
 </header>
 <!-- End Header -->
-
-<!-- Popup Modal -->
-<div id="popupModal" class="popup-modal">
-  <div class="popup-content">
-    <span id="closePopup" class="close">&times;</span>
-    <iframe
-      src="https://docs.google.com/forms/d/e/1FAIpQLSf9yDpllWa3JCQIWAyZmvGGNeZslK3v1UgSuXxRv4eIbUoxhA/viewform?embedded=true&usp=header"
-      width="100%"
-      height="500px"
-      style="border: none;"
-    ></iframe>
-  </div>
-</div>
-
-<!-- Popup Modal Styles -->
-<style>
-  .popup-modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-
-  .popup-content {
-    background-color: white;
-    margin: 10% auto;
-    padding: 20px;
-    border-radius: 8px;
-    width: 80%;
-    max-width: 600px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    text-align: center;
-  }
-
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-</style>
-
-<!-- Popup Modal Script -->
 <script>
-  const openFormButton = document.getElementById('openFormButton');
-  const popupModal = document.getElementById('popupModal');
-  const closePopup = document.getElementById('closePopup');
+  document.addEventListener('DOMContentLoaded', function () {
+  const callbackButton = document.getElementById('openFormButton');
+  const formDiv = document.getElementById('formDiv');
 
-  // Open popup
-  openFormButton.addEventListener('click', () => {
-    popupModal.style.display = 'block';
-  });
-
-  // Close popup
-  closePopup.addEventListener('click', () => {
-    popupModal.style.display = 'none';
-  });
-
-  // Close popup when clicking outside the content
-  window.addEventListener('click', (event) => {
-    if (event.target === popupModal) {
-      popupModal.style.display = 'none';
+  callbackButton.addEventListener('click', function() {
+    if (formDiv.style.display === 'none' || formDiv.style.display === '') {
+      formDiv.style.display = 'block';
+    } else {
+      formDiv.style.display = 'none';
     }
   });
+});
+
 </script>

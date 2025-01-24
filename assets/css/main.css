@@ -335,6 +335,68 @@ section {
   scroll-margin-top: 70px;
 }
 
+/* Parent container for hiding overflow */
+.overflow-hidden {
+  overflow: hidden;
+  position: relative;
+}
+
+/* Styling for the rotating words */
+.word-rotator-words {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  height: 1em; /* Adjust this to match font size */
+  overflow: hidden;
+}
+
+.rotating-word {
+  position: absolute;
+  width: 100%;
+  opacity: 0; /* Start hidden */
+  transform: translateY(100%); /* Start below */
+  animation: rotateWords 6s infinite;
+}
+
+/* Ensure the first word is visible at the start */
+.rotating-word.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: none; /* Prevent animation on the first visible word */
+}
+
+.rotating-word:nth-child(2) {
+  animation-delay: 2s;
+}
+
+.rotating-word:nth-child(3) {
+  animation-delay: 4s;
+}
+
+/* Keyframes for the word rotation animation */
+@keyframes rotateWords {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
 /*--------------------------------------------------------------
 # Desktop Navigation
 --------------------------------------------------------------*/
@@ -477,6 +539,8 @@ section {
   }
 }
 
+
+
 @media (min-width: 1280px) {
 
   .mobile-nav-show,
@@ -497,7 +561,7 @@ section {
     max-width: 400px;
     bottom: 0;
     transition: 0.3s;
-    z-index: 9997;
+    z-index: 9999;
   }
 
   .navbar ul {

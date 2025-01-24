@@ -285,15 +285,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-// show "send message" text on hovering on whatsapp icon
 
-// const whatsappIcon = document.querySelector('#whatsapp-icon');
-// const whatsappText = document.querySelector('#whatsapp-text');
 
-// whatsappIcon.addEventListener('mouseover', function() {
-//   whatsappText.style.opacity = '1';
-// });
+// counter script
 
-// whatsappIcon.addEventListener('mouseout', function() {
-//   whatsappText.style.opacity = '0';
-// });
+  document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".counter");
+
+    counters.forEach(counter => {
+      const updateCounter = () => {
+        const target = +counter.getAttribute("data-target");
+        const append = counter.getAttribute("data-append") || ""; 
+        const current = +counter.innerText;
+        const increment = target / 100; 
+
+        if (current < target) {
+          counter.innerText = Math.ceil(current + increment);
+          setTimeout(updateCounter, 20); 
+        } else {
+          counter.innerText = target + append; 
+        }
+      };
+
+      updateCounter();
+    });
+  });
+
