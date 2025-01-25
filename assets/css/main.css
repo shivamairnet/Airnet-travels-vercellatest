@@ -14,8 +14,13 @@
 :root {
   /* --font-default: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
   /* --font-primary: "Montserrat", sans-serif; */
-  --font-primary: "lato",sans-serif;
-  --font-secondary: "Poppins", sans-serif;
+  /* --font-primary: "lato",sans-serif;
+  --font-secondary: "Poppins", sans-serif; */
+  /* --font-primary: "lato",sans-serif;
+  --font-secondary: "Poppins", sans-serif; */
+  --font-primary: "Calibre", sans-serif;
+--font-secondary: "Calibre", sans-serif;
+
 }
 
 /* Colors */
@@ -400,7 +405,7 @@ section {
 /*--------------------------------------------------------------
 # Desktop Navigation
 --------------------------------------------------------------*/
-@media (min-width: 1280px) {
+@media (min-width: 1001px) {
   .navbar {
     padding: 0;
   }
@@ -529,7 +534,7 @@ section {
   }
 }
 
-@media (min-width: 1280px) and (max-width: 1366px) {
+@media (min-width: 1001px) and (max-width: 1366px) {
   .navbar .dropdown .dropdown ul {
     left: -90%;
   }
@@ -541,7 +546,7 @@ section {
 
 
 
-@media (min-width: 1280px) {
+@media (min-width: 1001px) {
 
   .mobile-nav-show,
   .mobile-nav-hide {
@@ -552,7 +557,7 @@ section {
 /*--------------------------------------------------------------
 # Mobile Navigation
 --------------------------------------------------------------*/
-@media (max-width: 1279px) {
+@media (max-width: 1000px) {
   .navbar {
     position: fixed;
     top: 0;
@@ -2097,6 +2102,53 @@ section {
   padding-bottom: 60px;
 } */
 
+ /* For mobile devices */
+ @media (max-width: 767px) {
+  .custom-section {
+    padding: 0 !important;
+  }
+  
+  .custom-section div {
+    flex-direction: column !important;
+    gap: 2rem !important;
+    text-align: center;
+  }
+  
+  .custom-section .col-lg-6 {
+    flex-basis: 100%;
+    padding: 0 !important;
+    text-align: center;
+  }
+  
+  .custom-section img {
+    max-width: 100%;
+  }
+
+  .custom-section h2{
+    text-align: center;
+  }
+}
+
+/* For tablets (medium screens) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .custom-section {
+    padding: 3rem;
+  }
+  
+  .custom-section div {
+    flex-direction: row;
+    gap: 3rem;
+  }
+  
+  .custom-section .col-lg-6 {
+    flex-basis: 48%;
+  }
+  
+  .custom-section img {
+    max-width: 100%;
+  }
+}
+
 @media (min-width: 1200px) {
   .hero .icon-boxes:before {
     content: "";
@@ -2875,7 +2927,7 @@ section {
   height: 100%;
   top: 0;
   left: 0;
-  /* width: 100vw; */
+  width: 100vw;
   /* z-index: -1; */
 }
 

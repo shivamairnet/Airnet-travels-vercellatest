@@ -27,70 +27,94 @@
       <img src="/assets/img/Airnet_logo.svg" alt="Airnet_logo" />
     </a>
 
-    <!-- Request a Callback Button -->
-    <button id="openFormButton"
-      style="
-        color: white;
-        border: 1px solid white;
-        background-color: transparent;
-        padding: 5px 15px;
-        border-radius: 5px;
-        margin-left: auto;
-        margin-right: 15px;
-        font-size: 14px;
-        text-decoration: none;
-        transition: background-color 0.3s ease, color 0.3s ease;
-        z-index: 9999;
-      "
-      onmouseover="this.style.backgroundColor='white';this.style.color='black';"
-      onmouseout="this.style.backgroundColor='transparent';this.style.color='white';"
-    >
-      Request A Callback
-    </button>
-
     <!-- Navbar -->
-    <nav id="navbar" class="navbar" style="background-color: bisque !important;">
-      <ul>
-        <li><a href="/index.html">Home</a></li>
-        <li><a href="/about-us.html">About</a></li>
-        <li class="dropdown">
-          <a href="/services.html">
-            <span>Services</span>
-            <i class="bi bi-chevron-down dropdown-indicator"></i>
-          </a>
-          <ul>
-            <li><a href="/services/leisure-travel.html">Leisure Travel</a></li>
-            <li><a href="/services/business-travel.html">Business Travel</a></li>
-            <li><a href="/services/events.html">Events</a></li>
-            <li><a href="/services/rare-finds.html">Rare Finds</a></li>
-            <li><a href="/services/visa-specialists.html">Visa</a></li>
-            <li><a href="/services/travel-insurance.html">Travel Insurance</a></li>
-          </ul>
-        </li>
-        <li><a href="/#gform">Request a Callback</a></li>
-      </ul>
-    </nav>
+    <div class="d-flex align-items-center" style="flex-direction: row; gap: 20px;">
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/about-us.html">About</a></li>
+          <li class="dropdown">
+            <a href="/services.html">
+              <span>Services</span>
+              <i class="bi bi-chevron-down dropdown-indicator"></i>
+            </a>
+            <ul>
+              <li><a href="/services/leisure-travel.html">Leisure Travel</a></li>
+              <li><a href="/services/business-travel.html">Business Travel</a></li>
+              <li><a href="/services/events.html">Events</a></li>
+              <li><a href="/services/rare-finds.html">Rare Finds</a></li>
+              <li><a href="/services/visa-specialists.html">Visa</a></li>
+              <li><a href="/services/travel-insurance.html">Travel Insurance</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
 
-    <!-- Mobile nav toggles -->
-    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+  <!-- Callback Button -->
+<button id="requestCallbackBtn" style="
+cursor: pointer;
+padding: 8px 18px;
+background-color: black;
+color: white;
+text-decoration: none;
+border-radius: 25px;
+display: inline-block;
+font-size: 14px;
+z-index: 9999;
+position: relative;
+border: none;
+">
+Request a Callback
+</button>
 
-    <div id="formDiv" style="height: 10px;background-color: aquamarine;"></div>
+    </div>
+  </div>
 
+  <!-- Mobile nav toggles -->
+  <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+  <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+  <!-- Modal -->
+  <div id="callbackModal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.5);">
+    <div style="background-color: #fff; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 400px; border-radius: 8px; text-align: center;">
+      <span class="close" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
+      <h2>Request a Callback</h2>
+      <form>
+        <label for="name">Your Name</label><br />
+        <input type="text" id="name" name="name" required style="width: 100%; padding: 8px; margin: 8px 0; box-sizing: border-box;" /><br />
+        <label for="phone">Phone Number</label><br />
+        <input type="tel" id="phone" name="phone" required style="width: 100%; padding: 8px; margin: 8px 0; box-sizing: border-box;" /><br />
+        <button type="submit" style="background-color: black; color: white; border: none; padding: 8px 18px; border-radius: 15px; cursor: pointer;">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Wait for the DOM to fully load before accessing elements
+    document.addEventListener("DOMContentLoaded", function () {
+      // Get elements
+      const modal = document.getElementById("callbackModal");
+      const btn = document.getElementById("requestCallbackBtn");
+      const closeBtn = document.querySelector("#callbackModal .close");
+
+      // Show the modal
+      btn.onclick = function () {
+        modal.style.display = "block";
+      };
+
+      // Close the modal
+      closeBtn.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      // Close modal when clicking outside the modal content
+      window.onclick = function (event) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      };
+    });
+  </script>
 </header>
+
 <!-- End Header -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-  const callbackButton = document.getElementById('openFormButton');
-  const formDiv = document.getElementById('formDiv');
-
-  callbackButton.addEventListener('click', function() {
-    if (formDiv.style.display === 'none' || formDiv.style.display === '') {
-      formDiv.style.display = 'block';
-    } else {
-      formDiv.style.display = 'none';
-    }
-  });
-});
-
-</script>

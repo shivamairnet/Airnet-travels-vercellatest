@@ -80,6 +80,210 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
+<style>
+	/* @media(max-width:768px){
+	
+	.rotate-word-section span {
+
+          font-size: 1.4rem !important; 
+          width: 300px !important;
+		  padding: 7px 10px !important; 
+      }
+	    } */
+
+/* Responsive styles */
+@media (max-width: 768px) { 
+  .testimonial-section {
+    height: 900px !important; /* Removed the fixed height */
+    padding: 20px 0; /* Added some padding for breathing room */
+  }
+  
+  .testimonial-section h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .testimonial-section p {
+    font-size: 1.25rem;
+    text-align: center;
+    padding: 0 15px;
+  }
+
+  .testimonial-section .carousel img {
+    height: 40px !important;
+    width: 100%;
+    margin: auto !important;
+  }
+
+  .testimonial-section .carousel .d-md-block {
+    margin-top: 10px; /* Add some space below the image */
+    text-align: center; /* Center the text for mobile screens */
+  }
+
+  .testimonial-section .carousel .d-md-block h3 {
+    font-size: 2.5rem !important;
+    margin-top: 10px; /* Ensure some space from the image */
+  }
+
+  .testimonial-section .carousel .d-md-block p {
+    font-size: 1.25rem !important;
+    padding: 0 20px !important;
+    margin-top: 10px; /* Ensure space between the text and image */
+  }
+}
+
+@media (max-width: 576px) {
+  .testimonial-section h2 {
+    font-size: 2.5rem;
+  }
+
+  .testimonial-section p {
+    font-size: 1.25rem;
+  }
+
+  .testimonial-section .carousel img {
+    height: 60px;
+    width: auto;
+  }
+
+  .testimonial-section .carousel .d-md-block h3 {
+    font-size: 2.5rem;
+    margin-top: 10px; /* Ensure space from image */
+  }
+
+  .testimonial-section .carousel .d-md-block p {
+    font-size: 1.25rem;
+    padding: 0 10px;
+    margin-top: 10px; /* Ensure space from heading */
+  }
+
+  .testimonial-section .carousel-control-prev-icon,
+  .testimonial-section .carousel-control-next-icon {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+
+
+/* Media Query for Tablet and Small Devices (Max-width: 992px) */
+@media (max-width: 992px) {
+  .our-story-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .our-story-section h2 {
+    font-size: 2.5rem;
+  }
+
+  .our-story-section p {
+    font-size: 1.25rem;
+    padding: 0 !important;
+	margin: 0 !important;
+
+  }
+
+  .our-story-section .col-lg-6 {
+    text-align: center;
+  }
+
+  .our-story-section .col-lg-4 {
+    margin-top: 20px;
+  }
+
+  .our-story-section img {
+    width: 90%; /* Resize images */
+    left: 0;
+    top: 0;
+  }
+}
+
+/* Media Query for Mobile Devices (Max-width: 576px) */
+@media (max-width: 576px) {
+  .our-story-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .our-story-section h2 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .our-story-section p {
+    font-size: 1.25rem;
+    padding: 0 !important;
+	margin: 0 !important;
+    text-align: center;
+  }
+
+  .our-story-section .col-lg-6 {
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .our-story-section .col-lg-4 {
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  /* Adjusting the position of images */
+  .our-story-section img {
+    width: 80%;
+    left: 0;
+    top: 0;
+    margin: 0 auto;
+  }
+}
+
+/* Media Query for Tablet Screens (Max-width: 992px) */
+@media (max-width: 992px) {
+  .rotate-word-section h1 {
+    font-size: 2rem;
+  }
+
+  .rotate-word-section p {
+    font-size: 1.1rem;
+  }
+
+  .rotate-word-section span {
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  .rotate-word-section .rotating-word {
+    font-size: 1.2rem;
+  }
+}
+
+/* Media Query for Mobile Screens (Max-width: 576px) */
+@media (max-width: 576px) {
+  .rotate-word-section h1 {
+    font-size: 1.5rem;
+  }
+
+  .rotate-word-section p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .rotate-word-section span {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .rotate-word-section .rotating-word {
+    font-size: 1.1rem;
+  }
+
+  .rotate-word-section {
+    padding: 1rem;
+  }
+}
+
+</style>
 	</head>
 	<body data-plugin-page-transition>
 
@@ -99,7 +303,7 @@
 					</div>
 				</section>
 
-				<div class="container">
+				<div class="rotate-word-section container">
 					<div class="row pt-5">
 					  <div class="col">
 						<div class="container" style="padding: 3rem 1rem; text-align: center;">
@@ -125,35 +329,13 @@
 					</div>
 				  </div>
 
-				<div class="py-5 mt-5 mb-5" style="background-color: #009786;">
+				<section class="our-story-section section section-height-3 bg-color-grey-scale-1 m-0 border-0">
 					<div class="container">
-					<div class="row text-center d-flex justify-content-between align-items-center" style="padding-left: 45px;padding-right: 45px;">
-					  <!-- Counter 1 -->
-					  <div class="col-md-4">
-						<h2 class="counter text-white" data-target="3000" data-append="+">0</h2>
-						<p class="text-white" style="font-size: 1.25rem;">Happy Travelers</p>
-					  </div>
-					  <!-- Counter 2 -->
-					  <div class="col-md-4">
-						<h2 class="counter text-white" data-target="60" data-append="+">0</h2>
-						<p class="text-white" style="font-size: 1.25rem;">Countries</p>
-					  </div>
-					  <!-- Counter 3 -->
-					  <div class="col-md-4">
-						<h2 class="counter text-danger text-white" data-target="500" data-append="+">0</h2>
-						<p class="text-white" style="font-size: 1.25rem;">Hours Of On-Call Traveler Support</p>
-					  </div>
-					</div>
-				</div>
-				  </div>
-
-				<section class="section section-height-3 bg-color-grey-scale-1 m-0 border-0">
-					<div class="container">
-						<div class="row align-items-center justify-content-center">
+						<div class="row align-items-center justify-content-center pt-5">
 							<div class="col-lg-6 pb-sm-4 pb-lg-0 pe-lg-5 mb-sm-5 mb-lg-0">
 								<h2 class="text-color-dark font-weight-normal text-6 mb-2"><strong class="font-weight-extra-bold">Our Story</strong></h2>
 								<p class="lead">We help every traveler to find their dream travel destination.</p>
-								<p class="pe-5 me-5">What began as a dream to bring global travel experiences to the Punjabi community has grown into a full-service luxury travel company trusted by clients worldwide. Airnet Travels started with a passion for planning and a commitment to excellence. Over the years, through word-of-mouth referrals, social media, and client loyalty, we’ve built long-term relationships by crafting tailor-made travel plans that inspire and delight. For us, planning travel is more than a job; it's a lifelong passion fueled by our desire to create memories that last forever.</p>
+								<p class="lead">What began as a dream to bring global travel experiences to the Punjabi community has grown into a full-service luxury travel company trusted by clients worldwide. Airnet Travels started with a passion for planning and a commitment to excellence. Over the years, through word-of-mouth referrals, social media, and client loyalty, we’ve built long-term relationships by crafting tailor-made travel plans that inspire and delight. For us, planning travel is more than a job; it's a lifelong passion fueled by our desire to create memories that last forever.</p>
 							</div>
 							<div class="col-sm-8 col-md-6 col-lg-4 offset-sm-4 offset-md-4 offset-lg-2 position-relative mt-sm-5" style="top: 1.7rem;">
 								<img src="/assets\img\About Us Images (Who We Are Section)\Who We Are - Paris (164x148).jpg" class="img-fluid position-absolute d-none d-sm-block appear-animation" data-appear-animation="expandIn" data-appear-animation-delay="300" style="top: 10%; left: -50%;" alt="" />
@@ -165,35 +347,35 @@
 				</section>
 
 				<div class="container appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="300">
-					<div class="row pt-5 pb-4 my-5">
+					<div class="row pt-5 my-5">
 					  <div class="col-md-6 order-2 order-md-1 text-center text-md-start">
-						<div class="row">
+						<div class="row" style="padding-top: 25px;padding-bottom: 25px;padding-left: 45px;padding-right: 45px;">
 						  <!-- First Profile -->
 						  <div class="col-md-6 mb-4">
-							<img class="img-fluid rounded-0 mb-3" src="assets/img/About Us Images (Who We Are Section)/About Us Founding Team/Dummy About Us Founding Team (1).jpg" alt="" />
+							<img class="img-fluid rounded-0 mb-3" src="assets/img/About Us Images (Who We Are Section)/About Us Founding Team/Dummy About Us Founding Team (1).jpg" alt=""/>
 							<h3 class="font-weight-bold text-color-dark text-4 mb-0">John Doe</h3>
 							<p class="text-2 mb-0">CEO</p>
 						  </div>
 						  <!-- Second Profile -->
 						  <div class="col-md-6 mb-4">
-							<img class="img-fluid rounded-0 mb-3" src="assets/img/About Us Images (Who We Are Section)/About Us Founding Team/Dummy Businesswomen (1).jpg" alt="" />
+							<img class="img-fluid rounded-0 mb-3" src="assets/img/About Us Images (Who We Are Section)/About Us Founding Team/Dummy Businesswomen (1).jpg" alt=""/>
 							<h3 class="font-weight-bold text-color-dark text-4 mb-0">Jessica Doe</h3>
 							<p class="text-2 mb-0">CEO</p>
 						  </div>
 						</div>
 					  </div>
-					  <div class="col-md-6 order-1 order-md-2 text-center text-md-start mb-5 mb-md-0">
+					  <div class="col-md-6 order-1 order-md-2 text-center text-md-start mb-5 mb-md-0" style="padding: 25px;">
 						<h2 class="text-color-dark font-weight-normal text-6 mb-2 pb-1">Meet <strong class="font-weight-extra-bold">Our Founding Team</strong></h2>
 						<p class="lead">Our founding team is a group of passionate travel enthusiasts and experienced professionals who envisioned creating seamless and unforgettable travel experiences.</p>
 					  </div>
 					</div>
 				  </div>
-				  <section class="section bg-color-grey-scale-1 section-height-3 border-0 m-0">
+				  <section class="testimonial-section section bg-color-grey-scale-1 section-height-3 border-0 m-0" style="padding-top: 0px;">
 					<div class="container pb-2" style="padding-top: 25px; height: 350px;">
 					  <div class="row" style="margin-top: 20px;">
 						<div class="col-lg-6 text-center text-md-start mb-5 mb-lg-0">
-						  <h2 class="text-color-dark font-weight-normal text-6 mb-2">Our <strong class="font-weight-extra-bold">Valued Clients</strong></h2>
-						  <p class="lead">At Airnet Travels, our clients are at the heart of everything we do. From solo explorers to corporate groups, we’re proud to serve a diverse range of travelers, delivering personalized experiences that exceed expectations every time.</p>
+						  <h2 class="text-color-dark font-weight-normal text-6 mb-2" style="padding-top: 60px;">Our <strong class="font-weight-extra-bold">Valued Clients</strong></h2>
+						  <p class="lead" style="padding-right: 25px;margin-top: 20px;">At Airnet Travels, our clients are at the heart of everything we do. From solo explorers to corporate groups, we’re proud to serve a diverse range of travelers, delivering personalized experiences that exceed expectations every time.</p>
 						</div>
 						<div class="col-lg-6">
 						  <div id="clientCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -202,9 +384,14 @@
 							  <div class="carousel-item active">
 								<div class="d-flex flex-column justify-content-center align-items-center" style="height: 100%;">
 								  <!-- Set fixed image height (200px) -->
-								  <img src="/assets/img/About Us Images (Who We Are Section)/Client Testimonial 1.png" class="d-block" style="height: 100px; width: auto;" alt="Client 1">
+								  <img src="/assets/img/testimonials/testimonials-1.jpg" class="d-block" style="height: 100px; width: auto;border-radius: 50px;" alt="Client 1">
 								  <div class="d-none d-md-block" style="margin-top: 15px; text-align: center;">
-									<p class="para" style="color: black; margin-bottom: 0;padding-left: 45px;padding-right: 45px;">" My husband & I went for our honeymoon, planned by Airnet. We had some changes of plans when we got there but the company was able to incorporate them instantly.. "</p>
+									<h3>Puneet S.</h3>
+                                    <h4>Director</h4>
+									<p class="para" style="color: black; margin-bottom: 0;padding-left: 45px;padding-right: 45px;">"My visa for Australia was actually rejected twice, till I
+										came across Airnet. They are precise with their
+										documentation and their experience helped me to not only
+										get the tourist visa but also travel there for 30 days!"</p>
 								  </div>
 								</div>
 							  </div>
@@ -213,9 +400,14 @@
 							  <div class="carousel-item">
 								<div class="d-flex flex-column justify-content-center align-items-center" style="height: 100%;">
 								  <!-- Set fixed image height (200px) -->
-								  <img src="/assets/img/About Us Images (Who We Are Section)/Client Testimonial 2.png" class="d-block" style="height: 100px; width: auto;" alt="Client 2">
+								  <img src="/assets/img/testimonials/testimonials-2.jpg" class="d-block" style="height: 100px; width: auto;border-radius: 50px;" alt="Client 2">
 								  <div class="d-none d-md-block" style="margin-top: 15px; text-align: center;">
-									<p class="para" style="color: black; margin-bottom: 0;padding-left: 45px;padding-right: 45px;">" My visa for Australia was actually rejected twice, till I came across Airnet. They are precise with their documentation and their experience helped me to not only get the tourist visa but also travel there for 30 days! "</p>
+									<h3>Ayush B.</h3>
+                                    <h4>Director</h4>
+									<p class="para" style="color: black; margin-bottom: 0;padding-left: 45px;padding-right: 45px;">" My family and I have been traveling for work and vacations
+										via Airnet for the past 2 decades, and have always felt at
+										home with their planning, professionalism and
+										international support. "</p>
 								  </div>
 								</div>
 							  </div>
@@ -224,12 +416,30 @@
 							  <div class="carousel-item">
 								<div class="d-flex flex-column justify-content-center align-items-center" style="height: 100%;">
 								  <!-- Set fixed image height (200px) -->
-								  <img src="/assets/img/About Us Images (Who We Are Section)/Client Testimonial 3.png" class="d-block" style="height: 100px; width: auto;" alt="Client 3">
+								  <img src="/assets/img/testimonials/testimonials-3.jpg" class="d-block" style="height: 100px; width: auto;border-radius: 50px;" alt="Client 3">
 								  <div class="d-none d-md-block" style="margin-top: 15px; text-align: center;">
-									<p class="para" style="color: black; margin-bottom: 0;padding-left: 45px;padding-right: 45px;">" I travel very often for my business through Airnet, and they have managed to streamline my last minute changes. I have been able to justify my trips with Airnet. "</p>
+									<h3>Rajnish J.</h3>
+                                    <h4>Director</h4>
+									<p class="para" style="color: black; margin-bottom: 0;padding-left: 45px;padding-right: 45px;">" I travel very often for my business through Airnet, and
+										they have managed to streamline my last minute changes. I
+										have been able to justify my trips with Airnet. "</p>
 								  </div>
 								</div>
 							  </div>
+							    <!-- Fourth slide -->
+								<div class="carousel-item">
+									<div class="d-flex flex-column justify-content-center align-items-center" style="height: 100%;">
+									  <!-- Set fixed image height (200px) -->
+									  <img src="/assets/img/testimonials/testimonials-4.jpg" class="d-block" style="height: 100px; width: auto;border-radius: 50px;" alt="Client 4">
+									  <div class="d-none d-md-block" style="margin-top: 15px; text-align: center;">
+										<h3>Raman N.</h3>
+                                         <h4>Entrepreneur</h4>
+										<p class="para" style="color: black; margin-bottom: 0;padding-left: 45px;padding-right: 45px;">" My husband & I went for our honeymoon, planned by Airnet.
+											We had some change of plans when we got there but the
+											company was able to incorporate them instantly."</p>
+									  </div>
+									</div>
+								  </div>
 							</div>
 				  
 							<!-- Carousel controls -->
@@ -246,7 +456,62 @@
 					  </div>
 					</div>
 				  </section>
-								
+			
+								 <!-- ======= Stats Counter Section ======= -->
+								 <section id="stats-counter" class="stats-counter" style="margin-bottom: 70px;">
+									<div class="container" data-aos="fade-up">
+									  <div class="row gy-4 align-items-center">
+										<div class="col-lg-6">
+										  <img src="/assets/img/stats-img-1.svg" alt="" class="img-fluid" />
+										</div>
+							
+										<div class="col-lg-6">
+										  <div class="stats-item d-flex align-items-center">
+											<span
+											  data-purecounter-start="0"
+											  data-purecounter-end="3000"
+											  data-purecounter-duration="2"
+											  class="purecounter"
+											></span
+											><span class="pe-4">+</span>
+											<!-- <p><strong>Happy Travellers</strong> have travlled with us so far, making timeless memories</p> -->
+											<p>
+											  <strong>Happy Travellers</strong> Experienced The Trip Of A
+											  Lifetime
+											</p>
+										  </div>
+										  <!-- End Stats Item -->
+							
+										  <div class="stats-item d-flex align-items-center">
+											<span
+											  data-purecounter-start="0"
+											  data-purecounter-end="60"
+											  data-purecounter-duration="2"
+											  class="purecounter"
+											></span
+											><span class="pe-4">+</span>
+											<!-- <p><strong>Countries Exclusive Packages</strong> tailored for your budget and requirements</p> -->
+											<p><strong>Countries</strong> Worldwide For Tourism Support</p>
+										  </div>
+										  <!-- End Stats Item -->
+							
+										  <div class="stats-item d-flex align-items-center">
+											<span
+											  data-purecounter-start="0"
+											  data-purecounter-end="500"
+											  data-purecounter-duration="2"
+											  class="purecounter"
+											></span
+											><span class="pe-4">+</span>
+											<!-- <p><strong>Hours Of Support</strong> provided to travellers taking our services, always there to deliver any help required, anywhere and everywhere.</p> -->
+											<p><strong>Hours</strong> Of On-call Traveler Support</p>
+										  </div>
+										  <!-- End Stats Item -->
+										</div>
+									  </div>
+									</div>
+								  </section>
+								  <!-- End Stats Counter Section -->
 
 			</div>
                   
@@ -328,7 +593,7 @@
       crossorigin="anonymous"
     ></script>
 
-	// rotating words script  <script>
+	<script>
   document.addEventListener("DOMContentLoaded", () => {
         const words = document.querySelectorAll(".rotating-word");
         let currentIndex = 0;
