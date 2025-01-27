@@ -1064,7 +1064,7 @@ section {
   line-height: 24px;
   font-size: 14px;
   margin-bottom: 0;
-  height: 215px;
+  height: 210px;
 }
 
 .services .service-item .readmore {
@@ -1080,6 +1080,54 @@ section {
 .services .service-item:hover h3 {
   border-color: var(--color-primary);
 }
+
+/* .carousel {
+  position: relative; 
+}
+
+.carousel-inner {
+  position: relative; 
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+} */
+
+/* Styling for the overlay text */
+/* .section-header {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 1; 
+  width: 80%;
+}
+
+.section-header h2 {
+  font-size: 3rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+.section-header h5 {
+  font-size: 1.2rem;
+  margin-top: 15px;
+  font-style: italic;
+}
+
+.section-header p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.section-header .fw-bolder {
+  font-weight: bolder;
+} */
+
 
 /*--------------------------------------------------------------
 # Testimonials Section
