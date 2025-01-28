@@ -329,11 +329,11 @@
 					</div>
 				  </div>
 
-				<section class="our-story-section section section-height-3 bg-color-grey-scale-1 m-0 border-0" style="background-color: #bee1dd;">
+				<section class="our-story-section section section-height-3 bg-color-grey-scale-1 m-0 border-0" style="background-color: #ccf3ef;">
 					<div class="container">
 						<div class="row align-items-center justify-content-center pt-5">
 							<div class="col-lg-6 pb-sm-4 pb-lg-0 pe-lg-5 mb-sm-5 mb-lg-0">
-								<h2 class="text-color-dark font-weight-normal text-6 mb-2"><strong class="font-weight-extra-bold">Our Story</strong></h2>
+								<h2 class="text-color-dark font-weight-normal text-6 mb-2">Our<strong class="font-weight-extra-bold"> Story</strong></h2>
 								<p class="lead">We help every traveler to find their dream travel destination.</p>
 								<p style="font-size: 1.25rem;">What began as a dream to bring global travel experiences to the Punjabi community has grown into a full-service luxury travel company trusted by clients worldwide. Airnet Travels started with a passion for planning and a commitment to excellence. Over the years, through word-of-mouth referrals, social media, and client loyalty, we’ve built long-term relationships by crafting tailor-made travel plans that inspire and delight. For us, planning travel is more than a job; it's a lifelong passion fueled by our desire to create memories that last forever.</p>
 							</div>
@@ -366,12 +366,43 @@
 					  </div>
 					  <div class="col-md-6 order-1 order-md-2 text-center text-md-start mb-5 mb-md-0" style="padding: 25px;">
 						<h2 class="text-color-dark font-weight-normal text-6 mb-2 pb-1">Meet <strong class="font-weight-extra-bold">Our Founding Team</strong></h2>
-						<p class="lead">Our founding team is a group of passionate travel enthusiasts and experienced professionals who envisioned creating seamless and unforgettable travel experiences.</p>
-					  </div>
+						<p class="lead mb-5">Our founding team is a group of passionate travel enthusiasts and experienced professionals who envisioned creating seamless and unforgettable travel experiences.</p>
+                         <a href="#" id="openModalButton" class="btn-get-started-1 px-4 py-3" style="border-radius:25px;font-weight: 600 ;font-size: 32px; background: linear-gradient(90deg, #008374 0%, #00312B 63%, #002823 70%, #000000 100%);color: white;font-size: 16px;border: none;">Talk With Our Experts!</a>
+					</div>
 					</div>
 				  </div>
 
-				  <section class="testimonial-section section bg-color-grey-scale-1 section-height-3 border-0 m-0" style="padding-top: 0px;background-color: #bee1dd;">
+				            <!-- modal -->
+<!-- Modal for Google Form -->
+<div class="modal fade" id="gformModal" tabindex="-1" aria-labelledby="gformModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="gformModalLabel">Free Consultation</h5>
+		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+		  <!-- Google Form inside iframe -->
+		  <iframe
+			src="https://docs.google.com/forms/d/e/1FAIpQLSf9yDpllWa3JCQIWAyZmvGGNeZslK3v1UgSuXxRv4eIbUoxhA/viewform?embedded=true&usp=header"
+			class="w-100" 
+			height="500px" 
+			frameborder="0" 
+			marginheight="0" 
+			marginwidth="0">Loading…</iframe>
+		</div>
+	  </div>
+	</div>
+  </div>
+  <script>
+	document.getElementById('openModalButton').addEventListener('click', function(event) {
+	  event.preventDefault();  // Prevent the default action
+	  var myModal = new bootstrap.Modal(document.getElementById('gformModal'));
+	  myModal.show();
+	});
+  </script>
+
+				  <section class="testimonial-section section bg-color-grey-scale-1 section-height-3 border-0 m-0" style="padding-top: 0px;background-color: #ccf3ef;">
 					<div class="container pb-2" style="padding-top: 25px; height: 350px;">
 					  <div class="row" style="margin-top: 20px;">
 						<div class="col-lg-6 text-center text-md-start mb-5 mb-lg-0">
@@ -461,6 +492,7 @@
 								 <!-- ======= Stats Counter Section ======= -->
 								 <section id="stats-counter" class="stats-counter" style="margin-bottom: 70px;">
 									<div class="container" data-aos="fade-up">
+										<h2 class="pt-3 pb-5 text-center" style="font-size: 32px;"><strong>Our Milestones & Trusted Accreditations</strong></h2>
 									  <div class="row gy-4 align-items-center">
 										<div class="col-lg-6">
 										  <img src="/assets/img/stats-img-1.svg" alt="" class="img-fluid" />

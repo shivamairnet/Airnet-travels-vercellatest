@@ -2044,7 +2044,7 @@ section {
 .hero h2 ,
 .hero h1{
   font-size: 48px;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 20px;
   color: var(--color-primary);
   /* color: #fff; */
