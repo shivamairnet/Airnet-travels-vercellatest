@@ -2224,11 +2224,13 @@ section {
  @media (max-width: 767px) {
   .custom-section {
     padding: 0 !important;
+    margin-top: 35px;
+    gap: 2rem !important;
   }
   
   .custom-section div {
     flex-direction: column !important;
-    gap: 2rem !important;
+    gap: 1rem !important;
     text-align: center;
   }
   
@@ -2244,6 +2246,8 @@ section {
 
   .custom-section h2{
     text-align: center;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
   }
 }
 

@@ -1,6 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Travel Insurance",
+        "serviceType": "Travel Insurance Services",
+        "provider": {
+          "@type": "Organization",
+          "name": "Airnet Travels"
+        },
+        "url": "https://www.airnettravels.com/service/travel-insurance",
+        "description": "Protect your travels with Airnet Travels comprehensive travel insurance. Get coverage for medical emergencies, trip cancellations, and more for a worry-free experience.",
+        "offers": {
+          "@type": "OfferCatalog",
+          "name": "Travel Insurance Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Medical Travel Insurance",
+                "description": "Covers medical emergencies, hospital visits, and evacuation while traveling, especially in destinations with limited healthcare. Ensures you’re protected in case of illness or injury abroad."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Baggage Insurance",
+                "description": "Protects against lost, stolen, or damaged baggage during your trip. Offers reimbursement for your belongings, ensuring peace of mind when traveling."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Emergency Evacuation Insurance",
+                "description": "Covers the cost of transportation to a safe location in case of medical emergencies or natural disasters. Ensures you’re protected in extreme situations during your trip."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Accidental Death & Dismemberment Insurance",
+                "description": "Provides financial protection for your beneficiaries in case of death or serious injury during your trip. Also covers expenses related to severe injuries sustained while traveling."
+              }
+            }    
+      ]
+        }
+      }
+      </script>
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "Airnet Travels",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+911613509826",
+              "contactType": "customer service",
+              "areaServed": "IN",
+              "availableLanguage": "English"
+            }
+          }
+        }
+        </script>
+        <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Airnet Travels",
+            "url": "https://www.airnettravels.com",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+911613509826",
+              "contactType": "Customer Service",
+              "areaServed": "IN"
+            },
+            "sameAs": [
+              "https://www.facebook.com/BoardTheTrip/",
+              "https://in.linkedin.com/company/airnet-travels-and-cargo",
+              "https://www.instagram.com/airnettravels/"
+            ]
+          }
+          </script>
+                        
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -137,7 +226,7 @@
    
 
        <!-- CTA section -->
-       <div class="mb-5 cta-container" style="margin: auto; display: flex; justify-content: center; position: relative; width: 1000px; height: 250px;">
+       <div class="mb-5 d-none d-md-block cta-container" style="margin: auto; display: flex; justify-content: center; position: relative; width: 1000px; height: 250px;">
         <!-- Image -->
         <img class="cta-image" src="/assets/img/CTA's/Travel Insurance CTA.png" alt="Travel Insurance" style="width: 100%; height: 100%; object-fit: cover;border-radius: 15px;">
         
@@ -153,6 +242,18 @@
           </div>
         </div>
       </div> 
+
+                                                   <!-- CTA section -->
+<div class="mb-5 d-md-none d-block" style="padding-top:50px;margin: auto; display: flex; justify-content: center; align-items: center; text-align: center; position: relative; width: 100%; height: 250px; background-color: #079696;">
+  <!-- Overlay Content -->
+  <div style="color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);">
+    <h3>Protect Your Trip With Travel Insurance! </h3>
+    <p>Contact Us Today To Secure Your Travel Journey.</p>
+    <a href="#" id="openModalButton2a" style="text-shadow: none; padding: 10px 20px; font-size: 16px; color: #079696; background-color: white; border: none; border-radius: 20px; cursor: pointer; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);">
+      Connect With Us
+    </a>
+  </div>
+</div>
 
       <!-- Modal for Google Form -->
 <div class="modal fade" id="gformModal2" tabindex="-1" aria-labelledby="gformModalLabel" aria-hidden="true">
@@ -180,6 +281,34 @@
     event.preventDefault();  // Prevent the default action
     console.log('Modal trigger clicked'); // Debugging log
     var myModal = new bootstrap.Modal(document.getElementById('gformModal2'));
+    myModal.show();
+  });
+</script>
+<div class="modal fade" id="gformModal2a" tabindex="-1" aria-labelledby="gformModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="gformModalLabel">Free Consultation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Google Form inside iframe -->
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSf9yDpllWa3JCQIWAyZmvGGNeZslK3v1UgSuXxRv4eIbUoxhA/viewform?embedded=true&usp=header"
+          class="w-100" 
+          height="500px" 
+          frameborder="0" 
+          marginheight="0" 
+          marginwidth="0">Loading…</iframe>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.getElementById('openModalButton2a').addEventListener('click', function(event) {
+    event.preventDefault();  // Prevent the default action
+    console.log('Modal trigger clicked'); // Debugging log
+    var myModal = new bootstrap.Modal(document.getElementById('gformModal2a'));
     myModal.show();
   });
 </script>

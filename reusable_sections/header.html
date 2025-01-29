@@ -34,6 +34,7 @@
           <li><a href="/index.html">Home</a></li>
           <li><a href="/about-us.html">About</a></li>
           <li><a href="/services.html">Services</a></li>
+          <li><a href="/contact-us.html">Contact Us</a></li>
           <!-- <li class="dropdown">
             <a href="/services.html">
               <span>Services</span>
@@ -52,21 +53,28 @@
       </nav>
 
   <!-- Callback Button -->
-<a type="button" class="callback-button" id="openModalButtonmain" style="
-cursor: pointer;
-padding: 8px 18px;
-background-color: white;
-color: #079696;
-text-decoration: none;
-border-radius: 25px;
-display: inline-block;
-font-size: 14px;
-z-index: 9999;
-position: relative;
-border: none;
-">
-Request a Callback
-    </a>
+  <a type="button" class="callback-button" id="openWhatsAppButton" style="
+  cursor: pointer;
+  padding: 8px 18px;
+  background-color: white;
+  color: #079696;
+  text-decoration: none;
+  border-radius: 25px;
+  display: inline-block;
+  font-size: 14px;
+  z-index: 9999;
+  position: relative;
+  border: none;
+  ">
+  Request a Callback
+  </a>
+  
+  <script>
+  document.getElementById("openWhatsAppButton").addEventListener("click", function() {
+      window.open("https://wa.me/+919357810101", "_blank");
+  });
+  </script>
+  
 
     </div>
   </div>

@@ -1,6 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Rare Finds",
+        "serviceType": "Rare Find Services",
+        "provider": {
+          "@type": "Organization",
+          "name": "Airnet Travels"
+        },
+        "url": "https://www.airnettravels.com/service/rare-finds",
+        "description": "Explore our Rare Find services at Airnet Travels, offering unique and exclusive travel experiences. Let us help you discover exceptional destinations and adventures.",
+        "offers": {
+          "@type": "OfferCatalog",
+          "name": "Rare Find Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Hidden Gem Destinations",
+                "description": "Discover stunning, lesser-known destinations that offer unique landscapes and authentic experiences, away from the crowds. Explore places that remain undiscovered by most travelers."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Private Yacht Charters",
+                "description": "Indulge in a luxury yacht charter with customized itineraries and exclusive access to private islands and pristine coastlines. Enjoy unparalleled privacy and personalized services."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Exclusive Cultural Experiences",
+                "description": "Engage in intimate cultural activities like private museum tours, rare art exhibitions, and performances by local artists. Dive deep into traditions few have the privilege to experience."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Historic Private Estate Stays",
+                "description": "Stay in historic castles, palaces, or private estates, experiencing royal luxury and personalized tours of magnificent gardens and private collections. Relive the grandeur of a bygone era."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Luxury Safari Expeditions",
+                "description": "Embark on a once-in-a-lifetime safari in private game reserves, where you’ll experience wildlife up close and stay in eco-luxury lodges. Enjoy bespoke safari experiences with expert guides."
+              }
+            },
+      {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Adventure Expeditions",
+                "description": "For thrill-seekers, engage in rare, adrenaline-pumping adventures like ice climbing, deep-sea exploration, or remote jungle trekking. Get exclusive access to extreme destinations and expert-led expeditions."
+              }
+      },
+      {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Private Gourmet Tours",
+                "description": "Savor rare culinary experiences with private food and wine tours led by top chefs and sommeliers. Explore hidden markets, private vineyards, and exclusive cooking classes."
+              }
+      }
+          ]
+        }
+      }
+      </script>
+
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "Airnet Travels",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+911613509826",
+              "contactType": "customer service",
+              "areaServed": "IN",
+              "availableLanguage": "English"
+            }
+          }
+        }
+        </script>
+        <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Airnet Travels",
+            "url": "https://www.airnettravels.com",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+911613509826",
+              "contactType": "Customer Service",
+              "areaServed": "IN"
+            },
+            "sameAs": [
+              "https://www.facebook.com/BoardTheTrip/",
+              "https://in.linkedin.com/company/airnet-travels-and-cargo",
+              "https://www.instagram.com/airnettravels/"
+            ]
+          }
+          </script>
+                  
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -170,7 +284,7 @@
           </div>
 
               <!-- CTA section -->
-              <div class="mb-5" style="margin: auto; display: flex; justify-content: center; position: relative; width: 1000px; height: 250px;">
+              <div class="mb-5 d-md-block d-none" style="margin: auto; display: flex; justify-content: center; position: relative; width: 1000px; height: 250px;">
                 <!-- Image -->
                 <img src="/assets/img/CTA's/Visa CTA (1).png" alt="RareFinds Services" style="width: 100%; height: 100%; object-fit: cover;border-radius: 15px;">
                 
@@ -186,6 +300,19 @@
                   </div>
                 </div>
               </div>  
+ 
+                                             <!-- CTA section -->
+<div class="mb-5 d-md-none d-block" style="padding-top:50px;margin: auto; display: flex; justify-content: center; align-items: center; text-align: center; position: relative; width: 100%; height: 250px; background-color: #079696;">
+  <!-- Overlay Content -->
+  <div style="color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);">
+    <h3>Ready to Discover Hidden Travel Gems? </h3>
+    <p>Contact Us Today To Explore Exclusive Rare Destinations.</p>
+    <a href="#" id="openModalButton6a" style="text-shadow: none; padding: 10px 20px; font-size: 16px; color: #079696; background-color: white; border: none; border-radius: 20px; cursor: pointer; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);">
+      Connect With Us
+    </a>
+  </div>
+</div>
+              
 
                            <!-- Modal for Google Form -->
       <div class="modal fade" id="gformModal6" tabindex="-1" aria-labelledby="gformModalLabel" aria-hidden="true">
@@ -213,6 +340,34 @@
           event.preventDefault();  // Prevent the default action
           console.log('Modal trigger clicked'); // Debugging log
           var myModal = new bootstrap.Modal(document.getElementById('gformModal6'));
+          myModal.show();
+        });
+      </script>
+      <div class="modal fade" id="gformModal6a" tabindex="-1" aria-labelledby="gformModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="gformModalLabel">Free Consultation</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- Google Form inside iframe -->
+              <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLSf9yDpllWa3JCQIWAyZmvGGNeZslK3v1UgSuXxRv4eIbUoxhA/viewform?embedded=true&usp=header"
+                class="w-100" 
+                height="500px" 
+                frameborder="0" 
+                marginheight="0" 
+                marginwidth="0">Loading…</iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        document.getElementById('openModalButton6a').addEventListener('click', function(event) {
+          event.preventDefault();  // Prevent the default action
+          console.log('Modal trigger clicked'); // Debugging log
+          var myModal = new bootstrap.Modal(document.getElementById('gformModal6a'));
           myModal.show();
         });
       </script>
