@@ -483,7 +483,7 @@ section {
     top: calc(100% + 30px);
     margin: 0;
     padding: 10px 0;
-    z-index: 99;
+    /* z-index: 99; */
     opacity: 0;
     visibility: hidden;
     background: #fff;
@@ -645,7 +645,7 @@ section {
     cursor: pointer;
     line-height: 0;
     transition: 0.5s;
-    z-index: 9999;
+    /* z-index: 9999; */
     margin-right: 10px;
   }
 
@@ -658,7 +658,7 @@ section {
     position: fixed;
     right: 20px;
     top: 20px;
-    z-index: 9999;
+    /* z-index: 9999; */
   }
 
   .mobile-nav-active {
@@ -674,7 +674,7 @@ section {
     position: fixed;
     inset: 0;
     background: rgba(0, 106, 93, 0.8);
-    z-index: 9996;
+    /* z-index: 9996; */
   }
 }
 
@@ -1064,7 +1064,7 @@ section {
   line-height: 24px;
   font-size: 14px;
   margin-bottom: 0;
-  height: 120px;
+  height: 135px;
 }
 
 .services .service-item .readmore {
@@ -1113,11 +1113,11 @@ section {
 
   .services-section .col-lg-3 {
     width: 100% !important;
-    margin-bottom: 1.2rem !important;
+    margin-bottom: 3rem !important;
     text-align: center !important;
   }
 
-  .services-section .col-lg-3 h1{
+  .services-section .col-lg-3 h2{
     font-size: 32px !important;
     font-weight: bold !important;
   }
@@ -3058,11 +3058,61 @@ section {
   max-height: 50vh;
 } */
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .affiliations{
-    /* margin-bottom: 50px; */
     padding-bottom: 20px;
   }
+} */
+
+/* Mobile and Tablet Screens */
+@media (max-width: 992px) {
+  .footer .row {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-info {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  .footer-links {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .footer .social-links {
+    justify-content: center;
+  }
+
+  .contact-details .row {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .contact-details .col-md-6 {
+    margin-bottom: 15px;
+  }
+
+  .affiliations {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .affiliations img {
+    margin: 5px;
+  }
+
+  .copyright {
+    text-align: center;
+    padding-top: 20px;
+  }
+}
+
+.error-message {
+  font-size: 14px;
+  margin-top: 5px;
+  color: red;
 }
 
 /* For whatsapp floating icon at the right corner */
