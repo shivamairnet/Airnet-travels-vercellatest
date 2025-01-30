@@ -1105,6 +1105,34 @@ section {
   }
 }
 
+@media (min-width: 768px) and (max-width: 1024px) {
+  .services-section .row {
+    flex-direction: row !important;
+  }
+
+  .services-section .col-lg-3 {
+    width: 100% !important;
+    margin-bottom: 3rem !important;
+    text-align: center !important;
+  }
+
+  .services-section .col-lg-3 h2 {
+   font-size: 32px;
+   font-weight: 600;
+  }
+
+  .services-section .col-lg-9 {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  .services-section .row .col-lg-4 {
+    width: 52% !important;
+    height: 200px !important;
+    margin: 0 auto 1rem auto !important;
+  }
+}
+
 /* Mobile Screens (Up to 767px) */
 @media (max-width: 767px) {
   .services-section .row {
@@ -1145,6 +1173,9 @@ section {
 @media (max-width: 768px) {
   .callback-button {
     display: none !important;
+  }
+  .page-header-services-row {
+    height: 390px !important;
   }
 }
 /* .carousel {
@@ -2103,7 +2134,7 @@ section {
     width: 100%;
     /* height: 100%; */
     object-fit: fill;
-    min-height: 40vh;
+    min-height: 20vh;
   }
 }
 
@@ -2253,13 +2284,9 @@ section {
 
 /* For tablets (medium screens) */
 @media (min-width: 768px) and (max-width: 1024px) {
-  .custom-section {
-    padding: 3rem;
-  }
   
   .custom-section div {
     flex-direction: row;
-    gap: 3rem;
   }
   
   .custom-section .col-lg-6 {
@@ -2270,6 +2297,25 @@ section {
     max-width: 100%;
   }
 }
+
+@media (min-width: 768px) and (max-width: 1000px) {
+  .cta-section-desktop-div {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  .cta-section-desktop {
+    display: block !important;
+    margin: auto !important;  /* Centers the image horizontally */
+    max-width: 95% !important; /* Adjust width for tablet view */
+    height: auto !important;
+  }
+}
+
+
 
 @media (min-width: 1200px) {
   .hero .icon-boxes:before {
@@ -3067,8 +3113,8 @@ section {
 /* Mobile and Tablet Screens */
 @media (max-width: 992px) {
   .footer .row {
-    flex-direction: column;
-    text-align: center;
+    flex-direction: column !important;
+    text-align: center !important;
   }
   
   .footer-info {
@@ -3077,35 +3123,37 @@ section {
   }
 
   .footer-links {
-    text-align: center;
-    margin-top: 20px;
+    text-align: center !important;
+    margin-top: 20px !important;
+    width: 100%;
   }
 
   .footer .social-links {
-    justify-content: center;
+    justify-content: center !important;
   }
 
   .contact-details .row {
-    flex-direction: column;
-    text-align: center;
+    flex-direction: column !important;
+    text-align: center !important;
   }
   
   .contact-details .col-md-6 {
-    margin-bottom: 15px;
+    margin-bottom: 15px !important;
+    width: 100%;
   }
 
   .affiliations {
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
   }
 
   .affiliations img {
-    margin: 5px;
+    margin: 5px !important;
   }
 
   .copyright {
-    text-align: center;
-    padding-top: 20px;
+    text-align: center !important;
+    padding-top: 20px !important;
   }
 }
 
@@ -3156,3 +3204,156 @@ section {
 }
 
 /* accreditation logos end */
+
+/* Responsive styles */
+@media (max-width: 999px) { 
+  .testimonial-section {
+    height: 900px !important; /* Removed the fixed height */
+    padding: 20px 0 !important; /* Added some padding for breathing room */
+  }
+  
+  .testimonial-section h2 {
+    font-size: 2.5rem !important;
+    text-align: center !important;
+    margin-bottom: 15px !important;
+  }
+
+  .testimonial-section p {
+    font-size: 1.25rem !important;
+    text-align: center !important;
+    padding: 0 15px !important;
+  }
+
+  .testimonial-section .carousel img {
+    height: 250px !important;
+    width: 45% !important;
+    margin: auto !important;
+  }
+
+  .testimonial-section .carousel {
+    margin-top: 10px !important; /* Add some space below the image */
+    text-align: center !important; /* Center the text for mobile screens */
+  }
+
+  .testimonial-section .carousel h3 {
+    font-size: 2.5rem !important;
+    margin-top: 10px !important; /* Ensure some space from the image */
+  }
+
+  .testimonial-section .carousel p {
+    font-size: 1.25rem !important;
+    padding: 0 20px !important;
+    margin-top: 10px !important; /* Ensure space between the text and image */
+  }
+}
+
+@media (max-width: 576px) {
+  .testimonial-section h2 {
+    font-size: 2.5rem !important;
+  }
+
+  .testimonial-section p {
+    font-size: 1.25rem;
+  }
+
+  .testimonial-section .carousel img {
+    height: 60px !important;
+    width: auto !important;
+  }
+
+  .testimonial-section .carousel h3 {
+    font-size: 2.5rem !important;
+    margin-top: 10px !important; /* Ensure space from image */
+  }
+
+  .testimonial-section .carousel p {
+    font-size: 1.25rem !important;
+    padding: 0 10px !important;
+    margin-top: 10px !important; /* Ensure space from heading */
+  }
+
+  .testimonial-section .carousel-control-prev-icon,
+  .testimonial-section .carousel-control-next-icon {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+/* Media Query for Tablet and Small Devices (Max-width: 992px) */
+@media (max-width: 992px) {
+  .our-story-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .our-story-section h2 {
+    font-size: 2.5rem;
+  }
+
+  .our-story-section p {
+    font-size: 1.25rem;
+    padding: 0 !important;
+	margin: 0 !important;
+
+  }
+
+  .our-story-section .col-lg-6 {
+    text-align: center;
+  }
+
+  .our-story-section .col-lg-4 {
+    margin-top: 20px;
+  }
+
+  .our-story-section img {
+    width: 90%; /* Resize images */
+    left: 0;
+    top: 0;
+  }
+}
+
+/* Media Query for Mobile Devices (Max-width: 576px) */
+@media (max-width: 576px) {
+  .our-story-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .our-story-section h2 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .our-story-section p {
+    font-size: 1.25rem;
+    padding: 0 !important;
+	margin: 0 !important;
+    text-align: center;
+  }
+
+  .our-story-section .col-lg-6 {
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .our-story-section .col-lg-4 {
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  /* Adjusting the position of images */
+  .our-story-section img {
+    width: 80%;
+    left: 0;
+    top: 0;
+    margin: 0 auto;
+  }
+}
+
+.founding-class{
+	font-size: 32px;
+}
+
+.founding-class1{
+	padding-top: 0 !important;
+}
