@@ -158,7 +158,60 @@
 </head>
 
   <!-- ======= Header ======= -->
-  <div id="HeaderSection"></div>
+  <!-- <div id="HeaderSection"></div> -->
+  <header id="header" class="header d-flex align-items-center">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+      <!-- Logo -->
+      <a href="/index.html" class="logo d-flex align-items-center">
+        <img src="/assets/img/Airnet_logo.svg" alt="Airnet_logo" />
+      </a>
+  
+      <!-- Navbar -->
+      <div class="d-flex align-items-center" style="flex-direction: row; gap: 20px;">
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about-us.html">About</a></li>
+            <li><a href="/services.html">Services</a></li>
+            <li><a href="/contact-us.html">Contact Us</a></li>
+          </ul>
+        </nav>
+  
+        <!-- Callback Button -->
+        <button 
+        class="callback-button" id="dsgdsgdsgdsgdg" style="
+        cursor: pointer;
+        padding: 8px 18px;
+        background-color: white;
+        color: #079696;
+        text-decoration: none;
+        border-radius: 25px;
+        display: inline-block;
+        font-size: 14px;
+        position: relative;
+        border: none;
+        ">
+        Request a Callback
+        </button>
+      </div>
+    </div>
+  
+    <!-- Mobile nav toggles -->
+    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+  </header>
+
+  <!-- End Header -->
+
+  <!-- Place the script here, just before closing </body> -->
+  <script>
+    console.log("checking.............");
+    alert("hello buddy");
+
+    // Ensure the button exists
+    const hrllp = document.getElementById("dsgdsgdsgdsgdg");
+    console.log(hrllp); // This should print the button element
+  </script>
   <!-- This section is dynamically added using JS includes on client side -->
   <!-- The header section includes both Topbar and Navbar -->
   <!-- End Header -->

@@ -204,13 +204,67 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
 	</head>
 	<body data-plugin-page-transition>
 
 		<div class="body">
 
-			<div id="HeaderSection"></div>
+			<!-- <div id="HeaderSection"></div> -->
+			<header id="header" class="header d-flex align-items-center">
+				<div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+				  <!-- Logo -->
+				  <a href="/index.html" class="logo d-flex align-items-center">
+					<img src="/assets/img/Airnet_logo.svg" alt="Airnet_logo" />
+				  </a>
+			  
+				  <!-- Navbar -->
+				  <div class="d-flex align-items-center" style="flex-direction: row; gap: 20px;">
+					<nav id="navbar" class="navbar">
+					  <ul>
+						<li><a href="/index.html">Home</a></li>
+						<li><a href="/about-us.html">About</a></li>
+						<li><a href="/services.html">Services</a></li>
+						<li><a href="/contact-us.html">Contact Us</a></li>
+					  </ul>
+					</nav>
+			  
+					<!-- Callback Button -->
+					<button 
+					class="callback-button" id="call-back-button" style="
+					cursor: pointer;
+					padding: 8px 18px;
+					background-color: white;
+					color: #079696;
+					text-decoration: none;
+					border-radius: 25px;
+					display: inline-block;
+					font-size: 14px;
+					position: relative;
+					border: none;
+					">
+					Get In Touch
+					</button>
+				  </div>
+				</div>
+			  
+				<!-- Mobile nav toggles -->
+				<i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+				<i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+			  </header>
+			
+			  <!-- End Header -->
+			
+			  <!-- Place the script here, just before closing </body> -->
+			  <script>
+				console.log("checking.............");
+				alert("hello buddy");
+			
+				// Ensure the button exists
+				const hrllp = document.getElementById("dsgdsgdsgdsgdg");
+				console.log(hrllp); // This should print the button element
+			  </script>
 
 			<div role="main" class="main">
 				<section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg" style="background-color: #008374;">
@@ -304,10 +358,9 @@
 		
 		</div>
 
-		<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
   (function() {
-    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS Public Key
+    emailjs.init("wyNyfxtn7cYxbE6oh"); // Replace with your EmailJS Public Key
   })();
 
   document.querySelector(".contact-form").addEventListener("submit", function(event) {
@@ -357,7 +410,7 @@
     if (!isValid) return;
 
     // Send the form data using EmailJS
-    emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
+    emailjs.sendForm("service_m2isdj9", "template-contact", this)
       .then(function(response) {
         document.querySelector(".contact-form-success").classList.remove("d-none");
         document.querySelector(".contact-form-error").classList.add("d-none");

@@ -290,7 +290,60 @@
 
 		<div class="body">
 
-			<div id="HeaderSection"></div>
+			<!-- <div id="HeaderSection"></div> -->
+			<header id="header" class="header d-flex align-items-center">
+				<div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+				  <!-- Logo -->
+				  <a href="/index.html" class="logo d-flex align-items-center">
+					<img src="/assets/img/Airnet_logo.svg" alt="Airnet_logo" />
+				  </a>
+			  
+				  <!-- Navbar -->
+				  <div class="d-flex align-items-center" style="flex-direction: row; gap: 20px;">
+					<nav id="navbar" class="navbar">
+					  <ul>
+						<li><a href="/index.html">Home</a></li>
+						<li><a href="/about-us.html">About</a></li>
+						<li><a href="/services.html">Services</a></li>
+						<li><a href="/contact-us.html">Contact Us</a></li>
+					  </ul>
+					</nav>
+			  
+					<!-- Callback Button -->
+					<button 
+					class="callback-button" id="dsgdsgdsgdsgdg" style="
+					cursor: pointer;
+					padding: 8px 18px;
+					background-color: white;
+					color: #079696;
+					text-decoration: none;
+					border-radius: 25px;
+					display: inline-block;
+					font-size: 14px;
+					position: relative;
+					border: none;
+					">
+					Request a Callback
+					</button>
+				  </div>
+				</div>
+			  
+				<!-- Mobile nav toggles -->
+				<i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+				<i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+			  </header>
+			
+			  <!-- End Header -->
+			
+			  <!-- Place the script here, just before closing </body> -->
+			  <script>
+				console.log("checking.............");
+				alert("hello buddy");
+			
+				// Ensure the button exists
+				const hrllp = document.getElementById("dsgdsgdsgdsgdg");
+				console.log(hrllp); // This should print the button element
+			  </script>
 
 			<div role="main" class="main">
 				<section class="page-header page-header-modern page-header-background page-header-background-md overlay overlay-color-dark overlay-show overlay-op-7"  style="background-image: url('/assets/img/About Us Images (Who We Are Section)/About Us Image Travels.jpg');background-repeat: no-repeat;background-size: cover;background-position: center;height: auto;">
@@ -337,7 +390,7 @@
 							<div class="col-lg-6 pb-sm-4 pb-lg-0 pe-lg-5 mb-sm-5 mb-lg-0">
 								<h2 class="text-color-dark font-weight-normal mb-2" style="font-size: 32px;">Our Journey:<strong class="font-weight-extra-bold">  The Story Behind Airnet Travels</strong></h2>
 								<p class="lead">We help every traveler to find their dream travel destination.</p>
-								<p style="font-size: 1.2rem;">What began as a dream to bring global travel experiences to the Punjabi community has grown into a full-service luxury travel company trusted by clients worldwide. Airnet Travels started with a passion for planning and a commitment to excellence. <br><br> Over the years, through word-of-mouth referrals, social media, and client loyalty, we’ve built long-term relationships by crafting tailor-made travel plans that inspire and delight. For us, planning travel is more than a job; it's a lifelong passion fueled by our desire to create memories that last forever.</p>
+								<p style="font-size: 1rem;">What began as a dream to bring global travel experiences to the Punjabi community has grown into a full-service luxury travel company trusted by clients worldwide. Airnet Travels started with a passion for planning and a commitment to excellence. <br><br> Over the years, through word-of-mouth referrals, social media, and client loyalty, we’ve built long-term relationships by crafting tailor-made travel plans that inspire and delight. For us, planning travel is more than a job; it's a lifelong passion fueled by our desire to create memories that last forever.</p>
 							</div>
 							<div class="col-sm-8 col-md-6 col-lg-4 offset-sm-4 offset-md-4 offset-lg-2 position-relative mt-sm-5" style="top: 1.7rem;">
 								<img src="/assets\img\About Us Images (Who We Are Section)\Who We Are - Paris (164x148).jpg" class="img-fluid position-absolute d-none d-sm-block appear-animation" data-appear-animation="expandIn" data-appear-animation-delay="300" style="top: 10%; left: -50%;" alt="Paris" />
