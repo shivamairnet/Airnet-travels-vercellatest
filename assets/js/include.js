@@ -18,5 +18,6 @@ fetch("/reusable_sections/footer.html")
 fetch("/reusable_sections/whatsapp_floating.html")
   .then((response) => response.text())
   .then((data) => {
+   
     document.getElementById("whatsapp_chat").innerHTML = data;
   });

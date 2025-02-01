@@ -2228,6 +2228,14 @@ section {
   background-color: var(--color-primary-background);
 }
 
+.callback-button1:hover {
+  color: black !important;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  transform: scale(1.05); /* Slightly increase size */
+  transition: all 0.3s ease-in-out; /* Smooth transition */
+}
+
+
 @media screen and (max-width: 768px) {
   .btn-get-started-2{
     background-color: white;

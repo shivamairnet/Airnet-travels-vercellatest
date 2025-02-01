@@ -314,7 +314,7 @@ iframe::-webkit-scrollbar {
   
         <!-- Callback Button -->
         <button 
-        class="callback-button" id="openModalButton11" style="
+        class="callback-button1" id="openModalButton11" style="
         cursor: pointer;
         padding: 8px 18px;
         background-color: white;
@@ -326,7 +326,7 @@ iframe::-webkit-scrollbar {
         position: relative;
         border: none;
         ">
-        Request a Callback
+        Get In Touch
         </button>
       </div>
     </div>
@@ -394,7 +394,10 @@ iframe::-webkit-scrollbar {
             <div
 								class="d-md-flex justify-content-center justify-content-lg-center gap-2 flex-column flex-lg-row w-75 align-items-center mx-auto mt-4"
 							  >
-								<a href="#" id="openModalButton" class="px-4 py-3" style="border-radius:25px;font-weight: 600 ;font-size: 32px; background: linear-gradient(90deg, #008374 0%, #00312B 63%, #002823 70%, #000000 100%);color: white;font-size: 16px;border: none;">Free Consultation</a>
+								<a href="#" id="openModalButton" class="px-4 py-3" style="border-radius:25px;font-weight: 600 ;font-size: 32px; background: linear-gradient(90deg, #008374 0%, #00312B 63%, #002823 70%, #000000 100%);color: white;font-size: 16px;border: none;transition: background 0.3s ease;"
+                onmouseover="this.style.background='linear-gradient(90deg, #000000 0%, #002823 30%, #00312B 37%, #008374 100%)'"
+                onmouseout="this.style.background='linear-gradient(90deg, #008374 0%, #00312B 63%, #002823 70%, #000000 100%)'">
+             Free Consultation</a>
 								
 								<!-- <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a> -->
 							  </div>
@@ -422,7 +425,7 @@ iframe::-webkit-scrollbar {
       <!-- ======= Clients Section ======= -->
       <section id="clients" class="clients">
         <div class="section-header">
-          <h2 class="prefered-partner">Our Preferred Travel Partners For Unforgettable Experiences</h2>
+          <h2 class="prefered-partner" style="margin-top: 40px;">Our Preferred Travel Partners For Unforgettable Experiences</h2>
         </div>
         <div class="container" data-aos="zoom-out">
           <div class="clients-slider swiper">
@@ -494,7 +497,9 @@ iframe::-webkit-scrollbar {
           </h2>
           
           <p style="margin-bottom: 2rem;font-size: 1.25rem;">Discover the range of services we offer, tailored to meet your travel needs.</p>
-          <a href="services.html" class="px-4 py-3 mt-3" style="border-radius:25px; background: linear-gradient(90deg, #008374 0%, #00312B 63%, #002823 70%, #000000 100%);color: white;font-size: 16px;">View Services</a>
+          <a href="services.html" class="px-4 py-3 mt-3" style="border-radius:25px; background: linear-gradient(90deg, #008374 0%, #00312B 63%, #002823 70%, #000000 100%);color: white;font-size: 16px;transition: background 0.3s ease;"
+          onmouseover="this.style.background='linear-gradient(90deg, #000000 0%, #002823 30%, #00312B 37%, #008374 100%)'"
+          onmouseout="this.style.background='linear-gradient(90deg, #008374 0%, #00312B 63%, #002823 70%, #000000 100%)'">View Services</a>
         </div>
       
         <!-- Right Column: 70% -->
@@ -927,7 +932,10 @@ iframe::-webkit-scrollbar {
 </script>
     <!-- ======= Footer ======= -->
     <div id="FooterSection"></div>
+    <!-- <div class="get-in-touch-btn" id="form-btn"></div> -->
     <div id="whatsapp_chat"></div>
+    
+
     <!-- This section is dynamically added using JS from footer.html -->
     <!-- End Footer -->
 

@@ -232,7 +232,7 @@
 			  
 					<!-- Callback Button -->
 					<button 
-					class="callback-button" id="openModalButtonbb" style="
+					class="callback-button1" id="openModalButtonbb" style="
 					cursor: pointer;
 					padding: 8px 18px;
 					background-color: white;
@@ -308,7 +308,10 @@
 								</div>
 								<div class="row">
 								  <div class="form-group col mt-3">
-									<input type="submit" value="Send Message" class="btn-get-started-1 px-4 py-3" style="border-radius:25px;font-weight: 600 ;font-size: 32px; background: linear-gradient(90deg, #008374 0%, #00312B 63%, #002823 70%, #000000 100%);color: white;font-size: 16px;border: none;">
+									<input type="submit" value="Send Message" class="btn-get-started-1 px-4 py-3" style="border-radius:25px;font-weight: 600 ;font-size: 32px; background: linear-gradient(90deg, #008374 0%, #00312B 63%, #002823 70%, #000000 100%);color: white;font-size: 16px;border: none;transition: background 0.3s ease;"
+									onmouseover="this.style.background='linear-gradient(90deg, #000000 0%, #002823 30%, #00312B 37%, #008374 100%)'"
+									onmouseout="this.style.background='linear-gradient(90deg, #008374 0%, #00312B 63%, #002823 70%, #000000 100%)'">
+								 
 								  </div>
 								</div>
 							  </form>	  
@@ -370,6 +373,27 @@
 				  myModal.show();
 				});
 			  </script>
+			  <!-- Google Map Section -->
+    <div class="row mt-5">
+        <div class="col-lg-8">
+            <h4 class="mb-3">Find Us on the Map</h4>
+            <div id="map" style="height: 400px; width: 100%;">
+                <iframe width="100%" height="400" frameborder="0" style="border:0" allowfullscreen
+                    src="https://www.google.com/maps/embed/v1/place?q=SCO+56,+Opposite+Keys+Hotel,+200ft+Road,+SBS+Nagar,+Ludhiana,+Punjab,+India&key=YOUR_GOOGLE_MAPS_API_KEY">
+                </iframe>
+            </div>
+        </div>
+        <!-- Address Card -->
+        <div class="col-lg-4">
+            <div class="card p-3" style="background-color: #F8F9FA; border-radius: 10px;">
+                <h5 class="mb-3">Our Office</h5>
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> SCO 56, Opposite Keys Hotel, 200ft Road, SBS Nagar, Ludhiana, Punjab, 141001 India.</p>
+                <p><i class="fas fa-phone"></i> <strong>Phone:</strong> +911613509826, +911613509827</p>
+                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:support@airnet-travels.com">support@airnet-travels.com</a></p>
+            </div>
+        </div>
+    </div>
+</div>
 			
 			<!-- ======= Footer ======= -->
                     <div id="FooterSection"></div>
