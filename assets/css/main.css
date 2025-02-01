@@ -2155,6 +2155,11 @@ section {
     object-fit: fill;
     min-height: 50vh;
   }
+
+  .prefered-partner{
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 }
 
 .hero h2 ,

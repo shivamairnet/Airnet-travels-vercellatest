@@ -156,7 +156,7 @@
     
           <!-- Callback Button -->
           <button 
-          class="callback-button" id="dsgdsgdsgdsgdg" style="
+          class="callback-button" id="openModalButton77" style="
           cursor: pointer;
           padding: 8px 18px;
           background-color: white;
@@ -180,15 +180,7 @@
   
     <!-- End Header -->
   
-    <!-- Place the script here, just before closing </body> -->
-    <script>
-      console.log("checking.............");
-      alert("hello buddy");
-  
-      // Ensure the button exists
-      const hrllp = document.getElementById("dsgdsgdsgdsgdg");
-      console.log(hrllp); // This should print the button element
-    </script>
+   
     <!-- This section is dynamically added using JS includes on client side -->
     <!-- The header section includes both Topbar and Navbar -->
     <!-- End Header -->
@@ -400,7 +392,34 @@
     myModal.show();
   });
 </script>
-
+<div class="modal fade" id="gformModal77" tabindex="-1" aria-labelledby="gformModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="gformModalLabel">Free Consultation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Google Form inside iframe -->
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSf9yDpllWa3JCQIWAyZmvGGNeZslK3v1UgSuXxRv4eIbUoxhA/viewform?embedded=true&usp=header"
+          class="w-100" 
+          height="500px" 
+          frameborder="0" 
+          marginheight="0" 
+          marginwidth="0">Loading…</iframe>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.getElementById('openModalButton77').addEventListener('click', function(event) {
+    event.preventDefault();  // Prevent the default action
+    console.log('Modal trigger clicked'); // Debugging log
+    var myModal = new bootstrap.Modal(document.getElementById('gformModal77'));
+    myModal.show();
+  });
+</script>
     <!-- ======= Footer ======= -->
     <div id="FooterSection"></div>
     <div id="whatsapp_chat"></div>
