@@ -2235,6 +2235,14 @@ section {
   transition: all 0.3s ease-in-out; /* Smooth transition */
 }
 
+.mobile-toggle {
+  display: block;
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: #079696;
+  cursor: pointer;
+}
 
 @media screen and (max-width: 768px) {
   .btn-get-started-2{

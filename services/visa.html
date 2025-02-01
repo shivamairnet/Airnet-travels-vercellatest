@@ -248,15 +248,20 @@
           position: relative;
           border: none;
           ">
-         Get In Touch
+         Free Consultation
           </button>
         </div>
+         <!-- Mobile Toggle Button (Cross) -->
+  <button class="mobile-toggle" id="mobileToggleBtn" style="display:none;">
+    &#10005; <!-- This is the "X" symbol -->
+  </button>
       </div>
     
       <!-- Mobile nav toggles -->
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
     </header>
+   
   
     <!-- End Header -->
   
@@ -677,5 +682,11 @@
       integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
       crossorigin="anonymous"
     ></script>
+    <script>
+      document.getElementById('mobileToggleBtn').addEventListener('click', function() {
+  document.getElementById('navbar').classList.toggle('open');
+});
+
+    </script>
   </body>
 </html>
