@@ -3,6 +3,57 @@
 
 <head>
 
+    <style>
+  .service-heading {
+    color: white;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 15px;
+  }
+
+  .service-subtitle {
+    color: white;
+    font-size: 28px;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+    display: block;
+  }
+
+  /* Tablet */
+  @media (max-width: 992px) {
+    .service-heading {
+      font-size: 38px;
+    }
+
+    .service-subtitle {
+      font-size: 22px;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .service-heading {
+      font-size: 28px;
+    }
+
+    .service-subtitle {
+      font-size: 18px;
+    }
+  }
+
+  /* Small Mobile */
+  @media (max-width: 480px) {
+    .service-heading {
+      font-size: 22px;
+    }
+
+    .service-subtitle {
+      font-size: 16px;
+    }
+  }
+</style>
+
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -215,9 +266,9 @@
       <div class="container">
         <div class="page-header-services-row row" style="height: 250px;">
           <div class="col-md-12 align-self-center p-static order-2 text-center">
-            <h1 style="color: white;font-size: 48px;font-weight: 600;">Complete Travel Services -  Designed for You
+            <h1 class="service-heading">Complete Travel Services -  Designed for You
 </h1>
-            <span class="sub-title" style="color: white;font-size: 28px;letter-spacing: 0.5px;">
+            <span class="service-subtitle">
                At Airnet Travels, we offer a complete suite of travel services to meet every need. From planning to return, we handle all your travel needs. 
             </span>
             <div
