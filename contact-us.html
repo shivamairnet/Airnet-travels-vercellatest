@@ -12,349 +12,41 @@
       content="Get expert travel assistance from Airnet Travels. Submit your enquiry for holiday packages, visa services, flights, hotels, and customized travel plans."
     />
 
-    <!-- Bootstrap 5 -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
     <!-- Google Fonts: Poppins -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <!-- Bootstrap Icons -->
+
+    <!-- Site vendor CSS (same as other pages) -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+
+    <!-- Site theme CSS (same as other pages) -->
+    <link href="assets/css/main.css" rel="stylesheet" />
+
+    <!-- Bootstrap Icons CDN fallback (in case vendor copy is missing) -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
       rel="stylesheet"
     />
+
     <!-- EmailJS -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
     <style>
-      /* ═══════════════════════════════════════════════════════
-       SITE HEADER  (ported from existing site exactly)
-    ═══════════════════════════════════════════════════════ */
-      * {
-        box-sizing: border-box;
-      }
-
-      .header {
-        background: #00312b; /* Dark Green */
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        height: 70px;
-        display: flex;
-        align-items: center;
-      }
-      .header .container-fluid {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 24px;
-      }
-      .header .logo img {
-        height: 48px;
-        width: auto;
-      }
-
-      /* Navbar */
-      .navbar ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        gap: 4px;
-      }
-      .navbar ul li a {
-        font-family: "Poppins", sans-serif;
-        font-size: 0.88rem;
-        color: #a8f0d1 !important; /* Light Green */
-        font-weight: 500;
-        text-decoration: none;
-        padding: 8px 14px;
-        border-radius: 6px;
-        transition:
-          color 0.2s,
-          background 0.2s;
-      }
-      .navbar ul li a:hover,
-      .navbar ul li a.active {
-        color: #008374;
-        background: rgba(0, 131, 116, 0.07);
-      }
-
-      /* Consultation button */
-      .callback-button1 {
-        font-family: "Poppins", sans-serif;
-        cursor: pointer;
-        padding: 9px 20px;
-        background: #a8f0d1 !important;
-        color: #00312b !important;
-        border: 1.5px solid #008374;
-        border-radius: 25px;
-        font-size: 0.85rem;
-        font-weight: 600;
-        transition:
-          background 0.2s,
-          color 0.2s;
-        white-space: nowrap;
-      }
-      .callback-button1:hover {
-        background: #ffffff !important;
-        color: #fff;
-      }
-
-      /* Mobile nav toggle */
-      .mobile-nav-toggle {
-        display: none;
-        font-size: 1.6rem;
-        color: #1a2b2a;
-        cursor: pointer;
-        border: none;
-        background: none;
-        padding: 4px 8px;
-      }
-
-      /* Mobile nav open state */
-      .navbar.mobile-open ul {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: #fff;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-        padding: 16px 24px 24px;
-        gap: 4px;
-        z-index: 999;
-      }
-
-      @media (max-width: 768px) {
-        .navbar ul {
-          display: none;
-        }
-        .mobile-nav-toggle {
-          display: block;
-        }
-        .header-right {
-          gap: 10px !important;
-        }
-        .callback-button1 {
-          font-size: 0.78rem;
-          padding: 7px 14px;
-        }
-      }
-
-      /* ═══════════════════════════════════════════════════════
-       SITE FOOTER  (ported from existing site style)
-    ═══════════════════════════════════════════════════════ */
-      .site-footer {
-        background: linear-gradient(135deg, #00312b 0%, #001a17 100%);
-        color: rgba(255, 255, 255, 0.8);
-        font-family: "Poppins", sans-serif;
-        padding: 56px 0 0;
-        margin-top: 0;
-      }
-      .site-footer .footer-logo img {
-        height: 46px;
-        margin-bottom: 16px;
-      }
-      .site-footer .footer-logo .logo-fallback {
-        font-size: 1.4rem;
-        font-weight: 800;
-        color: #fff;
-        margin-bottom: 16px;
-        display: inline-block;
-      }
-      .site-footer .footer-logo .logo-fallback span {
-        color: #00a99d;
-      }
-      .site-footer p {
-        font-size: 0.855rem;
-        line-height: 1.8;
-        color: rgba(255, 255, 255, 0.7);
-      }
-
-      .site-footer h5 {
-        font-size: 0.82rem;
-        font-weight: 700;
-        letter-spacing: 1.4px;
-        text-transform: uppercase;
-        color: #00a99d;
-        margin-bottom: 18px;
-      }
-      .footer-links {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-      .footer-links li {
-        margin-bottom: 9px;
-      }
-      .footer-links li a {
-        color: rgba(255, 255, 255, 0.7);
-        text-decoration: none;
-        font-size: 0.855rem;
-        transition: color 0.2s;
-        display: flex;
-        align-items: center;
-        gap: 7px;
-      }
-      .footer-links li a:hover {
-        color: #00a99d;
-      }
-      .footer-links li a i {
-        font-size: 0.75rem;
-        color: #00a99d;
-      }
-
-      .footer-contact-item {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 13px;
-        font-size: 0.855rem;
-        color: rgba(255, 255, 255, 0.7);
-        align-items: flex-start;
-      }
-      .footer-contact-item i {
-        color: #00a99d;
-        font-size: 1rem;
-        margin-top: 2px;
-        flex-shrink: 0;
-      }
-      .footer-contact-item a {
-        color: rgba(255, 255, 255, 0.7);
-        text-decoration: none;
-      }
-      .footer-contact-item a:hover {
-        color: #00a99d;
-      }
-
-      .footer-socials {
-        display: flex;
-        gap: 10px;
-        margin-top: 20px;
-      }
-      .footer-socials a {
-        width: 36px;
-        height: 36px;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 0.95rem;
-        text-decoration: none;
-        transition:
-          background 0.2s,
-          color 0.2s,
-          border-color 0.2s;
-      }
-      .footer-socials a:hover {
-        background: #008374;
-        color: #fff;
-        border-color: #008374;
-      }
-
-      .footer-bottom {
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        margin-top: 44px;
-        padding: 18px 0;
-        font-size: 0.79rem;
-        color: rgba(255, 255, 255, 0.45);
-      }
-      .footer-bottom a {
-        color: rgba(255, 255, 255, 0.55);
-        text-decoration: none;
-      }
-      .footer-bottom a:hover {
-        color: #00a99d;
-      }
-
-      /* ═══════════════════════════════════════════════════════
-       FREE CONSULTATION MODAL
-    ═══════════════════════════════════════════════════════ */
-      #gformModalbb .modal-header {
-        background: linear-gradient(90deg, #008374 0%, #00312b 100%);
-        color: #fff;
-      }
-      #gformModalbb .modal-title {
-        font-family: "Poppins", sans-serif;
-        font-weight: 600;
-      }
-      #gformModalbb .btn-close {
-        filter: invert(1);
-      }
-
-      /* ═══════════════════════════════════════════════════════
-       PAGE LAYOUT — form section gets proper top spacing
-    ═══════════════════════════════════════════════════════ */
-      .page-section {
-        font-family: "Poppins", sans-serif;
-        background: #f7fafc;
-        padding: 60px 16px 72px;
-        position: relative;
-        overflow-x: hidden;
-        min-height: calc(100vh - 70px);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .page-section::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          radial-gradient(
-            ellipse 70% 50% at 15% 20%,
-            rgba(0, 169, 157, 0.1) 0%,
-            transparent 60%
-          ),
-          radial-gradient(
-            ellipse 60% 40% at 85% 80%,
-            rgba(0, 131, 116, 0.09) 0%,
-            transparent 60%
-          );
-        pointer-events: none;
-      }
-
-      /* ── Floating decorative shapes ─────────────────── */
-      .bg-shape {
-        position: absolute;
-        border-radius: 50%;
-        pointer-events: none;
-      }
-      .bg-shape-1 {
-        width: 420px;
-        height: 420px;
-        background: radial-gradient(
-          circle,
-          rgba(0, 169, 157, 0.12) 0%,
-          transparent 70%
-        );
-        top: -120px;
-        left: -120px;
-      }
-      .bg-shape-2 {
-        width: 320px;
-        height: 320px;
-        background: radial-gradient(
-          circle,
-          rgba(0, 49, 43, 0.1) 0%,
-          transparent 70%
-        );
-        bottom: -80px;
-        right: -80px;
-      }
-
-      /* ═══════════════════════════════════════════════════════
-       FORM CARD — ORIGINAL UI, UNTOUCHED
-    ═══════════════════════════════════════════════════════ */
+      /* ══════════════════════════════════════════════════════
+       PAGE-LEVEL TOKENS & OVERRIDES
+       (header / footer / navbar come from site's main.css
+        and include.js — we only style the enquiry content)
+    ══════════════════════════════════════════════════════ */
       :root {
         --primary: #008374;
         --secondary: #00312b;
@@ -378,161 +70,233 @@
           #00312b 65%,
           #000000 100%
         );
-        --shadow-lg: 0 20px 60px rgba(0, 49, 43, 0.18);
-        --radius: 18px;
-        --radius-sm: 10px;
+        --radius: 14px;
+        --radius-sm: 8px;
+        /* height of the site's sticky header — adjust if needed */
+        --header-h: 70px;
       }
 
-      html {
-        scroll-behavior: smooth;
+      /* Poppins everywhere on this page */
+      body {
+        font-family: "Poppins", sans-serif !important;
+        background: var(--bg);
       }
 
-      .page-wrapper {
-        position: relative;
-        z-index: 1;
-        width: 100%;
-        max-width: 900px;
+      /* ── DESKTOP: full-viewport split, no page scroll ── */
+      html.enquiry-page,
+      html.enquiry-page body {
+        min-height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
       }
 
-      /* Brand Mark */
-      .brand-mark {
+      .page-shell {
+        min-height: calc(100vh - var(--header-h));
+        margin-top: var(--header-h);
         display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        margin-bottom: 36px;
+        overflow: visible;
       }
-      .brand-icon {
-        width: 46px;
-        height: 46px;
+
+      /* ── LEFT PANEL ─────────────────────────────────── */
+      .left-panel {
+        width: 340px;
+        min-width: 290px;
+        flex-shrink: 0;
         background: var(--btn-grad);
-        border-radius: 12px;
         display: flex;
-        align-items: center;
+        flex-direction: column;
         justify-content: center;
-        box-shadow: 0 4px 16px rgba(0, 131, 116, 0.35);
-      }
-      .brand-icon i {
-        color: #fff;
-        font-size: 22px;
-      }
-      .brand-name {
-        font-size: 1.35rem;
-        font-weight: 700;
-        color: var(--secondary);
-        letter-spacing: -0.3px;
-      }
-      .brand-name span {
-        color: var(--accent);
-      }
-
-      /* Card */
-      .enquiry-card {
-        background: var(--white);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow-lg);
-        border: 1px solid rgba(0, 131, 116, 0.08);
-        overflow: hidden;
-      }
-
-      /* Card Header */
-      .card-header-custom {
-        background: var(--btn-grad);
-        padding: 44px 48px 40px;
+        padding: 40px 32px;
         position: relative;
         overflow: hidden;
       }
-      .card-header-custom::after {
+      .left-panel::after {
         content: "";
         position: absolute;
-        right: -40px;
-        top: -40px;
-        width: 220px;
-        height: 220px;
-        border: 40px solid rgba(255, 255, 255, 0.06);
+        right: -60px;
+        top: -60px;
+        width: 260px;
+        height: 260px;
+        border: 50px solid rgba(255, 255, 255, 0.06);
         border-radius: 50%;
+        pointer-events: none;
       }
-      .card-header-custom::before {
+      .left-panel::before {
         content: "";
         position: absolute;
-        right: 60px;
-        bottom: -60px;
-        width: 160px;
-        height: 160px;
-        border: 30px solid rgba(255, 255, 255, 0.05);
+        left: -50px;
+        bottom: -80px;
+        width: 200px;
+        height: 200px;
+        border: 38px solid rgba(255, 255, 255, 0.05);
         border-radius: 50%;
+        pointer-events: none;
       }
-      .header-tag {
+
+      .lp-tag {
         display: inline-flex;
         align-items: center;
         gap: 6px;
         background: rgba(255, 255, 255, 0.15);
         border: 1px solid rgba(255, 255, 255, 0.25);
         color: rgba(255, 255, 255, 0.92);
-        font-size: 0.72rem;
+        font-size: 0.68rem;
         font-weight: 600;
-        letter-spacing: 1.2px;
+        letter-spacing: 1.3px;
         text-transform: uppercase;
-        padding: 5px 14px;
+        padding: 5px 13px;
         border-radius: 30px;
-        margin-bottom: 16px;
+        margin-bottom: 20px;
+        width: fit-content;
         backdrop-filter: blur(4px);
       }
-      .card-title-main {
-        font-size: clamp(1.75rem, 4vw, 2.5rem);
+      .lp-title {
+        font-size: clamp(1.6rem, 2.4vw, 2.1rem);
         font-weight: 800;
         color: #fff;
-        line-height: 1.15;
-        letter-spacing: -0.5px;
-        margin-bottom: 14px;
+        line-height: 1.18;
+        letter-spacing: -0.4px;
+        margin-bottom: 12px;
         position: relative;
         z-index: 1;
       }
-      .card-subtitle-main {
-        font-size: 0.92rem;
-        color: rgba(255, 255, 255, 0.82);
+      .lp-sub {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.78);
         line-height: 1.75;
-        max-width: 600px;
         font-weight: 400;
         position: relative;
         z-index: 1;
+        margin-bottom: 26px;
       }
 
-      /* Trust badges */
-      .trust-strip {
+      .trust-list {
         display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-        margin-top: 28px;
+        flex-direction: column;
+        gap: 10px;
         position: relative;
         z-index: 1;
       }
-      .trust-badge {
+      .trust-item {
         display: flex;
         align-items: center;
-        gap: 7px;
-        background: rgba(255, 255, 255, 0.12);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 8px;
-        padding: 7px 14px;
-        font-size: 0.75rem;
+        gap: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 10px;
+        padding: 10px 14px;
+        font-size: 0.77rem;
         font-weight: 500;
-        color: rgba(255, 255, 255, 0.9);
+        color: rgba(255, 255, 255, 0.88);
         backdrop-filter: blur(4px);
       }
-      .trust-badge i {
-        font-size: 0.85rem;
+      .trust-item i {
         color: #7efff7;
+        font-size: 0.9rem;
+        flex-shrink: 0;
       }
 
-      /* Form Body */
-      .card-body-custom {
-        padding: 44px 48px 48px;
+      .lp-contacts {
+        margin-top: 26px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        position: relative;
+        z-index: 1;
+      }
+      .lp-contact-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.76rem;
+        color: rgba(255, 255, 255, 0.75);
+      }
+      .lp-contact-row i {
+        color: var(--accent);
+        font-size: 0.88rem;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .lp-contact-row a {
+        color: rgba(255, 255, 255, 0.75);
+        text-decoration: none;
+      }
+      .lp-contact-row a:hover {
+        color: #fff;
       }
 
-      /* Section Divider */
+      /* ── RIGHT PANEL ────────────────────────────────── */
+      .right-panel {
+        flex: 1;
+        overflow-y: auto;
+        background: var(--bg);
+        padding: 30px 36px 24px;
+        display: flex;
+        flex-direction: column;
+      }
+      .right-panel::-webkit-scrollbar {
+        width: 4px;
+      }
+      .right-panel::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .right-panel::-webkit-scrollbar-thumb {
+        background: var(--border);
+        border-radius: 10px;
+      }
+
+      .right-panel-inner {
+        position: relative;
+        max-width: 860px;
+        width: 100%;
+        margin: 0 auto;
+        flex: 1;
+      }
+
+      /* Decorative blobs behind form */
+      .bg-blob {
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .bg-blob-1 {
+        width: 280px;
+        height: 280px;
+        background: radial-gradient(
+          circle,
+          rgba(0, 169, 157, 0.09) 0%,
+          transparent 70%
+        );
+        top: -50px;
+        right: -50px;
+      }
+      .bg-blob-2 {
+        width: 180px;
+        height: 180px;
+        background: radial-gradient(
+          circle,
+          rgba(0, 49, 43, 0.07) 0%,
+          transparent 70%
+        );
+        bottom: -30px;
+        left: -30px;
+      }
+
+      /* ── Form Card ──────────────────────────────────── */
+      .form-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        box-shadow: 0 8px 40px rgba(0, 49, 43, 0.12);
+        border: 1px solid rgba(0, 131, 116, 0.07);
+        padding: 30px 34px 34px;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Section dividers */
       .form-section-label {
-        font-size: 0.72rem;
+        font-size: 0.68rem;
         font-weight: 700;
         letter-spacing: 1.5px;
         text-transform: uppercase;
@@ -540,7 +304,7 @@
         display: flex;
         align-items: center;
         gap: 10px;
-        margin-bottom: 24px;
+        margin-bottom: 14px;
       }
       .form-section-label::after {
         content: "";
@@ -549,28 +313,30 @@
         background: var(--border);
       }
 
-      /* Form Controls */
+      /* Labels */
       .form-label {
-        font-size: 0.82rem;
+        font-size: 0.78rem;
         font-weight: 600;
         color: var(--secondary);
-        margin-bottom: 7px;
+        margin-bottom: 5px;
         letter-spacing: 0.1px;
+        display: block;
       }
       .form-label .req {
         color: var(--accent);
         margin-left: 2px;
       }
 
+      /* Inputs */
       .form-control,
       .form-select {
         font-family: "Poppins", sans-serif;
-        font-size: 0.875rem;
+        font-size: 0.82rem;
         color: var(--text);
         background: #f9fdfb;
         border: 1.5px solid var(--border);
         border-radius: var(--radius-sm);
-        padding: 12px 16px;
+        padding: 9px 12px;
         transition:
           border-color 0.2s,
           box-shadow 0.2s,
@@ -582,7 +348,7 @@
         outline: none;
         border-color: var(--accent);
         background: var(--white);
-        box-shadow: 0 0 0 3.5px rgba(0, 169, 157, 0.12);
+        box-shadow: 0 0 0 3px rgba(0, 169, 157, 0.12);
       }
       .form-control::placeholder {
         color: #a8beb9;
@@ -593,49 +359,48 @@
         -webkit-appearance: none;
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%2300A99D' stroke-width='2' d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
         background-repeat: no-repeat;
-        background-position: right 14px center;
-        background-size: 14px;
-        padding-right: 40px;
+        background-position: right 12px center;
+        background-size: 13px;
+        padding-right: 36px;
         cursor: pointer;
       }
       textarea.form-control {
-        resize: vertical;
-        min-height: 130px;
-        line-height: 1.65;
+        resize: none;
+        line-height: 1.6;
       }
 
-      /* Input Icons */
-      .input-group-custom {
+      /* Icon wrappers */
+      .ig {
         position: relative;
       }
-      .input-icon {
+      .ig .ic {
         position: absolute;
-        left: 14px;
+        left: 11px;
         top: 50%;
         transform: translateY(-50%);
         color: var(--accent);
-        font-size: 15px;
+        font-size: 13px;
         pointer-events: none;
         z-index: 2;
       }
-      .input-icon-textarea {
-        top: 14px;
+      .ig .ic-top {
+        top: 11px;
         transform: none;
       }
-      .input-group-custom .form-control,
-      .input-group-custom .form-select {
-        padding-left: 40px;
+      .ig .form-control,
+      .ig .form-select {
+        padding-left: 33px;
       }
 
-      /* Validation */
+      /* Validation states */
       .field-error {
         display: none;
-        font-size: 0.76rem;
+        font-size: 0.71rem;
         color: var(--error);
         font-weight: 500;
-        margin-top: 5px;
+        margin-top: 3px;
         align-items: center;
-        gap: 5px;
+        gap: 4px;
       }
       .field-error.show {
         display: flex;
@@ -643,50 +408,91 @@
       .form-control.is-invalid,
       .form-select.is-invalid {
         border-color: var(--error) !important;
-        box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.1) !important;
+        box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.09) !important;
       }
       .form-control.is-valid,
       .form-select.is-valid {
         border-color: #27ae60 !important;
       }
 
-      /* Character counter */
+      /* Char counter */
       .char-counter {
-        font-size: 0.72rem;
+        font-size: 0.68rem;
         color: var(--muted);
         text-align: right;
-        margin-top: 5px;
+        margin-top: 3px;
       }
       .char-counter.warn {
         color: var(--accent);
       }
 
-      /* Submit Button */
+      /* Alerts */
+      .alert-custom {
+        border-radius: var(--radius-sm);
+        padding: 12px 16px;
+        display: none;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.82rem;
+        font-weight: 500;
+        margin-bottom: 16px;
+        border: 1.5px solid;
+        animation: fadeInUp 0.3s ease;
+      }
+      .alert-custom.show {
+        display: flex;
+      }
+      .alert-success-c {
+        background: #eafaf3;
+        border-color: #27ae60;
+        color: var(--success);
+      }
+      .alert-error-c {
+        background: #fdf3f2;
+        border-color: #c0392b;
+        color: var(--error);
+      }
+      .alert-custom i {
+        font-size: 1rem;
+        margin-top: 1px;
+        flex-shrink: 0;
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Submit button */
       .btn-submit {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
+        gap: 9px;
         background: var(--btn-grad);
         color: #fff;
         font-family: "Poppins", sans-serif;
-        font-size: 1rem;
+        font-size: 0.9rem;
         font-weight: 600;
-        padding: 15px 42px;
+        padding: 12px 36px;
         border-radius: 100px;
         border: none;
         cursor: pointer;
-        letter-spacing: 0.3px;
         transition:
           background 0.4s,
           box-shadow 0.25s,
           transform 0.18s;
-        box-shadow: 0 6px 28px rgba(0, 131, 116, 0.32);
+        box-shadow: 0 5px 22px rgba(0, 131, 116, 0.3);
         width: 100%;
       }
       .btn-submit:hover:not(:disabled) {
         background: var(--btn-grad-rev);
-        box-shadow: 0 8px 36px rgba(0, 49, 43, 0.4);
+        box-shadow: 0 7px 30px rgba(0, 49, 43, 0.38);
         transform: translateY(-2px);
       }
       .btn-submit:active:not(:disabled) {
@@ -698,9 +504,9 @@
         transform: none;
       }
       .btn-submit .spinner {
-        width: 18px;
-        height: 18px;
-        border: 2.5px solid rgba(255, 255, 255, 0.4);
+        width: 16px;
+        height: 16px;
+        border: 2px solid rgba(255, 255, 255, 0.4);
         border-top-color: #fff;
         border-radius: 50%;
         animation: spin 0.7s linear infinite;
@@ -709,7 +515,7 @@
       .btn-submit.loading .spinner {
         display: block;
       }
-      .btn-submit.loading .btn-text-default {
+      .btn-submit.loading .btn-text-d {
         display: none;
       }
       @keyframes spin {
@@ -718,98 +524,141 @@
         }
       }
 
-      /* Alerts */
-      .alert-custom {
-        border-radius: var(--radius-sm);
-        padding: 16px 20px;
-        display: none;
-        align-items: flex-start;
-        gap: 12px;
-        font-size: 0.875rem;
-        font-weight: 500;
-        margin-bottom: 24px;
-        border: 1.5px solid;
-        animation: fadeInUp 0.3s ease;
-      }
-      .alert-custom.show {
-        display: flex;
-      }
-      .alert-success {
-        background: #eafaf3;
-        border-color: #27ae60;
-        color: var(--success);
-      }
-      .alert-danger-custom {
-        background: #fdf3f2;
-        border-color: #c0392b;
-        color: var(--error);
-      }
-      .alert-custom i {
-        font-size: 1.1rem;
-        margin-top: 1px;
-        flex-shrink: 0;
-      }
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(8px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
       /* Privacy note */
       .privacy-note {
         display: flex;
         align-items: center;
-        gap: 7px;
-        font-size: 0.73rem;
+        gap: 6px;
+        font-size: 0.69rem;
         color: var(--muted);
-        margin-top: 14px;
+        margin-top: 10px;
         justify-content: center;
       }
       .privacy-note i {
         color: var(--accent);
       }
 
-      /* Row gaps */
-      .form-row {
-        margin-bottom: 22px;
+      /* Footer strip inside right panel */
+      .footer-strip {
+        background: linear-gradient(90deg, #00312b 0%, #001a17 100%);
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.72rem;
+        padding: 10px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px;
+        border-radius: 0 0 var(--radius) var(--radius);
+        margin-top: 14px;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 1;
       }
-      .form-row:last-of-type {
-        margin-bottom: 0;
+      .footer-strip a {
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: none;
+      }
+      .footer-strip a:hover {
+        color: var(--accent);
+      }
+      .footer-socials-strip {
+        display: flex;
+        gap: 12px;
+      }
+      .footer-socials-strip a {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.9rem;
+        transition: color 0.2s;
+      }
+      .footer-socials-strip a:hover {
+        color: var(--accent);
       }
 
-      /* ── Responsive ─────────────────────────────────── */
-      @media (max-width: 767px) {
-        .card-header-custom {
-          padding: 32px 24px 28px;
+      /* Row spacing */
+      .frow {
+        margin-bottom: 14px;
+      }
+
+      /* ── Free Consultation modal header ─────────────── */
+      #gformModal11 .modal-header {
+        background: var(--btn-grad);
+        color: #fff;
+      }
+      #gformModal11 .modal-title {
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+      }
+      #gformModal11 .btn-close {
+        filter: invert(1);
+      }
+
+      /* ══════════════════════════════════════════════════
+       RESPONSIVE — ≤ 900px: normal vertical scroll,
+       form on top, info panel below
+    ══════════════════════════════════════════════════ */
+      @media (max-width: 900px) {
+        html.enquiry-page,
+        html.enquiry-page body {
+          height: auto;
+          overflow: auto;
         }
-        .card-body-custom {
-          padding: 30px 20px 32px;
+
+        .page-shell {
+          position: static;
+          flex-direction: column-reverse; /* form first, info below */
+          overflow: visible;
         }
-        .trust-strip {
+
+        .left-panel {
+          width: 100%;
+          min-width: unset;
+          padding: 28px 20px 24px;
+          justify-content: flex-start;
+        }
+        .trust-list {
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+        .trust-item {
+          font-size: 0.72rem;
+          padding: 7px 11px;
+        }
+        .lp-contacts {
+          flex-direction: row;
+          flex-wrap: wrap;
           gap: 10px;
+          margin-top: 16px;
         }
-        .trust-badge {
-          font-size: 0.68rem;
-          padding: 6px 10px;
+
+        .right-panel {
+          overflow: visible;
+          padding: 20px 14px 16px;
+        }
+        .form-card {
+          padding: 22px 16px 26px;
+        }
+        .footer-strip {
+          border-radius: var(--radius-sm);
         }
       }
+
       @media (max-width: 480px) {
-        .page-section {
-          padding: 40px 10px 56px;
+        .right-panel {
+          padding: 14px 10px 12px;
         }
-        .brand-mark {
-          margin-bottom: 24px;
+        .form-card {
+          padding: 18px 12px 22px;
+        }
+        .lp-title {
+          font-size: 1.4rem;
         }
       }
 
       /* Accessibility */
       :focus-visible {
-        outline: 2.5px solid var(--accent);
+        outline: 2px solid var(--accent);
         outline-offset: 2px;
       }
       @media (prefers-reduced-motion: reduce) {
@@ -822,52 +671,22 @@
       }
     </style>
   </head>
-  <body
-    style="
-      margin: 0;
-      padding: 0;
-      background: #f7fafc;
-      font-family: &quot;Poppins&quot;, sans-serif;
-    "
-  >
-    <!-- ═══════════════════════════════════════════════════
-       HEADER  (from existing site)
-  ═══════════════════════════════════════════════════ -->
+  <body>
+    <!-- ══════════════════════════════════════════════
+       HEADER — exact markup from existing site
+  ══════════════════════════════════════════════ -->
     <header id="header" class="header d-flex align-items-center">
       <div
         class="container-fluid container-xl d-flex align-items-center justify-content-between"
       >
         <!-- Logo -->
-        <a
-          href="/index.html"
-          class="logo d-flex align-items-center"
-          style="text-decoration: none"
-        >
-          <img
-            src="/assets/img/Airnet_logo.svg"
-            alt="Airnet Travels"
-            onerror="
-              this.style.display = 'none';
-              document.getElementById('logo-text').style.display = 'inline';
-            "
-          />
-
-          <span
-            id="logo-text"
-            style="
-              display: none;
-              font-size: 1.3rem;
-              font-weight: 800;
-              color: #00312b;
-            "
-          >
-            Airnet <span style="color: #00a99d">Travels</span>
-          </span>
+        <a href="/index.html" class="logo d-flex align-items-center">
+          <img src="/assets/img/Airnet_logo.svg" alt="Airnet_logo" />
         </a>
 
         <!-- Navbar + CTA -->
         <div
-          class="d-flex align-items-center header-right"
+          class="d-flex align-items-center"
           style="flex-direction: row; gap: 20px"
         >
           <nav id="navbar" class="navbar">
@@ -879,11 +698,10 @@
             </ul>
           </nav>
 
-          <!-- Callback Button -->
+          <!-- Free Consultation button — same id as other pages -->
           <button
             class="callback-button1"
-            id="openModalButtonbb"
-            type="button"
+            id="openModalButton11"
             style="
               cursor: pointer;
               padding: 8px 18px;
@@ -902,90 +720,91 @@
         </div>
       </div>
 
-      <!-- Mobile Navigation Toggles -->
-      <i
-        class="mobile-nav-toggle mobile-nav-show bi bi-list"
-        id="mobileNavOpen"
-        aria-label="Open navigation"
-        role="button"
-        tabindex="0"
-      ></i>
-
-      <i
-        class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"
-        id="mobileNavClose"
-        aria-label="Close navigation"
-        role="button"
-        tabindex="0"
-      ></i>
+      <!-- Mobile nav toggles — same classes as site's main.js expects -->
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
     </header>
     <!-- End Header -->
 
-    <!-- ═══════════════════════════════════════════════════
-       PAGE SECTION — FORM (UI untouched)
-  ═══════════════════════════════════════════════════ -->
-    <section class="page-section" role="main">
-      <!-- Decorative blobs -->
-      <div class="bg-shape bg-shape-1" aria-hidden="true"></div>
-      <div class="bg-shape bg-shape-2" aria-hidden="true"></div>
+    <!-- ══════════════════════════════════════════════
+       FULL-SCREEN SPLIT LAYOUT
+  ══════════════════════════════════════════════ -->
+    <div class="page-shell">
+      <!-- ── LEFT PANEL — brand / info ─────────────── -->
+      <div class="left-panel">
+        <div class="lp-tag" aria-hidden="true">
+          <i class="bi bi-send-fill"></i> Travel Consultation
+        </div>
+        <h1 class="lp-title">Enquire<br />Now</h1>
+        <p class="lp-sub">
+          Have questions before you book? Our expert team will get back to you
+          shortly. Fill the form and we'll be happy to assist.
+        </p>
 
-      <div class="page-wrapper">
-        <!-- Brand mark -->
-
-        <!-- Enquiry Card -->
-        <div class="enquiry-card">
-          <!-- Card Header -->
-          <div class="card-header-custom">
-            <div class="header-tag" aria-hidden="true">
-              <i class="bi bi-send-fill"></i> Travel Consultation
-            </div>
-            <h1 class="card-title-main">Enquire Now</h1>
-            <p class="card-subtitle-main">
-              Do you have any questions before you book? The expert team of
-              Airnet Travels will get back to you shortly to answer all your
-              questions. Kindly complete the form below and we will be happy to
-              assist you.
-            </p>
-            <div class="trust-strip" aria-label="Trust indicators">
-              <div class="trust-badge">
-                <i class="bi bi-shield-check-fill"></i> Secure &amp;
-                Confidential
-              </div>
-              <div class="trust-badge">
-                <i class="bi bi-clock-fill"></i> Reply within 24 hours
-              </div>
-              <div class="trust-badge">
-                <i class="bi bi-star-fill"></i> Expert Travel Advisors
-              </div>
-            </div>
+        <div class="trust-list">
+          <div class="trust-item">
+            <i class="bi bi-shield-check-fill"></i> Secure &amp; Confidential
           </div>
+          <div class="trust-item">
+            <i class="bi bi-clock-fill"></i> Reply within 24 hrs
+          </div>
+          <div class="trust-item">
+            <i class="bi bi-star-fill"></i> Expert Advisors
+          </div>
+        </div>
 
-          <!-- Form Body -->
-          <div class="card-body-custom">
+        <div class="lp-contacts">
+          <div class="lp-contact-row">
+            <i class="bi bi-geo-alt-fill"></i>
+            <span>SCO 56, SBS Nagar, Ludhiana – 141001</span>
+          </div>
+          <div class="lp-contact-row">
+            <i class="bi bi-telephone-fill"></i>
+            <a href="tel:+911613509826">+91 161 350 9826</a>
+          </div>
+          <div class="lp-contact-row">
+            <i class="bi bi-envelope-fill"></i>
+            <a href="mailto:support@airnet-travels.com"
+              >support@airnet-travels.com</a
+            >
+          </div>
+          <div class="lp-contact-row">
+            <i class="bi bi-clock-fill"></i>
+            <span>Mon–Sat: 10 AM – 7 PM</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── RIGHT PANEL — enquiry form ────────────── -->
+      <div class="right-panel">
+        <div class="right-panel-inner">
+          <div class="bg-blob bg-blob-1" aria-hidden="true"></div>
+          <div class="bg-blob bg-blob-2" aria-hidden="true"></div>
+
+          <div class="form-card">
             <!-- Alerts -->
             <div
               id="alert-success"
-              class="alert-custom alert-success"
+              class="alert-custom alert-success-c"
               role="alert"
               aria-live="polite"
             >
               <i class="bi bi-check-circle-fill"></i>
               <div>
-                <strong>Thank you!</strong> Your enquiry has been submitted
-                successfully. Our travel expert will contact you within 24
-                hours.
+                <strong>Thank you!</strong> Enquiry submitted. We'll contact you
+                within 24 hours.
               </div>
             </div>
             <div
               id="alert-error"
-              class="alert-custom alert-danger-custom"
+              class="alert-custom alert-error-c"
               role="alert"
               aria-live="polite"
             >
               <i class="bi bi-exclamation-circle-fill"></i>
               <div>
-                <strong>Something went wrong.</strong> Please try again or
-                contact us directly at info@airnettravels.com.
+                <strong>Something went wrong.</strong> Please try again or email
+                us at info@airnettravels.com.
               </div>
             </div>
 
@@ -994,17 +813,14 @@
               <div class="form-section-label">Personal Details</div>
 
               <!-- Row 1: Name + Email -->
-              <div class="row form-row">
-                <div class="col-md-6 mb-3 mb-md-0">
+              <div class="row frow">
+                <div class="col-md-6 mb-2 mb-md-0">
                   <label for="name" class="form-label"
                     >Full Name
                     <span class="req" aria-hidden="true">*</span></label
                   >
-                  <div class="input-group-custom">
-                    <i
-                      class="bi bi-person-fill input-icon"
-                      aria-hidden="true"
-                    ></i>
+                  <div class="ig">
+                    <i class="bi bi-person-fill ic" aria-hidden="true"></i>
                     <input
                       type="text"
                       id="name"
@@ -1026,11 +842,8 @@
                     >Email Address
                     <span class="req" aria-hidden="true">*</span></label
                   >
-                  <div class="input-group-custom">
-                    <i
-                      class="bi bi-envelope-fill input-icon"
-                      aria-hidden="true"
-                    ></i>
+                  <div class="ig">
+                    <i class="bi bi-envelope-fill ic" aria-hidden="true"></i>
                     <input
                       type="email"
                       id="email"
@@ -1050,17 +863,14 @@
               </div>
 
               <!-- Row 2: Phone + City -->
-              <div class="row form-row">
-                <div class="col-md-6 mb-3 mb-md-0">
+              <div class="row frow">
+                <div class="col-md-6 mb-2 mb-md-0">
                   <label for="phone" class="form-label"
                     >Phone Number
                     <span class="req" aria-hidden="true">*</span></label
                   >
-                  <div class="input-group-custom">
-                    <i
-                      class="bi bi-telephone-fill input-icon"
-                      aria-hidden="true"
-                    ></i>
+                  <div class="ig">
+                    <i class="bi bi-telephone-fill ic" aria-hidden="true"></i>
                     <input
                       type="tel"
                       id="phone"
@@ -1082,11 +892,8 @@
                     >Current City
                     <span class="req" aria-hidden="true">*</span></label
                   >
-                  <div class="input-group-custom">
-                    <i
-                      class="bi bi-geo-alt-fill input-icon"
-                      aria-hidden="true"
-                    ></i>
+                  <div class="ig">
+                    <i class="bi bi-geo-alt-fill ic" aria-hidden="true"></i>
                     <input
                       type="text"
                       id="city"
@@ -1106,22 +913,19 @@
               </div>
 
               <!-- Trip Details -->
-              <div class="form-section-label" style="margin-top: 10px">
+              <div class="form-section-label" style="margin-top: 4px">
                 Trip Details
               </div>
 
               <!-- Row 3: Guests + Date -->
-              <div class="row form-row">
-                <div class="col-md-6 mb-3 mb-md-0">
+              <div class="row frow">
+                <div class="col-md-6 mb-2 mb-md-0">
                   <label for="guests" class="form-label"
                     >Total No. of Guests
                     <span class="req" aria-hidden="true">*</span></label
                   >
-                  <div class="input-group-custom">
-                    <i
-                      class="bi bi-people-fill input-icon"
-                      aria-hidden="true"
-                    ></i>
+                  <div class="ig">
+                    <i class="bi bi-people-fill ic" aria-hidden="true"></i>
                     <select
                       id="guests"
                       name="guests"
@@ -1151,7 +955,7 @@
                   </div>
                   <div class="field-error" id="guests-error" role="alert">
                     <i class="bi bi-exclamation-circle-fill"></i> Please select
-                    the number of guests.
+                    number of guests.
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -1159,11 +963,8 @@
                     >Date of Travel
                     <span class="req" aria-hidden="true">*</span></label
                   >
-                  <div class="input-group-custom">
-                    <i
-                      class="bi bi-calendar3 input-icon"
-                      aria-hidden="true"
-                    ></i>
+                  <div class="ig">
+                    <i class="bi bi-calendar3 ic" aria-hidden="true"></i>
                     <input
                       type="date"
                       id="travel_date"
@@ -1181,23 +982,23 @@
               </div>
 
               <!-- Row 4: Message -->
-              <div class="form-row" style="margin-top: 4px">
+              <div class="frow">
                 <label for="message" class="form-label"
                   >Your Query
                   <span class="req" aria-hidden="true">*</span></label
                 >
-                <div class="input-group-custom">
+                <div class="ig">
                   <i
-                    class="bi bi-chat-text-fill input-icon input-icon-textarea"
+                    class="bi bi-chat-text-fill ic ic-top"
                     aria-hidden="true"
                   ></i>
                   <textarea
                     id="message"
                     name="message"
                     class="form-control"
-                    rows="5"
+                    rows="3"
                     maxlength="1000"
-                    placeholder="Please write your queries — destination interests, budget, special requirements, visa help, etc."
+                    placeholder="Please write your queries — destinations, budget, visa help, special requirements…"
                     aria-required="true"
                     aria-describedby="message-error"
                   ></textarea>
@@ -1214,7 +1015,7 @@
               </div>
 
               <!-- Submit -->
-              <div style="margin-top: 32px">
+              <div style="margin-top: 18px">
                 <button
                   type="submit"
                   id="submit-btn"
@@ -1222,8 +1023,8 @@
                   aria-label="Submit your travel enquiry"
                 >
                   <span class="spinner" aria-hidden="true"></span>
-                  <span class="btn-text-default">
-                    <i class="bi bi-send-fill" style="font-size: 0.9rem"></i>
+                  <span class="btn-text-d">
+                    <i class="bi bi-send-fill" style="font-size: 0.85rem"></i>
                     Send Question
                   </span>
                   <span class="btn-text-loading" style="display: none"
@@ -1232,204 +1033,77 @@
                 </button>
                 <div class="privacy-note">
                   <i class="bi bi-lock-fill"></i>
-                  Your information is safe with us. We never share your details
-                  with third parties.
+                  Your information is safe. We never share your details with
+                  third parties.
                 </div>
               </div>
             </form>
           </div>
-          <!-- /card-body-custom -->
-        </div>
-        <!-- /enquiry-card -->
-      </div>
-      <!-- /page-wrapper -->
-    </section>
-    <!-- End Page Section -->
+          <!-- /form-card -->
 
-    <!-- ═══════════════════════════════════════════════════
-       FOOTER  (from existing site)
-  ═══════════════════════════════════════════════════ -->
-    <footer class="site-footer">
-      <div class="container">
-        <div class="row g-5">
-          <!-- Col 1: Brand -->
-          <div class="col-lg-4 col-md-6">
-            <div class="footer-logo">
-              <img
-                src="/assets/img/Airnet_logo.svg"
-                alt="Airnet Travels"
-                onerror="
-                  this.style.display = 'none';
-                  document.getElementById('footer-logo-text').style.display =
-                    'inline';
-                "
-              />
-              <span
-                id="footer-logo-text"
-                style="display: none"
-                class="logo-fallback"
-              >
-                Airnet <span>Travels</span>
-              </span>
-            </div>
-            <p>
-              Your trusted partner for seamless travel experiences. Expert visa
-              services, flight bookings, and tailored holiday packages since
-              2000.
-            </p>
-            <div class="footer-socials" aria-label="Social media links">
+          <!-- Slim footer strip -->
+          <div class="footer-strip">
+            <span>
+              &copy; <span id="footer-year"></span> Airnet Travels. All rights
+              reserved. &nbsp;&middot;&nbsp;
+              <a href="/privacy-policy.html">Privacy</a> &nbsp;&middot;&nbsp;
+              <a href="/terms.html">Terms</a>
+            </span>
+            <div class="footer-socials-strip">
               <a
                 href="https://www.facebook.com/BoardTheTrip/"
                 target="_blank"
                 rel="noopener"
                 aria-label="Facebook"
-              >
-                <i class="bi bi-facebook"></i>
-              </a>
+                ><i class="bi bi-facebook"></i
+              ></a>
               <a
                 href="https://www.instagram.com/airnettravels/"
                 target="_blank"
                 rel="noopener"
                 aria-label="Instagram"
-              >
-                <i class="bi bi-instagram"></i>
-              </a>
+                ><i class="bi bi-instagram"></i
+              ></a>
               <a
                 href="https://in.linkedin.com/company/airnet-travels-and-cargo"
                 target="_blank"
                 rel="noopener"
                 aria-label="LinkedIn"
-              >
-                <i class="bi bi-linkedin"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Col 2: Quick Links -->
-          <div class="col-lg-2 col-md-6 col-6">
-            <h5>Quick Links</h5>
-            <ul class="footer-links">
-              <li>
-                <a href="/index.html"
-                  ><i class="bi bi-chevron-right"></i>Home</a
-                >
-              </li>
-              <li>
-                <a href="/about-us.html"
-                  ><i class="bi bi-chevron-right"></i>About Us</a
-                >
-              </li>
-              <li>
-                <a href="/services.html"
-                  ><i class="bi bi-chevron-right"></i>Services</a
-                >
-              </li>
-              <li>
-                <a href="/contact-us.html"
-                  ><i class="bi bi-chevron-right"></i>Contact Us</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- Col 3: Services -->
-          <div class="col-lg-2 col-md-6 col-6">
-            <h5>Services</h5>
-            <ul class="footer-links">
-              <li>
-                <a href="/services.html"
-                  ><i class="bi bi-chevron-right"></i>Holiday Packages</a
-                >
-              </li>
-              <li>
-                <a href="/services.html"
-                  ><i class="bi bi-chevron-right"></i>Visa Services</a
-                >
-              </li>
-              <li>
-                <a href="/services.html"
-                  ><i class="bi bi-chevron-right"></i>Flight Bookings</a
-                >
-              </li>
-              <li>
-                <a href="/services.html"
-                  ><i class="bi bi-chevron-right"></i>Hotel Bookings</a
-                >
-              </li>
-              <li>
-                <a href="/services.html"
-                  ><i class="bi bi-chevron-right"></i>Travel Insurance</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- Col 4: Contact -->
-          <div class="col-lg-4 col-md-6">
-            <h5>Contact Us</h5>
-            <div class="footer-contact-item">
-              <i class="bi bi-geo-alt-fill"></i>
-              <span
-                >SCO 56, Opposite Keys Hotel, 200ft Road, SBS Nagar, Ludhiana,
-                Punjab, 141001 India.</span
-              >
-            </div>
-            <div class="footer-contact-item">
-              <i class="bi bi-telephone-fill"></i>
-              <span>
-                <a href="tel:+911613509826">+91 161 350 9826</a><br />
-                <a href="tel:+911613509827">+91 161 350 9827</a>
-              </span>
-            </div>
-            <div class="footer-contact-item">
-              <i class="bi bi-envelope-fill"></i>
-              <a href="mailto:support@airnet-travels.com"
-                >support@airnet-travels.com</a
-              >
-            </div>
-            <div class="footer-contact-item">
-              <i class="bi bi-clock-fill"></i>
-              <span>Mon – Sat: 10:00 AM – 7:00 PM<br />Sunday: Closed</span>
+                ><i class="bi bi-linkedin"></i
+              ></a>
             </div>
           </div>
         </div>
-        <!-- /row -->
+        <!-- /right-panel-inner -->
       </div>
-      <!-- /container -->
+      <!-- /right-panel -->
+    </div>
+    <!-- /page-shell -->
 
-      <!-- Footer Bottom -->
-      <div class="footer-bottom">
-        <div
-          class="container d-flex flex-wrap justify-content-between align-items-center gap-2"
-        >
-          <span
-            >&copy; <span id="footer-year"></span> Airnet Travels. All rights
-            reserved.</span
-          >
-          <span>
-            <a href="/privacy-policy.html">Privacy Policy</a>
-            &nbsp;&middot;&nbsp;
-            <a href="/terms.html">Terms &amp; Conditions</a>
-          </span>
-        </div>
-      </div>
-    </footer>
-    <!-- End Footer -->
+    <!-- ══════════════════════════════════════════════
+       FOOTER & WHATSAPP — injected by include.js
+       (same as every other page on the site)
+  ══════════════════════════════════════════════ -->
+    <div id="FooterSection"></div>
+    <div id="whatsapp_chat"></div>
 
-    <!-- ═══════════════════════════════════════════════════
-       FREE CONSULTATION MODAL  (from existing site)
-  ═══════════════════════════════════════════════════ -->
+    <!-- ══════════════════════════════════════════════
+       FREE CONSULTATION MODAL
+       id="gformModal11" matches openModalButton11
+  ══════════════════════════════════════════════ -->
     <div
       class="modal fade"
-      id="gformModalbb"
+      id="gformModal11"
       tabindex="-1"
-      aria-labelledby="gformModalLabel"
+      aria-labelledby="gformModal11Label"
       aria-hidden="true"
     >
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="gformModalLabel">Free Consultation</h5>
+            <h5 class="modal-title" id="gformModal11Label">
+              Free Consultation
+            </h5>
             <button
               type="button"
               class="btn-close"
@@ -1453,54 +1127,45 @@
       </div>
     </div>
 
-    <!-- Bootstrap 5 JS -->
+    <!-- ══════════════════════════════════════════════
+       SITE SCRIPTS — same order as other pages
+  ══════════════════════════════════════════════ -->
+    <!-- Vendor plugins (handles mobile nav, etc.) -->
+    <script src="vendor/plugins/js/plugins.min.js"></script>
+    <!-- Site theme JS (mobile nav toggle, sticky header…) -->
+    <script src="js/theme.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/theme.init.js"></script>
+
+    <!-- Bootstrap 5 bundle (Popper included) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- include.js injects #FooterSection and #whatsapp_chat -->
+    <script src="/assets/js/include.js"></script>
+
+    <!-- Site vendor JS -->
+    <script src="/assets/vendor/aos/aos.js"></script>
+    <script src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="/assets/js/main.js"></script>
+
     <script>
-      /* ── Footer year ─────────────────────────────────── */
+      /* ── Footer year ──────────────────────────────── */
       document.getElementById("footer-year").textContent =
         new Date().getFullYear();
 
-      /* ── Mobile nav toggle ───────────────────────────── */
-      const navbar = document.getElementById("navbar");
-      const mobileOpen = document.getElementById("mobileNavOpen");
-      const mobileClose = document.getElementById("mobileNavClose");
+      /* ── Add class to <html> for viewport-lock CSS ── */
+      document.documentElement.classList.add("enquiry-page");
 
-      function openMobileNav() {
-        navbar.classList.add("mobile-open");
-        mobileOpen.classList.add("d-none");
-        mobileClose.classList.remove("d-none");
-      }
-      function closeMobileNav() {
-        navbar.classList.remove("mobile-open");
-        mobileClose.classList.add("d-none");
-        mobileOpen.classList.remove("d-none");
-      }
-      mobileOpen.addEventListener("click", openMobileNav);
-      mobileOpen.addEventListener(
-        "keydown",
-        (e) => e.key === "Enter" && openMobileNav(),
-      );
-      mobileClose.addEventListener("click", closeMobileNav);
-      mobileClose.addEventListener(
-        "keydown",
-        (e) => e.key === "Enter" && closeMobileNav(),
-      );
-      // Close when a nav link is clicked
-      navbar
-        .querySelectorAll("a")
-        .forEach((a) => a.addEventListener("click", closeMobileNav));
-
-      /* ── Free Consultation modal (from existing site) ── */
+      /* ── Free Consultation modal ──────────────────── */
       document
-        .getElementById("openModalButtonbb")
+        .getElementById("openModalButton11")
         .addEventListener("click", function () {
-          new bootstrap.Modal(document.getElementById("gformModalbb")).show();
+          new bootstrap.Modal(document.getElementById("gformModal11")).show();
         });
 
-      /* ════════════════════════════════════════════════════
-     EMAILJS + FORM LOGIC  (original, untouched)
-  ════════════════════════════════════════════════════ */
+      /* ════════════════════════════════════════════════
+       EMAILJS + FORM VALIDATION
+    ════════════════════════════════════════════════ */
       (function () {
         "use strict";
 
@@ -1514,14 +1179,14 @@
         const msgField = document.getElementById("message");
         const charCounter = document.getElementById("char-counter");
 
-        /* Character counter */
+        /* Char counter */
         msgField.addEventListener("input", function () {
           const len = this.value.length;
           charCounter.textContent = len + " / 1000 characters";
           charCounter.className = "char-counter" + (len > 900 ? " warn" : "");
         });
 
-        /* Min date = today */
+        /* Min travel date = today */
         document
           .getElementById("travel_date")
           .setAttribute("min", new Date().toISOString().split("T")[0]);
@@ -1552,20 +1217,19 @@
         }
 
         /* Live blur validation */
-        function attachBlurValidation(fieldId, fn) {
-          document.getElementById(fieldId).addEventListener("blur", fn);
-          document
-            .getElementById(fieldId)
-            .addEventListener("input", function () {
-              if (this.classList.contains("is-invalid")) fn.call(this);
-            });
+        function attachBlur(id, fn) {
+          const el = document.getElementById(id);
+          el.addEventListener("blur", fn);
+          el.addEventListener("input", function () {
+            if (this.classList.contains("is-invalid")) fn.call(this);
+          });
         }
-        attachBlurValidation("name", function () {
+        attachBlur("name", function () {
           this.value.trim()
             ? clearError("name", "name-error")
             : showError("name", "name-error");
         });
-        attachBlurValidation("email", function () {
+        attachBlur("email", function () {
           const v = this.value.trim();
           if (!v)
             return showError(
@@ -1581,7 +1245,7 @@
             );
           clearError("email", "email-error");
         });
-        attachBlurValidation("phone", function () {
+        attachBlur("phone", function () {
           const v = this.value.trim().replace(/[\s\-\+\(\)]/g, "");
           if (!v)
             return showError(
@@ -1597,22 +1261,22 @@
             );
           clearError("phone", "phone-error");
         });
-        attachBlurValidation("city", function () {
+        attachBlur("city", function () {
           this.value.trim()
             ? clearError("city", "city-error")
             : showError("city", "city-error");
         });
-        attachBlurValidation("guests", function () {
+        attachBlur("guests", function () {
           this.value
             ? clearError("guests", "guests-error")
             : showError("guests", "guests-error");
         });
-        attachBlurValidation("travel_date", function () {
+        attachBlur("travel_date", function () {
           this.value
             ? clearError("travel_date", "date-error")
             : showError("travel_date", "date-error");
         });
-        attachBlurValidation("message", function () {
+        attachBlur("message", function () {
           const v = this.value.trim();
           if (!v)
             return showError(
@@ -1629,7 +1293,7 @@
           clearError("message", "message-error");
         });
 
-        /* Full validate */
+        /* Full validation on submit */
         function validateAll() {
           let ok = true;
           const name = document.getElementById("name").value.trim();
@@ -1645,7 +1309,6 @@
 
           if (!name) ok = showError("name", "name-error") && ok;
           else clearError("name", "name-error");
-
           if (!email)
             ok =
               showError("email", "email-error", "Email address is required.") &&
@@ -1658,7 +1321,6 @@
                 "Please enter a valid email address.",
               ) && ok;
           else clearError("email", "email-error");
-
           if (!phone)
             ok =
               showError("phone", "phone-error", "Phone number is required.") &&
@@ -1671,16 +1333,12 @@
                 "Enter a valid phone number (min. 10 digits).",
               ) && ok;
           else clearError("phone", "phone-error");
-
           if (!city) ok = showError("city", "city-error") && ok;
           else clearError("city", "city-error");
-
           if (!guests) ok = showError("guests", "guests-error") && ok;
           else clearError("guests", "guests-error");
-
           if (!date) ok = showError("travel_date", "date-error") && ok;
           else clearError("travel_date", "date-error");
-
           if (!msg)
             ok =
               showError(
@@ -1696,24 +1354,21 @@
                 "Your query must be at least 10 characters.",
               ) && ok;
           else clearError("message", "message-error");
-
           return ok;
         }
 
-        /* Button loading state */
         function setLoading(state) {
           submitBtn.disabled = state;
           submitBtn.classList.toggle("loading", state);
           btnLoading.style.display = state ? "inline" : "none";
         }
 
-        /* Submit */
         form.addEventListener("submit", function (e) {
           e.preventDefault();
           hideAlerts();
           if (!validateAll()) {
-            const firstInvalid = form.querySelector(".is-invalid");
-            if (firstInvalid) firstInvalid.focus();
+            const first = form.querySelector(".is-invalid");
+            if (first) first.focus();
             return;
           }
           setLoading(true);
@@ -1731,7 +1386,11 @@
             })
             .catch(function () {
               alertErr.classList.add("show");
-              alertErr.scrollIntoView({ behavior: "smooth", block: "nearest" });
+              (html.enquiry - page,
+                alertErr.scrollIntoView({
+                  behavior: "smooth",
+                  block: "nearest",
+                }));
             })
             .finally(function () {
               setLoading(false);
