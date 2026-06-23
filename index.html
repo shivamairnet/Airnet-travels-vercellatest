@@ -421,8 +421,14 @@
                   border: none;
                   transition: background 0.3s ease;
                 "
-                onmouseover="this.style.background='linear-gradient(90deg, #000000 0%, #002823 30%, #00312b 37%, #008374 100%)'"
-                onmouseout="this.style.background='linear-gradient(90deg, #008374 0%, #00312b 63%, #002823 70%, #000000 100%)'"
+                onmouseover="
+                  this.style.background =
+                    'linear-gradient(90deg, #000000 0%, #002823 30%, #00312b 37%, #008374 100%)'
+                "
+                onmouseout="
+                  this.style.background =
+                    'linear-gradient(90deg, #008374 0%, #00312b 63%, #002823 70%, #000000 100%)'
+                "
               >
                 Free Consultation</a
               >
@@ -563,134 +569,178 @@
                 class="row d-flex justify-content-center g-3 mb-3 service-section-row2"
               >
                 <!-- Card 1 -->
-
-                <div
-                  class="service-card col-lg-4 shadow-lg rounded-xl p-4 d-flex align-items-center justify-content-center"
-                  style="
-                    background-image: url(&quot;/assets/img/Service Section Image Updates/leisure Travel-min.png&quot;);
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    height: 180px;
-                    width: 210px;
-                    margin-right: 12px;
-                    border-radius: 10px;
-                  "
-                >
-                  <h3
-                    class="font-semibold text-lg text-white text-center"
-                    style="text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8)"
+                <!-- Card 1 -->
+                <div class="col-lg-4">
+                  <a
+                    href="/services/leisure-travel.html"
+                    style="text-decoration: none; display: block"
                   >
-                    Leisure Travel
-                  </h3>
+                    <div
+                      class="service-card shadow-lg rounded-xl p-4 d-flex align-items-center justify-content-center"
+                      style="
+                        background-image: url(&quot;/assets/img/Service Section Image Updates/leisure Travel-min.png&quot;);
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        height: 180px;
+                        width: 210px;
+                        border-radius: 10px;
+                        cursor: pointer;
+                      "
+                    >
+                      <h3
+                        class="font-semibold text-lg text-white text-center"
+                        style="text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8)"
+                      >
+                        Leisure Travel
+                      </h3>
+                    </div>
+                  </a>
                 </div>
-
                 <!-- Card 2 -->
-                <div
-                  class="service-card col-lg-4 shadow-lg rounded-xl p-4 d-flex align-items-center justify-content-center mr-4"
-                  style="
-                    background-image: url(&quot;/assets/img/Service Section Image Updates/Business Travel-min.png&quot;);
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    height: 180px;
-                    width: 210px;
-                    margin-right: 12px;
-                    border-radius: 10px;
-                  "
-                >
-                  <h3
-                    class="font-semibold text-lg text-white text-center"
-                    style="text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8)"
+                <!-- Card 2 -->
+                <div class="col-lg-4">
+                  <a
+                    href="/services/business-travel.html"
+                    style="text-decoration: none; display: block"
                   >
-                    Business Travel
-                  </h3>
+                    <div
+                      class="service-card shadow-lg rounded-xl p-2 d-flex align-items-center justify-content-center"
+                      style="
+                        background-image: url(&quot;/assets/img/Service Section Image Updates/Business Travel-min.png&quot;);
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        height: 180px;
+                        width: 210px;
+                        border-radius: 10px;
+                        cursor: pointer;
+                      "
+                    >
+                      <h3
+                        class="font-semibold text-lg text-white text-center"
+                        style="text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8)"
+                      >
+                        Business Travel
+                      </h3>
+                    </div>
+                  </a>
                 </div>
-                <!-- Card 3 -->
-                <div
-                  class="service-card col-lg-4 shadow-lg rounded-xl p-4 d-flex align-items-center justify-content-center mr-4"
-                  style="
-                    background-image: url(&quot;/assets/img/Service Section Image Updates/Visa-min.png&quot;);
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    height: 180px;
-                    width: 210px;
-                    border-radius: 10px;
-                  "
-                >
-                  <h3
-                    class="font-semibold text-lg text-white text-center"
-                    style="text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8)"
-                  >
-                    Visa
-                  </h3>
-                </div>
-              </div>
 
-              <!-- Row 2 -->
-              <div class="row d-flex justify-content-center g-3 mb-3">
+                <!-- Card 3 -->
+                <div class="col-lg-4">
+                  <a
+                    href="/services/visa.html"
+                    style="text-decoration: none; display: block"
+                  >
+                    <div
+                      class="service-card shadow-lg rounded-xl p-4 d-flex align-items-center justify-content-center"
+                      style="
+                        background-image: url(&quot;/assets/img/Service Section Image Updates/Visa-min.png&quot;);
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        height: 180px;
+                        width: 210px;
+                        border-radius: 10px;
+                        cursor: pointer;
+                      "
+                    >
+                      <h3
+                        class="font-semibold text-lg text-white text-center"
+                        style="text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8)"
+                      >
+                        Visa
+                      </h3>
+                    </div>
+                  </a>
+                </div>
+
                 <!-- Card 4 -->
-                <div
-                  class="service-card col-lg-4 shadow-lg rounded-xl p-4 d-flex align-items-center justify-content-center mr-4"
-                  style="
-                    background-image: url(&quot;/assets/img/Service Section Image Updates/Destination Wedding-min.png&quot;);
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    height: 180px;
-                    width: 210px;
-                    margin-right: 12px;
-                    border-radius: 10px;
-                  "
-                >
-                  <h3
-                    class="font-semibold text-lg text-white text-center"
-                    style="text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8)"
+                <div class="col-lg-4">
+                  <a
+                    href="/services/events.html"
+                    style="text-decoration: none; display: block"
                   >
-                    Events
-                  </h3>
+                    <div
+                      class="service-card shadow-lg rounded-xl p-4 d-flex align-items-center justify-content-center"
+                      style="
+                        background-image: url(&quot;/assets/img/Service Section Image Updates/Destination Wedding-min.png&quot;);
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        height: 180px;
+                        width: 210px;
+                        border-radius: 10px;
+                        cursor: pointer;
+                      "
+                    >
+                      <h3
+                        class="font-semibold text-lg text-white text-center"
+                        style="text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8)"
+                      >
+                        Events
+                      </h3>
+                    </div>
+                  </a>
                 </div>
+
                 <!-- Card 5 -->
-                <div
-                  class="service-card col-lg-4 shadow-lg rounded-xl p-4 d-flex align-items-center justify-content-center mr-4"
-                  style="
-                    background-image: url(&quot;/assets/img/Service Section Image Updates/Rare Finds-min.png&quot;);
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    height: 180px;
-                    width: 210px;
-                    margin-right: 12px;
-                    border-radius: 10px;
-                  "
-                >
-                  <h3
-                    class="font-semibold text-lg text-white text-center"
-                    style="text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8)"
+                <div class="col-lg-4">
+                  <a
+                    href="/services/rare-finds.html"
+                    style="text-decoration: none; display: block"
                   >
-                    Rare Finds
-                  </h3>
+                    <div
+                      class="service-card shadow-lg rounded-xl p-4 d-flex align-items-center justify-content-center"
+                      style="
+                        background-image: url(&quot;/assets/img/Service Section Image Updates/Rare Finds-min.png&quot;);
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        height: 180px;
+                        width: 210px;
+                        border-radius: 10px;
+                        cursor: pointer;
+                      "
+                    >
+                      <h3
+                        class="font-semibold text-lg text-white text-center"
+                        style="text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8)"
+                      >
+                        Rare Finds
+                      </h3>
+                    </div>
+                  </a>
                 </div>
+
                 <!-- Card 6 -->
-                <div
-                  class="service-card col-lg-4 shadow-lg rounded-xl p-4 d-flex align-items-center justify-content-center mr-4"
-                  style="
-                    background-image: url(&quot;/assets/img/Service Section Image Updates/Travel Insurance-min.png&quot;);
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    height: 180px;
-                    width: 210px;
-                    border-radius: 10px;
-                  "
-                >
-                  <h3
-                    class="font-semibold text-lg text-white text-center"
-                    style="text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8)"
+                <div class="col-lg-4">
+                  <a
+                    href="/services/travel-insurance.html"
+                    style="text-decoration: none; display: block"
                   >
-                    Travel Insurance
-                  </h3>
+                    <div
+                      class="service-card shadow-lg rounded-xl p-4 d-flex align-items-center justify-content-center"
+                      style="
+                        background-image: url(&quot;/assets/img/Service Section Image Updates/Travel Insurance-min.png&quot;);
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        height: 180px;
+                        width: 210px;
+                        border-radius: 10px;
+                        cursor: pointer;
+                      "
+                    >
+                      <h3
+                        class="font-semibold text-lg text-white text-center"
+                        style="text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8)"
+                      >
+                        Travel Insurance
+                      </h3>
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -1044,25 +1094,27 @@
 
     <div id="sharedModalContainer"></div>
     <script>
-    document.addEventListener("DOMContentLoaded", async () => {
+      document.addEventListener("DOMContentLoaded", async () => {
         try {
-            const response = await fetch("./services/Free-consult-modal.html");
-            const html = await response.text();
-            document.getElementById("sharedModalContainer").innerHTML = html;
-            const scripts = document.getElementById("sharedModalContainer").querySelectorAll("script");
-            scripts.forEach(oldScript => {
-                const newScript = document.createElement("script");
-                if (oldScript.src) {
-                    newScript.src = oldScript.src;
-                } else {
-                    newScript.textContent = oldScript.textContent;
-                }
-                document.body.appendChild(newScript);
-            });
-        } catch(error) {
-            console.error("Unable to load consultation modal:", error);
+          const response = await fetch("./services/Free-consult-modal.html");
+          const html = await response.text();
+          document.getElementById("sharedModalContainer").innerHTML = html;
+          const scripts = document
+            .getElementById("sharedModalContainer")
+            .querySelectorAll("script");
+          scripts.forEach((oldScript) => {
+            const newScript = document.createElement("script");
+            if (oldScript.src) {
+              newScript.src = oldScript.src;
+            } else {
+              newScript.textContent = oldScript.textContent;
+            }
+            document.body.appendChild(newScript);
+          });
+        } catch (error) {
+          console.error("Unable to load consultation modal:", error);
         }
-    });
+      });
     </script>
   </body>
 </html>
