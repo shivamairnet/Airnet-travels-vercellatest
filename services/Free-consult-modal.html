@@ -1,0 +1,782 @@
+<!--
+  ================================================================
+  Free-consult-modal.html
+  ----------------------------------------------------------------
+  STANDALONE MODAL FILE — no trigger button lives here.
+  Drop this file in your project root, then on any page:
+
+    1. Add before </body>:
+         <div id="sharedModalContainer"></div>
+         <script>
+           document.addEventListener("DOMContentLoaded", async () => {
+             try {
+               const response = await fetch("./Free-consult-modal.html");
+               const html = await response.text();
+               document.getElementById("sharedModalContainer").innerHTML = html;
+               const scripts = document.getElementById("sharedModalContainer").querySelectorAll("script");
+               scripts.forEach(oldScript => {
+                 const newScript = document.createElement("script");
+                 if (oldScript.src) { newScript.src = oldScript.src; }
+                 else { newScript.textContent = oldScript.textContent; }
+                 document.body.appendChild(newScript);
+               });
+             } catch (error) {
+               console.error("Unable to load consultation modal:", error);
+             }
+           });
+         </script>
+
+    2. Any button with class="consultation-btn" will open this modal:
+         <button class="callback-button1 consultation-btn" style="...">
+           Free Consultation
+         </button>
+  ================================================================
+-->
+
+<!-- Font Awesome (safe to load multiple times — browser deduplicates) -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+  rel="stylesheet"
+/>
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<style>
+  /* =============================================
+     MODAL OVERLAY
+  ============================================= */
+  .fc-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 99999;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease;
+  }
+  .fc-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* =============================================
+     MODAL CONTAINER
+  ============================================= */
+  .fc-modal {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    box-shadow:
+      0 32px 80px rgba(0, 0, 0, 0.45),
+      0 0 0 1px rgba(255, 255, 255, 0.06);
+    transform: scale(0.92) translateY(12px);
+    opacity: 0;
+    transition:
+      transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+      opacity 0.3s ease;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  .fc-modal-overlay.active .fc-modal {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+
+  /* Close Button */
+  .fc-modal-close {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: #374151;
+    z-index: 10;
+    transition:
+      background 0.2s ease,
+      color 0.2s ease,
+      transform 0.2s ease;
+    font-family: inherit;
+  }
+  .fc-modal-close:hover {
+    background: rgba(0, 0, 0, 0.15);
+    transform: rotate(90deg);
+  }
+
+  /* =============================================
+     LEFT COLUMN — FORM
+  ============================================= */
+  .fc-modal-left {
+    flex: 0 0 50%;
+    background: #ffffff;
+    padding: 48px 40px 44px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    box-sizing: border-box;
+  }
+
+  .fc-modal-left h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .fc-form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .fc-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .fc-form-group label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-family: "Inter", sans-serif;
+  }
+
+  .fc-form-group input,
+  .fc-form-group textarea {
+    font-family: "Inter", sans-serif;
+    font-size: 0.95rem;
+    color: #111827;
+    background: #f9fafb;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 0 18px;
+    height: 52px;
+    outline: none;
+    transition:
+      border-color 0.2s ease,
+      background 0.2s ease,
+      box-shadow 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .fc-form-group textarea {
+    height: 110px;
+    padding: 14px 18px;
+    resize: none;
+    line-height: 1.55;
+  }
+  .fc-form-group input::placeholder,
+  .fc-form-group textarea::placeholder {
+    color: #9ca3af;
+    font-weight: 400;
+  }
+  .fc-form-group input:focus,
+  .fc-form-group textarea:focus {
+    border-color: #0d9488;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(13, 148, 136, 0.1);
+  }
+  .fc-form-group input.fc-error,
+  .fc-form-group textarea.fc-error {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.09);
+  }
+
+  /* Submit Button */
+  .fc-submit-btn {
+    align-self: flex-start;
+    background: linear-gradient(90deg, #0d9488 0%, #000000 100%);
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    width: 180px;
+    height: 48px;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      opacity 0.2s ease;
+    box-shadow: 0 4px 20px rgba(13, 148, 136, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .fc-submit-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(13, 148, 136, 0.4);
+  }
+  .fc-submit-btn:active:not(:disabled) {
+    transform: translateY(0);
+  }
+  .fc-submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  /* Spinner */
+  .fc-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: fc-spin 0.7s linear infinite;
+    display: none;
+    flex-shrink: 0;
+  }
+  .fc-submit-btn.fc-loading .fc-spinner {
+    display: block;
+  }
+  .fc-submit-btn.fc-loading .fc-btn-text {
+    opacity: 0.7;
+  }
+  @keyframes fc-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* =============================================
+     RIGHT COLUMN — DARK PREMIUM
+  ============================================= */
+  .fc-modal-right {
+    flex: 0 0 50%;
+    background: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 44px 36px 36px;
+    gap: 28px;
+    min-height: 480px;
+    box-sizing: border-box;
+  }
+
+  .fc-right-top {
+    text-align: center;
+  }
+
+  .fc-right-top h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.5rem;
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    margin: 0 0 14px 0;
+  }
+
+  .fc-right-top h3 .fc-arrow {
+    color: #0d9488;
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    margin: 0 4px;
+  }
+
+  .fc-right-top p {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.65;
+    font-weight: 500;
+    max-width: 280px;
+    margin: 0 auto;
+    font-family: "Inter", sans-serif;
+  }
+
+  .fc-right-top p strong {
+    color: #14b8a6;
+    font-weight: 700;
+  }
+
+  /* Center image */
+  .fc-image-wrap {
+    width: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    flex: 1;
+    min-height: 0;
+  }
+
+  .fc-image-wrap img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    border-radius: 14px;
+    transition: transform 0.4s ease;
+  }
+  .fc-image-wrap:hover img {
+    transform: scale(1.03);
+  }
+
+  /* Social Icons */
+  .fc-social-row {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+  }
+
+  .fc-social-row a {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.25rem;
+    transition:
+      color 0.2s ease,
+      transform 0.2s ease;
+    text-decoration: none;
+  }
+  .fc-social-row a:hover {
+    color: #14b8a6;
+    transform: translateY(-3px);
+  }
+
+  /* =============================================
+     TOAST NOTIFICATIONS
+  ============================================= */
+  .fc-toast-container {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 100000;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    pointer-events: none;
+  }
+
+  .fc-toast {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    border-radius: 12px;
+    min-width: 280px;
+    max-width: 360px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: "Inter", sans-serif;
+    color: #fff;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    pointer-events: auto;
+    transform: translateX(110%);
+    opacity: 0;
+    transition:
+      transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+      opacity 0.3s ease;
+    box-sizing: border-box;
+  }
+  .fc-toast.fc-show {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  .fc-toast.fc-success {
+    background: linear-gradient(90deg, #0d9488, #065f46);
+  }
+  .fc-toast.fc-error {
+    background: linear-gradient(90deg, #dc2626, #7f1d1d);
+  }
+
+  .fc-toast-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  /* =============================================
+     RESPONSIVE
+  ============================================= */
+  @media (max-width: 720px) {
+    .fc-modal {
+      flex-direction: column;
+      max-height: 96vh;
+      overflow-y: auto;
+    }
+    .fc-modal-left,
+    .fc-modal-right {
+      flex: 0 0 auto;
+      width: 100%;
+    }
+    .fc-modal-left {
+      padding: 40px 28px 32px;
+    }
+    .fc-modal-right {
+      min-height: 340px;
+      padding: 36px 28px 32px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .fc-modal-left {
+      padding: 36px 22px 28px;
+      gap: 18px;
+    }
+    .fc-modal-left h2 {
+      font-size: 1.45rem;
+    }
+    .fc-modal-right {
+      padding: 32px 22px 28px;
+    }
+    .fc-right-top h3 {
+      font-size: 1.25rem;
+    }
+    .fc-toast-container {
+      bottom: 16px;
+      right: 16px;
+      left: 16px;
+    }
+    .fc-toast {
+      min-width: 0;
+      max-width: 100%;
+    }
+  }
+</style>
+
+<!-- =============================================
+     MODAL HTML
+============================================= -->
+<div
+  class="fc-modal-overlay"
+  id="fcModalOverlay"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="fcModalTitle"
+>
+  <div class="fc-modal" id="fcModal">
+    <!-- Close Button -->
+    <button class="fc-modal-close" id="fcCloseModal" aria-label="Close modal">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <!-- ── LEFT COLUMN ── -->
+    <div class="fc-modal-left">
+      <h2 id="fcModalTitle">Get In Touch</h2>
+
+      <form id="fcContactForm" novalidate>
+        <div class="fc-form-fields">
+          <!-- Full Name -->
+          <div class="fc-form-group">
+            <label for="fcFullName">Full Name</label>
+            <input
+              type="text"
+              id="fcFullName"
+              name="fullName"
+              placeholder="Full Name*"
+              autocomplete="name"
+            />
+          </div>
+
+          <!-- Email -->
+          <div class="fc-form-group">
+            <label for="fcEmail">Email Address</label>
+            <input
+              type="email"
+              id="fcEmail"
+              name="email"
+              placeholder="Email Id*"
+              autocomplete="email"
+            />
+          </div>
+
+          <!-- Phone -->
+          <div class="fc-form-group">
+            <label for="fcPhone">Phone Number</label>
+            <input
+              type="tel"
+              id="fcPhone"
+              name="phone"
+              placeholder="Phone Number*"
+              autocomplete="tel"
+            />
+          </div>
+
+          <!-- Message -->
+          <div class="fc-form-group">
+            <label for="fcMessage">Travel Query</label>
+            <textarea
+              id="fcMessage"
+              name="message"
+              placeholder="Describe Your Travel Query"
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="fc-submit-btn" id="fcSubmitBtn">
+          <div class="fc-spinner"></div>
+          <span class="fc-btn-text">Submit</span>
+        </button>
+      </form>
+    </div>
+    <!-- /fc-modal-left -->
+
+    <!-- ── RIGHT COLUMN ── -->
+    <div class="fc-modal-right">
+      <div class="fc-right-top">
+        <h3>
+          Plan <span class="fc-arrow">→</span> Book
+          <span class="fc-arrow">→</span> Travel
+        </h3>
+        <p>
+          Let's Make Your Every Travel Journey Effortless.<br /><strong
+            >Connect With Us Today!</strong
+          >
+        </p>
+      </div>
+
+      <!-- Hero Image -->
+      <div class="fc-image-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&auto=format&fit=crop&q=80"
+          alt="Person planning travel on a laptop in a cozy setting"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Social Icons -->
+      <div class="fc-social-row">
+        <a href="#" aria-label="Facebook"
+          ><i class="fa-brands fa-facebook-f"></i
+        ></a>
+        <a href="#" aria-label="Instagram"
+          ><i class="fa-brands fa-instagram"></i
+        ></a>
+        <a href="#" aria-label="LinkedIn"
+          ><i class="fa-brands fa-linkedin-in"></i
+        ></a>
+      </div>
+    </div>
+    <!-- /fc-modal-right -->
+  </div>
+  <!-- /fc-modal -->
+</div>
+<!-- /fc-modal-overlay -->
+
+<!-- Toast Container -->
+<div class="fc-toast-container" id="fcToastContainer" aria-live="polite"></div>
+
+<script>
+  (function () {
+    /* =============================================
+     EmailJS Init — replace with your real keys
+  ============================================= */
+    const EMAILJS_PUBLIC_KEY = "EMAILJS_PUBLIC_KEY";
+    const EMAILJS_SERVICE_ID = "EMAILJS_SERVICE_ID";
+    const EMAILJS_TEMPLATE_ID = "EMAILJS_TEMPLATE_ID";
+
+    if (typeof emailjs !== "undefined") {
+      emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+    }
+
+    /* =============================================
+     DOM References
+  ============================================= */
+    const overlay = document.getElementById("fcModalOverlay");
+    const closeBtn = document.getElementById("fcCloseModal");
+    const form = document.getElementById("fcContactForm");
+    const submitBtn = document.getElementById("fcSubmitBtn");
+    const toastWrap = document.getElementById("fcToastContainer");
+
+    /* =============================================
+     Open / Close
+  ============================================= */
+    function openModal() {
+      overlay.classList.add("active");
+      document.body.style.overflow = "hidden";
+      setTimeout(() => closeBtn.focus(), 350);
+    }
+
+    function closeModal() {
+      overlay.classList.remove("active");
+      document.body.style.overflow = "";
+      if (document.activeElement) {
+        document.activeElement.blur();
+      }
+    }
+
+    /* --------------------------------------------------
+     Global delegation: any .consultation-btn click
+     opens this modal — works across ALL pages that
+     load this file.
+  -------------------------------------------------- */
+    document.addEventListener("click", function (e) {
+      const trigger = e.target.closest(".consultation-btn");
+      if (trigger) {
+        e.preventDefault();
+        openModal();
+      }
+    });
+
+    /* Close button inside modal */
+    closeBtn.addEventListener("click", closeModal);
+
+    /* Close on overlay backdrop click */
+    overlay.addEventListener("click", function (e) {
+      if (e.target === overlay) closeModal();
+    });
+
+    /* Close on Escape key */
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && overlay.classList.contains("active"))
+        closeModal();
+    });
+
+    /* =============================================
+     Form Validation
+  ============================================= */
+    function getField(id) {
+      return document.getElementById(id);
+    }
+
+    function clearErrors() {
+      ["fcFullName", "fcEmail", "fcPhone", "fcMessage"].forEach(function (id) {
+        getField(id).classList.remove("fc-error");
+      });
+    }
+
+    function validateEmail(val) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+    }
+
+    function validateForm() {
+      clearErrors();
+      var valid = true;
+
+      var name = getField("fcFullName");
+      var email = getField("fcEmail");
+      var phone = getField("fcPhone");
+      var msg = getField("fcMessage");
+
+      if (!name.value.trim()) {
+        name.classList.add("fc-error");
+        valid = false;
+      }
+      if (!email.value.trim() || !validateEmail(email.value.trim())) {
+        email.classList.add("fc-error");
+        valid = false;
+      }
+      if (!phone.value.trim()) {
+        phone.classList.add("fc-error");
+        valid = false;
+      }
+      if (!msg.value.trim()) {
+        msg.classList.add("fc-error");
+        valid = false;
+      }
+
+      return valid;
+    }
+
+    /* =============================================
+     Toast Notifications
+  ============================================= */
+    function showToast(type, message) {
+      var toast = document.createElement("div");
+      toast.className = "fc-toast fc-" + type;
+      toast.innerHTML =
+        '<span class="fc-toast-icon">' +
+        (type === "success"
+          ? '<i class="fa-solid fa-circle-check"></i>'
+          : '<i class="fa-solid fa-circle-exclamation"></i>') +
+        "</span>" +
+        "<span>" +
+        message +
+        "</span>";
+
+      toastWrap.appendChild(toast);
+
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          toast.classList.add("fc-show");
+        });
+      });
+
+      setTimeout(function () {
+        toast.classList.remove("fc-show");
+        setTimeout(function () {
+          toast.remove();
+        }, 400);
+      }, 4000);
+    }
+
+    /* =============================================
+     Form Submit — EmailJS
+  ============================================= */
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      if (!validateForm()) {
+        showToast("error", "Please fill in all required fields correctly.");
+        return;
+      }
+
+      submitBtn.classList.add("fc-loading");
+      submitBtn.disabled = true;
+
+      var templateParams = {
+        from_name: getField("fcFullName").value.trim(),
+        from_email: getField("fcEmail").value.trim(),
+        phone: getField("fcPhone").value.trim(),
+        message: getField("fcMessage").value.trim(),
+      };
+
+      try {
+        if (typeof emailjs !== "undefined") {
+          await emailjs.send(
+            EMAILJS_SERVICE_ID,
+            EMAILJS_TEMPLATE_ID,
+            templateParams,
+          );
+        } else {
+          throw new Error("EmailJS not loaded");
+        }
+        showToast("success", "Message sent! We'll be in touch shortly. ✈");
+        form.reset();
+        clearErrors();
+        setTimeout(closeModal, 1800);
+      } catch (err) {
+        console.error("EmailJS error:", err);
+        showToast(
+          "error",
+          "Something went wrong. Please try again or contact us directly.",
+        );
+      } finally {
+        submitBtn.classList.remove("fc-loading");
+        submitBtn.disabled = false;
+      }
+    });
+  })(); // end IIFE — keeps all variables scoped, no global pollution
+</script>

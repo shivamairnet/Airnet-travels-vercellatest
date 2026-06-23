@@ -188,7 +188,7 @@
     
           <!-- Callback Button -->
           <button 
-          class="callback-button1" id="openModalButton77" style="
+          class="callback-button1 consultation-btn" style="
           cursor: pointer;
           padding: 8px 18px;
           background-color: white;
@@ -252,7 +252,7 @@
             <div
             class="d-md-flex justify-content-center justify-content-lg-center gap-2 flex-column flex-lg-row w-75 align-items-center mx-auto mt-4"
           >
-            <a href="#" id="openModalButton2ab" class="px-4 py-3" style="border-radius:25px;font-weight: 600 ;font-size: 32px; background: linear-gradient(90deg, #008374 0%, #00312B 63%, #002823 70%, #000000 100%) ;color: white;font-size: 16px;border: none;transition: background 0.3s ease;"
+            <a href="#" class="px-4 py-3 consultation-btn" style="border-radius:25px;font-weight: 600 ;font-size: 32px; background: linear-gradient(90deg, #008374 0%, #00312B 63%, #002823 70%, #000000 100%) ;color: white;font-size: 16px;border: none;transition: background 0.3s ease;"
             onmouseover="this.style.background='linear-gradient(90deg, #000000 0%, #002823 30%, #00312B 37%, #008374 100%)'"
             onmouseout="this.style.background='linear-gradient(90deg, #008374 0%, #00312B 63%, #002823 70%, #000000 100%)'">
          Free Consultation</a>
@@ -327,7 +327,7 @@
           <div style="text-align: left;">
             <h3>Protect Your Trip With Travel Insurance! </h3>
             <p>Get a travel insurance quote today.</p>  
-            <a href="#" id="openModalButton2" style="text-shadow: none;padding: 10px 20px; font-size: 16px; color: #079696; background-color: white; border: none; border-radius: 20px; cursor: pointer; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);">
+            <a href="#" class="consultation-btn" style="text-shadow: none;padding: 10px 20px; font-size: 16px; color: #079696; background-color: white; border: none; border-radius: 20px; cursor: pointer; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);">
               Connect With Us
             </a>
           </div>
@@ -340,125 +340,13 @@
   <div style="color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);">
     <h3>Protect Your Trip With Travel Insurance! </h3>
     <p style="margin-bottom: 20px;">Contact Us Today To Secure Your Travel Journey.</p>
-    <a href="#" id="openModalButton2a" style="text-shadow: none; padding: 10px 20px; font-size: 16px; color: #008374; background-color: white; border: none; border-radius: 20px; cursor: pointer; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);">
+    <a href="#" class="consultation-btn" style="text-shadow: none; padding: 10px 20px; font-size: 16px; color: #008374; background-color: white; border: none; border-radius: 20px; cursor: pointer; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);">
       Connect With Us
     </a>
   </div>
 </div>
 
-      <!-- Modal for Google Form -->
-<div class="modal fade" id="gformModal2" tabindex="-1" aria-labelledby="gformModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="gformModalLabel">Free Consultation</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <!-- Google Form inside iframe -->
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSf9yDpllWa3JCQIWAyZmvGGNeZslK3v1UgSuXxRv4eIbUoxhA/viewform?embedded=true&usp=header"
-          class="w-100" 
-          height="500px" 
-          frameborder="0" 
-          marginheight="0" 
-          marginwidth="0">Loading…</iframe>
-      </div>
-    </div>
-  </div>
-</div>
-<script>
-  document.getElementById('openModalButton2').addEventListener('click', function(event) {
-    event.preventDefault();  // Prevent the default action
-    console.log('Modal trigger clicked'); // Debugging log
-    var myModal = new bootstrap.Modal(document.getElementById('gformModal2'));
-    myModal.show();
-  });
-</script>
-<div class="modal fade" id="gformModal2a" tabindex="-1" aria-labelledby="gformModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="gformModalLabel">Free Consultation</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <!-- Google Form inside iframe -->
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSf9yDpllWa3JCQIWAyZmvGGNeZslK3v1UgSuXxRv4eIbUoxhA/viewform?embedded=true&usp=header"
-          class="w-100" 
-          height="500px" 
-          frameborder="0" 
-          marginheight="0" 
-          marginwidth="0">Loading…</iframe>
-      </div>
-    </div>
-  </div>
-</div>
-<script>
-  document.getElementById('openModalButton2a').addEventListener('click', function(event) {
-    event.preventDefault();  // Prevent the default action
-    console.log('Modal trigger clicked'); // Debugging log
-    var myModal = new bootstrap.Modal(document.getElementById('gformModal2a'));
-    myModal.show();
-  });
-</script>
-<div class="modal fade" id="gformModal2ab" tabindex="-1" aria-labelledby="gformModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="gformModalLabel">Free Consultation</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <!-- Google Form inside iframe -->
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSf9yDpllWa3JCQIWAyZmvGGNeZslK3v1UgSuXxRv4eIbUoxhA/viewform?embedded=true&usp=header"
-          class="w-100" 
-          height="500px" 
-          frameborder="0" 
-          marginheight="0" 
-          marginwidth="0">Loading…</iframe>
-      </div>
-    </div>
-  </div>
-</div>
-<script>
-  document.getElementById('openModalButton2ab').addEventListener('click', function(event) {
-    event.preventDefault();  // Prevent the default action
-    console.log('Modal trigger clicked'); // Debugging log
-    var myModal = new bootstrap.Modal(document.getElementById('gformModal2ab'));
-    myModal.show();
-  });
-</script>
-<div class="modal fade" id="gformModal77" tabindex="-1" aria-labelledby="gformModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="gformModalLabel">Free Consultation</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <!-- Google Form inside iframe -->
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSf9yDpllWa3JCQIWAyZmvGGNeZslK3v1UgSuXxRv4eIbUoxhA/viewform?embedded=true&usp=header"
-          class="w-100" 
-          height="500px" 
-          frameborder="0" 
-          marginheight="0" 
-          marginwidth="0">Loading…</iframe>
-      </div>
-    </div>
-  </div>
-</div>
-<script>
-  document.getElementById('openModalButton77').addEventListener('click', function(event) {
-    event.preventDefault();  // Prevent the default action
-    console.log('Modal trigger clicked'); // Debugging log
-    var myModal = new bootstrap.Modal(document.getElementById('gformModal77'));
-    myModal.show();
-  });
-</script>
+
     <!-- ======= Footer ======= -->
     <div id="FooterSection"></div>
     <div id="whatsapp_chat"></div>
@@ -506,5 +394,27 @@
       crossorigin="anonymous"
     ></script>
 
+    <div id="sharedModalContainer"></div>
+    <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+        try {
+            const response = await fetch("./Free-consult-modal.html");
+            const html = await response.text();
+            document.getElementById("sharedModalContainer").innerHTML = html;
+            const scripts = document.getElementById("sharedModalContainer").querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                if (oldScript.src) {
+                    newScript.src = oldScript.src;
+                } else {
+                    newScript.textContent = oldScript.textContent;
+                }
+                document.body.appendChild(newScript);
+            });
+        } catch(error) {
+            console.error("Unable to load consultation modal:", error);
+        }
+    });
+    </script>
   </body>
 </html>
