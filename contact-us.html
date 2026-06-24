@@ -1134,27 +1134,22 @@
     <script src="/assets/js/main.js"></script>
 
     <script>
-      /* ── Footer year ──────────────────────────────── */
       document.getElementById("footer-year").textContent =
         new Date().getFullYear();
-
-      /* ── Add class to <html> for viewport-lock CSS ── */
       document.documentElement.classList.add("enquiry-page");
 
-      /* ── Free Consultation modal ──────────────────── */
-      document
-        .getElementById("openModalButton11")
-        .addEventListener("click", function () {
+      const openModalBtn = document.getElementById("openModalButton11");
+      if (openModalBtn) {
+        openModalBtn.addEventListener("click", function () {
           new bootstrap.Modal(document.getElementById("gformModal11")).show();
         });
+      }
 
-      /* ════════════════════════════════════════════════
-       EMAILJS + FORM VALIDATION
-    ════════════════════════════════════════════════ */
       (function () {
         "use strict";
 
-        emailjs.init("XLVuW_0Sqt-ZRyl47");
+        // ✅ v4 correct init syntax
+        emailjs.init({ publicKey: "XLVuW_0Sqt-ZRyl47" });
 
         const form = document.getElementById("enquiry-form");
         const submitBtn = document.getElementById("submit-btn");
@@ -1164,19 +1159,16 @@
         const msgField = document.getElementById("message");
         const charCounter = document.getElementById("char-counter");
 
-        /* Char counter */
         msgField.addEventListener("input", function () {
           const len = this.value.length;
           charCounter.textContent = len + " / 1000 characters";
           charCounter.className = "char-counter" + (len > 900 ? " warn" : "");
         });
 
-        /* Min travel date = today */
         document
           .getElementById("travel_date")
           .setAttribute("min", new Date().toISOString().split("T")[0]);
 
-        /* Helpers */
         function showError(fieldId, errorId, msg) {
           const field = document.getElementById(fieldId);
           const err = document.getElementById(errorId);
@@ -1201,7 +1193,6 @@
           alertErr.classList.remove("show");
         }
 
-        /* Live blur validation */
         function attachBlur(id, fn) {
           const el = document.getElementById(id);
           el.addEventListener("blur", fn);
@@ -1209,6 +1200,7 @@
             if (this.classList.contains("is-invalid")) fn.call(this);
           });
         }
+
         attachBlur("name", function () {
           this.value.trim()
             ? clearError("name", "name-error")
@@ -1278,7 +1270,6 @@
           clearError("message", "message-error");
         });
 
-        /* Full validation on submit */
         function validateAll() {
           let ok = true;
           const name = document.getElementById("name").value.trim();
@@ -1292,53 +1283,62 @@
           const date = document.getElementById("travel_date").value;
           const msg = document.getElementById("message").value.trim();
 
-          if (!name) ok = showError("name", "name-error") && ok;
-          else clearError("name", "name-error");
-          if (!email)
-            ok =
-              showError("email", "email-error", "Email address is required.") &&
-              ok;
-          else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-            ok =
-              showError(
-                "email",
-                "email-error",
-                "Please enter a valid email address.",
-              ) && ok;
-          else clearError("email", "email-error");
-          if (!phone)
-            ok =
-              showError("phone", "phone-error", "Phone number is required.") &&
-              ok;
-          else if (phone.length < 10 || !/^\d+$/.test(phone))
-            ok =
-              showError(
-                "phone",
-                "phone-error",
-                "Enter a valid phone number (min. 10 digits).",
-              ) && ok;
-          else clearError("phone", "phone-error");
-          if (!city) ok = showError("city", "city-error") && ok;
-          else clearError("city", "city-error");
-          if (!guests) ok = showError("guests", "guests-error") && ok;
-          else clearError("guests", "guests-error");
-          if (!date) ok = showError("travel_date", "date-error") && ok;
-          else clearError("travel_date", "date-error");
-          if (!msg)
-            ok =
-              showError(
-                "message",
-                "message-error",
-                "Please enter your query.",
-              ) && ok;
-          else if (msg.length < 10)
-            ok =
-              showError(
-                "message",
-                "message-error",
-                "Your query must be at least 10 characters.",
-              ) && ok;
-          else clearError("message", "message-error");
+          if (!name) {
+            showError("name", "name-error");
+            ok = false;
+          } else clearError("name", "name-error");
+
+          if (!email) {
+            showError("email", "email-error", "Email address is required.");
+            ok = false;
+          } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            showError(
+              "email",
+              "email-error",
+              "Please enter a valid email address.",
+            );
+            ok = false;
+          } else clearError("email", "email-error");
+
+          if (!phone) {
+            showError("phone", "phone-error", "Phone number is required.");
+            ok = false;
+          } else if (phone.length < 10 || !/^\d+$/.test(phone)) {
+            showError(
+              "phone",
+              "phone-error",
+              "Enter a valid phone number (min. 10 digits).",
+            );
+            ok = false;
+          } else clearError("phone", "phone-error");
+
+          if (!city) {
+            showError("city", "city-error");
+            ok = false;
+          } else clearError("city", "city-error");
+
+          if (!guests) {
+            showError("guests", "guests-error");
+            ok = false;
+          } else clearError("guests", "guests-error");
+
+          if (!date) {
+            showError("travel_date", "date-error");
+            ok = false;
+          } else clearError("travel_date", "date-error");
+
+          if (!msg) {
+            showError("message", "message-error", "Please enter your query.");
+            ok = false;
+          } else if (msg.length < 10) {
+            showError(
+              "message",
+              "message-error",
+              "Your query must be at least 10 characters.",
+            );
+            ok = false;
+          } else clearError("message", "message-error");
+
           return ok;
         }
 
@@ -1358,7 +1358,7 @@
           }
           setLoading(true);
           emailjs
-            .sendForm("service_uhf2nhy", "template_zco1qyw", form)
+            .sendForm("service_uhf2nhy", "template_nuvj2ss", form)
             .then(function () {
               alertOk.classList.add("show");
               alertOk.scrollIntoView({ behavior: "smooth", block: "nearest" });
@@ -1369,19 +1369,42 @@
                 .querySelectorAll(".is-valid")
                 .forEach((el) => el.classList.remove("is-valid"));
             })
-            .catch(function () {
+            .catch(function (err) {
+              console.error("EmailJS error:", err);
               alertErr.classList.add("show");
-              (html.enquiry - page,
-                alertErr.scrollIntoView({
-                  behavior: "smooth",
-                  block: "nearest",
-                }));
+              alertErr.scrollIntoView({ behavior: "smooth", block: "nearest" });
             })
             .finally(function () {
               setLoading(false);
             });
         });
       })();
+    </script>
+
+    <!-- ✅ Only ONE sharedModalContainer — duplicate removed -->
+    <div id="sharedModalContainer"></div>
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        try {
+          const response = await fetch("/services/Free-consult-modal.html");
+          const html = await response.text();
+          document.getElementById("sharedModalContainer").innerHTML = html;
+          const scripts = document
+            .getElementById("sharedModalContainer")
+            .querySelectorAll("script");
+          scripts.forEach((oldScript) => {
+            const newScript = document.createElement("script");
+            if (oldScript.src) {
+              newScript.src = oldScript.src;
+            } else {
+              newScript.textContent = oldScript.textContent;
+            }
+            document.body.appendChild(newScript);
+          });
+        } catch (error) {
+          console.error("Unable to load consultation modal:", error);
+        }
+      });
     </script>
 
     <div id="sharedModalContainer"></div>
