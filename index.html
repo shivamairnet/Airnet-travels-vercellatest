@@ -1,6 +1,130 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <style>
+      .services-section .services-layout {
+        display: flex;
+        flex-direction: row;
+        gap: 24px;
+        align-items: flex-start;
+        padding: 1.5rem;
+      }
+
+      .services-section .services-left {
+        flex: 0 0 280px;
+        background: #f3f4f6;
+        padding: 1.5rem;
+        border-radius: 12px;
+      }
+
+      .services-section .services-right {
+        flex: 1 1 0;
+        min-width: 0; /* CRITICAL: prevents flex overflow */
+      }
+
+      .services-section .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        width: 100%;
+      }
+
+      .service-link {
+        text-decoration: none;
+        display: block;
+      }
+
+      .service-card {
+        height: 190px;
+        width: 100%;
+        border-radius: 12px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .service-card h3 {
+        color: #fff;
+        text-align: center;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      .services-section .cta-btn {
+        display: inline-block;
+        padding: 12px 20px;
+        border-radius: 25px;
+        background: linear-gradient(
+          90deg,
+          #008374 0%,
+          #00312b 63%,
+          #002823 70%,
+          #000000 100%
+        );
+        color: white;
+        font-size: 16px;
+        text-decoration: none;
+        transition: background 0.3s ease;
+        margin-top: 1rem;
+      }
+
+      .services-section .cta-btn:hover {
+        background: linear-gradient(
+          90deg,
+          #000000 0%,
+          #002823 30%,
+          #00312b 37%,
+          #008374 100%
+        );
+      }
+
+      /* Tablet */
+      @media (max-width: 991px) {
+        .services-section .services-layout {
+          flex-direction: column;
+        }
+
+        .services-section .services-left {
+          flex: none;
+          width: 100%;
+        }
+
+        .services-section .services-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .service-card {
+          height: 170px;
+        }
+      }
+
+      /* Mobile */
+      @media (max-width: 575px) {
+        .services-section .services-layout {
+          padding: 1rem;
+        }
+
+        .services-section .services-grid {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+
+        .service-card {
+          height: 220px;
+        }
+      }
+    </style>
+
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -520,228 +644,89 @@
 
       <section class="services-section">
         <div class="container">
-          <div class="flex row p-6 justify-content-center align-items-center">
-            <!-- Left Column: 30% -->
-            <div class="col-lg-3 bg-gray-100 p-2 rounded-xl text-left">
+          <div class="services-layout">
+            <!-- Left Column -->
+            <div class="services-left">
               <h2
-                class="prefered-partner mb-4"
-                style="font-weight: 600; font-size: 30px"
+                style="font-weight: 600; font-size: 28px; margin-bottom: 1rem"
               >
                 Explore Our Travel Services – Flights, Visas & Holiday Packages
               </h2>
-
-              <p style="margin-bottom: 2rem; font-size: 1.25rem">
+              <p style="font-size: 1.1rem; margin-bottom: 1.5rem">
                 Discover the range of travel services we offer, tailored to your
                 travel needs – from flights and visas to business travel.
               </p>
-              <a
-                href="services.html"
-                class="px-4 py-3 mt-3"
-                style="
-                  border-radius: 25px;
-                  background: linear-gradient(
-                    90deg,
-                    #008374 0%,
-                    #00312b 63%,
-                    #002823 70%,
-                    #000000 100%
-                  );
-                  color: white;
-                  font-size: 16px;
-                  transition: background 0.3s ease;
-                "
-                onmouseover="
-                  this.style.background =
-                    'linear-gradient(90deg, #000000 0%, #002823 30%, #00312B 37%, #008374 100%)'
-                "
-                onmouseout="
-                  this.style.background =
-                    'linear-gradient(90deg, #008374 0%, #00312B 63%, #002823 70%, #000000 100%)'
-                "
-                >View Services</a
-              >
+              <a href="services.html" class="cta-btn">View Services</a>
             </div>
 
-            <!-- Right Column: 70% -->
-            <div class="col-lg-9 flex-column">
-              <!-- Row 1 -->
-              <div
-                class="row d-flex justify-content-center g-3 mb-3 service-section-row2"
-              >
-                <!-- Card 1 -->
-                <!-- Card 1 -->
-                <div class="col-lg-4">
-                  <a
-                    href="/services/leisure-travel.html"
-                    style="text-decoration: none; display: block"
+            <!-- Right Column: Cards Grid -->
+            <div class="services-right">
+              <div class="services-grid">
+                <a href="/services/leisure-travel.html" class="service-link">
+                  <div
+                    class="service-card"
+                    style="
+                      background-image: url(&quot;/assets/img/Service Section Image Updates/leisure Travel-min.png&quot;);
+                    "
                   >
-                    <div
-                      class="service-card shadow-lg rounded-xl p-4 d-flex align-items-center justify-content-center"
-                      style="
-                        background-image: url(&quot;/assets/img/Service Section Image Updates/leisure Travel-min.png&quot;);
-                        background-size: cover;
-                        background-position: center;
-                        background-repeat: no-repeat;
-                        height: 180px;
-                        width: 210px;
-                        border-radius: 10px;
-                        cursor: pointer;
-                      "
-                    >
-                      <h3
-                        class="font-semibold text-lg text-white text-center"
-                        style="text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8)"
-                      >
-                        Leisure Travel
-                      </h3>
-                    </div>
-                  </a>
-                </div>
-                <!-- Card 2 -->
-                <!-- Card 2 -->
-                <div class="col-lg-4">
-                  <a
-                    href="/services/business-travel.html"
-                    style="text-decoration: none; display: block"
-                  >
-                    <div
-                      class="service-card shadow-lg rounded-xl p-2 d-flex align-items-center justify-content-center"
-                      style="
-                        background-image: url(&quot;/assets/img/Service Section Image Updates/Business Travel-min.png&quot;);
-                        background-size: cover;
-                        background-position: center;
-                        background-repeat: no-repeat;
-                        height: 180px;
-                        width: 210px;
-                        border-radius: 10px;
-                        cursor: pointer;
-                      "
-                    >
-                      <h3
-                        class="font-semibold text-lg text-white text-center"
-                        style="text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8)"
-                      >
-                        Business Travel
-                      </h3>
-                    </div>
-                  </a>
-                </div>
+                    <h3>Leisure Travel</h3>
+                  </div>
+                </a>
 
-                <!-- Card 3 -->
-                <div class="col-lg-4">
-                  <a
-                    href="/services/visa.html"
-                    style="text-decoration: none; display: block"
+                <a href="/services/business-travel.html" class="service-link">
+                  <div
+                    class="service-card"
+                    style="
+                      background-image: url(&quot;/assets/img/Service Section Image Updates/Business Travel-min.png&quot;);
+                    "
                   >
-                    <div
-                      class="service-card shadow-lg rounded-xl p-4 d-flex align-items-center justify-content-center"
-                      style="
-                        background-image: url(&quot;/assets/img/Service Section Image Updates/Visa-min.png&quot;);
-                        background-size: cover;
-                        background-position: center;
-                        background-repeat: no-repeat;
-                        height: 180px;
-                        width: 210px;
-                        border-radius: 10px;
-                        cursor: pointer;
-                      "
-                    >
-                      <h3
-                        class="font-semibold text-lg text-white text-center"
-                        style="text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8)"
-                      >
-                        Visa
-                      </h3>
-                    </div>
-                  </a>
-                </div>
+                    <h3>Business Travel</h3>
+                  </div>
+                </a>
 
-                <!-- Card 4 -->
-                <div class="col-lg-4">
-                  <a
-                    href="/services/events.html"
-                    style="text-decoration: none; display: block"
+                <a href="/services/visa.html" class="service-link">
+                  <div
+                    class="service-card"
+                    style="
+                      background-image: url(&quot;/assets/img/Service Section Image Updates/Visa-min.png&quot;);
+                    "
                   >
-                    <div
-                      class="service-card shadow-lg rounded-xl p-4 d-flex align-items-center justify-content-center"
-                      style="
-                        background-image: url(&quot;/assets/img/Service Section Image Updates/Destination Wedding-min.png&quot;);
-                        background-size: cover;
-                        background-position: center;
-                        background-repeat: no-repeat;
-                        height: 180px;
-                        width: 210px;
-                        border-radius: 10px;
-                        cursor: pointer;
-                      "
-                    >
-                      <h3
-                        class="font-semibold text-lg text-white text-center"
-                        style="text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8)"
-                      >
-                        Events
-                      </h3>
-                    </div>
-                  </a>
-                </div>
+                    <h3>Visa</h3>
+                  </div>
+                </a>
 
-                <!-- Card 5 -->
-                <div class="col-lg-4">
-                  <a
-                    href="/services/rare-finds.html"
-                    style="text-decoration: none; display: block"
+                <a href="/services/events.html" class="service-link">
+                  <div
+                    class="service-card"
+                    style="
+                      background-image: url(&quot;/assets/img/Service Section Image Updates/Destination Wedding-min.png&quot;);
+                    "
                   >
-                    <div
-                      class="service-card shadow-lg rounded-xl p-4 d-flex align-items-center justify-content-center"
-                      style="
-                        background-image: url(&quot;/assets/img/Service Section Image Updates/Rare Finds-min.png&quot;);
-                        background-size: cover;
-                        background-position: center;
-                        background-repeat: no-repeat;
-                        height: 180px;
-                        width: 210px;
-                        border-radius: 10px;
-                        cursor: pointer;
-                      "
-                    >
-                      <h3
-                        class="font-semibold text-lg text-white text-center"
-                        style="text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8)"
-                      >
-                        Rare Finds
-                      </h3>
-                    </div>
-                  </a>
-                </div>
+                    <h3>Events</h3>
+                  </div>
+                </a>
 
-                <!-- Card 6 -->
-                <div class="col-lg-4">
-                  <a
-                    href="/services/travel-insurance.html"
-                    style="text-decoration: none; display: block"
+                <a href="/services/rare-finds.html" class="service-link">
+                  <div
+                    class="service-card"
+                    style="
+                      background-image: url(&quot;/assets/img/Service Section Image Updates/Rare Finds-min.png&quot;);
+                    "
                   >
-                    <div
-                      class="service-card shadow-lg rounded-xl p-4 d-flex align-items-center justify-content-center"
-                      style="
-                        background-image: url(&quot;/assets/img/Service Section Image Updates/Travel Insurance-min.png&quot;);
-                        background-size: cover;
-                        background-position: center;
-                        background-repeat: no-repeat;
-                        height: 180px;
-                        width: 210px;
-                        border-radius: 10px;
-                        cursor: pointer;
-                      "
-                    >
-                      <h3
-                        class="font-semibold text-lg text-white text-center"
-                        style="text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8)"
-                      >
-                        Travel Insurance
-                      </h3>
-                    </div>
-                  </a>
-                </div>
+                    <h3>Rare Finds</h3>
+                  </div>
+                </a>
+
+                <a href="/services/travel-insurance.html" class="service-link">
+                  <div
+                    class="service-card"
+                    style="
+                      background-image: url(&quot;/assets/img/Service Section Image Updates/Travel Insurance-min.png&quot;);
+                    "
+                  >
+                    <h3>Travel Insurance</h3>
+                  </div>
+                </a>
               </div>
             </div>
           </div>
