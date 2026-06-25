@@ -3,22 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Enquire Now | Airnet Travels - Travel Consultation &amp; Booking
-      Assistance
-    </title>
+    <title>Enquire Now | Airnet Travels</title>
     <meta
       name="description"
-      content="Get expert travel assistance from Airnet Travels. Submit your enquiry for holiday packages, visa services, flights, hotels, and customized travel plans."
+      content="Get expert travel assistance from Airnet Travels."
     />
 
-    <!-- Google Fonts: Poppins -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Site vendor CSS (same as other pages) -->
     <link
       href="assets/vendor/bootstrap/css/bootstrap.min.css"
       rel="stylesheet"
@@ -28,25 +22,16 @@
       rel="stylesheet"
     />
     <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
-
-    <!-- Site theme CSS (same as other pages) -->
     <link href="assets/css/main.css" rel="stylesheet" />
-
-    <!-- Bootstrap Icons CDN fallback (in case vendor copy is missing) -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
       rel="stylesheet"
     />
 
-    <!-- EmailJS -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- ✅ NO <script> tag for EmailJS here.
+       We load it dynamically below so we can init INSIDE onload. -->
 
     <style>
-      /* ══════════════════════════════════════════════════════
-       PAGE-LEVEL TOKENS & OVERRIDES
-       (header / footer / navbar come from site's main.css
-        and include.js — we only style the enquiry content)
-    ══════════════════════════════════════════════════════ */
       :root {
         --primary: #008374;
         --secondary: #00312b;
@@ -72,17 +57,12 @@
         );
         --radius: 14px;
         --radius-sm: 8px;
-        /* height of the site's sticky header — adjust if needed */
         --header-h: 70px;
       }
-
-      /* Poppins everywhere on this page */
       body {
         font-family: "Poppins", sans-serif !important;
         background: var(--bg);
       }
-
-      /* ── DESKTOP: full-viewport split, no page scroll ── */
       html.enquiry-page,
       html.enquiry-page body {
         min-height: 100%;
@@ -97,7 +77,7 @@
         overflow: visible;
       }
 
-      /* ── LEFT PANEL ─────────────────────────────────── */
+      /* LEFT PANEL */
       .left-panel {
         width: 340px;
         min-width: 290px;
@@ -132,7 +112,6 @@
         border-radius: 50%;
         pointer-events: none;
       }
-
       .lp-tag {
         display: inline-flex;
         align-items: center;
@@ -169,7 +148,6 @@
         z-index: 1;
         margin-bottom: 26px;
       }
-
       .trust-list {
         display: flex;
         flex-direction: column;
@@ -195,7 +173,6 @@
         font-size: 0.9rem;
         flex-shrink: 0;
       }
-
       .lp-contacts {
         margin-top: 26px;
         display: flex;
@@ -225,7 +202,7 @@
         color: #fff;
       }
 
-      /* ── RIGHT PANEL ────────────────────────────────── */
+      /* RIGHT PANEL */
       .right-panel {
         flex: 1;
         overflow-y: auto;
@@ -237,14 +214,10 @@
       .right-panel::-webkit-scrollbar {
         width: 4px;
       }
-      .right-panel::-webkit-scrollbar-track {
-        background: transparent;
-      }
       .right-panel::-webkit-scrollbar-thumb {
         background: var(--border);
         border-radius: 10px;
       }
-
       .right-panel-inner {
         position: relative;
         max-width: 860px;
@@ -252,8 +225,6 @@
         margin: 0 auto;
         flex: 1;
       }
-
-      /* Decorative blobs behind form */
       .bg-blob {
         position: absolute;
         border-radius: 50%;
@@ -283,7 +254,6 @@
         left: -30px;
       }
 
-      /* ── Form Card ──────────────────────────────────── */
       .form-card {
         background: var(--white);
         border-radius: var(--radius);
@@ -294,7 +264,6 @@
         z-index: 1;
       }
 
-      /* Section dividers */
       .form-section-label {
         font-size: 0.68rem;
         font-weight: 700;
@@ -312,8 +281,6 @@
         height: 1px;
         background: var(--border);
       }
-
-      /* Labels */
       .form-label {
         font-size: 0.78rem;
         font-weight: 600;
@@ -327,7 +294,6 @@
         margin-left: 2px;
       }
 
-      /* Inputs */
       .form-control,
       .form-select {
         font-family: "Poppins", sans-serif;
@@ -354,7 +320,6 @@
         color: #a8beb9;
         font-weight: 400;
       }
-
       .form-select {
         -webkit-appearance: none;
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%2300A99D' stroke-width='2' d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
@@ -369,7 +334,6 @@
         line-height: 1.6;
       }
 
-      /* Icon wrappers */
       .ig {
         position: relative;
       }
@@ -392,7 +356,6 @@
         padding-left: 33px;
       }
 
-      /* Validation states */
       .field-error {
         display: none;
         font-size: 0.71rem;
@@ -415,7 +378,6 @@
         border-color: #27ae60 !important;
       }
 
-      /* Char counter */
       .char-counter {
         font-size: 0.68rem;
         color: var(--muted);
@@ -426,7 +388,6 @@
         color: var(--accent);
       }
 
-      /* Alerts */
       .alert-custom {
         border-radius: var(--radius-sm);
         padding: 12px 16px;
@@ -468,7 +429,32 @@
         }
       }
 
-      /* Submit button */
+      /* SDK loading banner */
+      .sdk-banner {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        padding: 10px 14px;
+        border-radius: var(--radius-sm);
+        margin-bottom: 14px;
+        border: 1.5px solid;
+      }
+      .sdk-banner.loading {
+        background: #fffbe6;
+        border-color: #f0c040;
+        color: #7a5c00;
+      }
+      .sdk-banner.error {
+        background: #fdf3f2;
+        border-color: #c0392b;
+        color: #c0392b;
+      }
+      .sdk-banner.hidden {
+        display: none;
+      }
+
       .btn-submit {
         display: inline-flex;
         align-items: center;
@@ -494,9 +480,6 @@
         background: var(--btn-grad-rev);
         box-shadow: 0 7px 30px rgba(0, 49, 43, 0.38);
         transform: translateY(-2px);
-      }
-      .btn-submit:active:not(:disabled) {
-        transform: translateY(0);
       }
       .btn-submit:disabled {
         opacity: 0.78;
@@ -524,7 +507,6 @@
         }
       }
 
-      /* Privacy note */
       .privacy-note {
         display: flex;
         align-items: center;
@@ -538,7 +520,6 @@
         color: var(--accent);
       }
 
-      /* Footer strip inside right panel */
       .footer-strip {
         background: linear-gradient(90deg, #00312b 0%, #001a17 100%);
         color: rgba(255, 255, 255, 0.5);
@@ -574,42 +555,21 @@
       .footer-socials-strip a:hover {
         color: var(--accent);
       }
-
-      /* Row spacing */
       .frow {
         margin-bottom: 14px;
       }
 
-      /* ── Free Consultation modal header ─────────────── */
-      #gformModal11 .modal-header {
-        background: var(--btn-grad);
-        color: #fff;
-      }
-      #gformModal11 .modal-title {
-        font-family: "Poppins", sans-serif;
-        font-weight: 600;
-      }
-      #gformModal11 .btn-close {
-        filter: invert(1);
-      }
-
-      /* ══════════════════════════════════════════════════
-       RESPONSIVE — ≤ 900px: normal vertical scroll,
-       form on top, info panel below
-    ══════════════════════════════════════════════════ */
       @media (max-width: 900px) {
         html.enquiry-page,
         html.enquiry-page body {
           height: auto;
           overflow: auto;
         }
-
         .page-shell {
           position: static;
-          flex-direction: column-reverse; /* form first, info below */
+          flex-direction: column-reverse;
           overflow: visible;
         }
-
         .left-panel {
           width: 100%;
           min-width: unset;
@@ -631,7 +591,6 @@
           gap: 10px;
           margin-top: 16px;
         }
-
         .right-panel {
           overflow: visible;
           padding: 20px 14px 16px;
@@ -643,7 +602,6 @@
           border-radius: var(--radius-sm);
         }
       }
-
       @media (max-width: 480px) {
         .right-panel {
           padding: 14px 10px 12px;
@@ -655,8 +613,6 @@
           font-size: 1.4rem;
         }
       }
-
-      /* Accessibility */
       :focus-visible {
         outline: 2px solid var(--accent);
         outline-offset: 2px;
@@ -672,23 +628,14 @@
     </style>
   </head>
   <body>
-    <!-- ══════════════════════════════════════════════
-       HEADER — exact markup from existing site
-  ══════════════════════════════════════════════ -->
     <header id="header" class="header d-flex align-items-center">
       <div
         class="container-fluid container-xl d-flex align-items-center justify-content-between"
       >
-        <!-- Logo -->
         <a href="/index.html" class="logo d-flex align-items-center">
-          <img src="/assets/img/Airnet_logo.svg" alt="Airnet_logo" />
+          <img src="/assets/img/Airnet_logo.svg" alt="Airnet Travels" />
         </a>
-
-        <!-- Navbar + CTA -->
-        <div
-          class="d-flex align-items-center"
-          style="flex-direction: row; gap: 20px"
-        >
+        <div class="d-flex align-items-center" style="gap: 20px">
           <nav id="navbar" class="navbar">
             <ul>
               <li><a href="/index.html">Home</a></li>
@@ -697,8 +644,6 @@
               <li><a href="/contact-us.html">Contact Us</a></li>
             </ul>
           </nav>
-
-          <!-- Free Consultation button — same id as other pages -->
           <button
             class="callback-button1 consultation-btn"
             style="
@@ -706,11 +651,9 @@
               padding: 8px 18px;
               background-color: white;
               color: #079696;
-              text-decoration: none;
               border-radius: 25px;
               display: inline-block;
               font-size: 14px;
-              position: relative;
               border: none;
             "
           >
@@ -718,18 +661,12 @@
           </button>
         </div>
       </div>
-
-      <!-- Mobile nav toggles — same classes as site's main.js expects -->
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
     </header>
-    <!-- End Header -->
 
-    <!-- ══════════════════════════════════════════════
-       FULL-SCREEN SPLIT LAYOUT
-  ══════════════════════════════════════════════ -->
     <div class="page-shell">
-      <!-- ── LEFT PANEL — brand / info ─────────────── -->
+      <!-- LEFT PANEL -->
       <div class="left-panel">
         <div class="lp-tag" aria-hidden="true">
           <i class="bi bi-send-fill"></i> Travel Consultation
@@ -737,9 +674,8 @@
         <h1 class="lp-title">Enquire<br />Now</h1>
         <p class="lp-sub">
           Have questions before you book? Our expert team will get back to you
-          shortly. Fill the form and we'll be happy to assist.
+          shortly.
         </p>
-
         <div class="trust-list">
           <div class="trust-item">
             <i class="bi bi-shield-check-fill"></i> Secure &amp; Confidential
@@ -751,37 +687,40 @@
             <i class="bi bi-star-fill"></i> Expert Advisors
           </div>
         </div>
-
         <div class="lp-contacts">
           <div class="lp-contact-row">
-            <i class="bi bi-geo-alt-fill"></i>
-            <span>SCO 56, SBS Nagar, Ludhiana – 141001</span>
+            <i class="bi bi-geo-alt-fill"></i
+            ><span>SCO 56, SBS Nagar, Ludhiana – 141001</span>
           </div>
           <div class="lp-contact-row">
-            <i class="bi bi-telephone-fill"></i>
-            <a href="tel:+911613509826">+91 161 350 9826</a>
+            <i class="bi bi-telephone-fill"></i
+            ><a href="tel:+911613509826">+91 161 350 9826</a>
           </div>
           <div class="lp-contact-row">
-            <i class="bi bi-envelope-fill"></i>
-            <a href="mailto:support@airnet-travels.com"
+            <i class="bi bi-envelope-fill"></i
+            ><a href="mailto:support@airnet-travels.com"
               >support@airnet-travels.com</a
             >
           </div>
           <div class="lp-contact-row">
-            <i class="bi bi-clock-fill"></i>
-            <span>Mon–Sat: 10 AM – 7 PM</span>
+            <i class="bi bi-clock-fill"></i><span>Mon–Sat: 10 AM – 7 PM</span>
           </div>
         </div>
       </div>
 
-      <!-- ── RIGHT PANEL — enquiry form ────────────── -->
+      <!-- RIGHT PANEL -->
       <div class="right-panel">
         <div class="right-panel-inner">
           <div class="bg-blob bg-blob-1" aria-hidden="true"></div>
           <div class="bg-blob bg-blob-2" aria-hidden="true"></div>
 
           <div class="form-card">
-            <!-- Alerts -->
+            <!-- SDK status banner (hidden once ready) -->
+            <div id="sdk-banner" class="sdk-banner loading">
+              <i class="bi bi-hourglass-split"></i> Preparing form…
+            </div>
+
+            <!-- Success / Error alerts -->
             <div
               id="alert-success"
               class="alert-custom alert-success-c"
@@ -801,17 +740,15 @@
               aria-live="polite"
             >
               <i class="bi bi-exclamation-circle-fill"></i>
-              <div>
+              <div id="alert-error-body">
                 <strong>Something went wrong.</strong> Please try again or email
-                us at info@airnettravels.com.
+                us at support@airnet-travels.com.
               </div>
             </div>
 
             <form id="enquiry-form" novalidate autocomplete="on">
-              <!-- Personal Details -->
               <div class="form-section-label">Personal Details</div>
 
-              <!-- Row 1: Name + Email -->
               <div class="row frow">
                 <div class="col-md-6 mb-2 mb-md-0">
                   <label for="name" class="form-label"
@@ -819,7 +756,7 @@
                     <span class="req" aria-hidden="true">*</span></label
                   >
                   <div class="ig">
-                    <i class="bi bi-person-fill ic" aria-hidden="true"></i>
+                    <i class="bi bi-person-fill ic"></i>
                     <input
                       type="text"
                       id="name"
@@ -842,7 +779,7 @@
                     <span class="req" aria-hidden="true">*</span></label
                   >
                   <div class="ig">
-                    <i class="bi bi-envelope-fill ic" aria-hidden="true"></i>
+                    <i class="bi bi-envelope-fill ic"></i>
                     <input
                       type="email"
                       id="email"
@@ -861,7 +798,6 @@
                 </div>
               </div>
 
-              <!-- Row 2: Phone + City -->
               <div class="row frow">
                 <div class="col-md-6 mb-2 mb-md-0">
                   <label for="phone" class="form-label"
@@ -869,7 +805,7 @@
                     <span class="req" aria-hidden="true">*</span></label
                   >
                   <div class="ig">
-                    <i class="bi bi-telephone-fill ic" aria-hidden="true"></i>
+                    <i class="bi bi-telephone-fill ic"></i>
                     <input
                       type="tel"
                       id="phone"
@@ -892,7 +828,7 @@
                     <span class="req" aria-hidden="true">*</span></label
                   >
                   <div class="ig">
-                    <i class="bi bi-geo-alt-fill ic" aria-hidden="true"></i>
+                    <i class="bi bi-geo-alt-fill ic"></i>
                     <input
                       type="text"
                       id="city"
@@ -911,12 +847,10 @@
                 </div>
               </div>
 
-              <!-- Trip Details -->
               <div class="form-section-label" style="margin-top: 4px">
                 Trip Details
               </div>
 
-              <!-- Row 3: Guests + Date -->
               <div class="row frow">
                 <div class="col-md-6 mb-2 mb-md-0">
                   <label for="guests" class="form-label"
@@ -924,7 +858,7 @@
                     <span class="req" aria-hidden="true">*</span></label
                   >
                   <div class="ig">
-                    <i class="bi bi-people-fill ic" aria-hidden="true"></i>
+                    <i class="bi bi-people-fill ic"></i>
                     <select
                       id="guests"
                       name="guests"
@@ -935,21 +869,11 @@
                       <option value="" disabled selected>
                         Select guest composition
                       </option>
-                      <option value="2 Adults, 0 Child, 0 Child-2, 0 Infant">
-                        2 Adults, 0 Child, 0 Child-2, 0 Infant
-                      </option>
-                      <option value="2 Adults, 1 Child, 0 Child-2, 0 Infant">
-                        2 Adults, 1 Child, 0 Child-2, 0 Infant
-                      </option>
-                      <option value="2 Adults, 2 Child, 0 Child-2, 0 Infant">
-                        2 Adults, 2 Child, 0 Child-2, 0 Infant
-                      </option>
-                      <option value="4 Adults, 0 Child, 0 Child-2, 0 Infant">
-                        4 Adults, 0 Child, 0 Child-2, 0 Infant
-                      </option>
-                      <option value="6 Adults, 0 Child, 0 Child-2, 0 Infant">
-                        6 Adults, 0 Child, 0 Child-2, 0 Infant
-                      </option>
+                      <option>2 Adults, 0 Child, 0 Child-2, 0 Infant</option>
+                      <option>2 Adults, 1 Child, 0 Child-2, 0 Infant</option>
+                      <option>2 Adults, 2 Child, 0 Child-2, 0 Infant</option>
+                      <option>4 Adults, 0 Child, 0 Child-2, 0 Infant</option>
+                      <option>6 Adults, 0 Child, 0 Child-2, 0 Infant</option>
                     </select>
                   </div>
                   <div class="field-error" id="guests-error" role="alert">
@@ -963,7 +887,7 @@
                     <span class="req" aria-hidden="true">*</span></label
                   >
                   <div class="ig">
-                    <i class="bi bi-calendar3 ic" aria-hidden="true"></i>
+                    <i class="bi bi-calendar3 ic"></i>
                     <input
                       type="date"
                       id="travel_date"
@@ -980,24 +904,20 @@
                 </div>
               </div>
 
-              <!-- Row 4: Message -->
               <div class="frow">
                 <label for="message" class="form-label"
                   >Your Query
                   <span class="req" aria-hidden="true">*</span></label
                 >
                 <div class="ig">
-                  <i
-                    class="bi bi-chat-text-fill ic ic-top"
-                    aria-hidden="true"
-                  ></i>
+                  <i class="bi bi-chat-text-fill ic ic-top"></i>
                   <textarea
                     id="message"
                     name="message"
                     class="form-control"
                     rows="3"
                     maxlength="1000"
-                    placeholder="Please write your queries — destinations, budget, visa help, special requirements…"
+                    placeholder="Destinations, budget, visa help, special requirements…"
                     aria-required="true"
                     aria-describedby="message-error"
                   ></textarea>
@@ -1013,12 +933,12 @@
                 </div>
               </div>
 
-              <!-- Submit -->
               <div style="margin-top: 18px">
                 <button
                   type="submit"
                   id="submit-btn"
                   class="btn-submit"
+                  disabled
                   aria-label="Submit your travel enquiry"
                 >
                   <span class="spinner" aria-hidden="true"></span>
@@ -1040,13 +960,13 @@
           </div>
           <!-- /form-card -->
 
-          <!-- Slim footer strip -->
           <div class="footer-strip">
-            <span>
-              &copy; <span id="footer-year"></span> Airnet Travels. All rights
-              reserved. &nbsp;&middot;&nbsp;
-              <a href="/privacy-policy.html">Privacy</a> &nbsp;&middot;&nbsp;
-              <a href="/terms.html">Terms</a>
+            <span
+              >&copy; <span id="footer-year"></span> Airnet Travels. All rights
+              reserved. &nbsp;&middot;&nbsp;<a href="/privacy-policy.html"
+                >Privacy</a
+              >
+              &nbsp;&middot;&nbsp;<a href="/terms.html">Terms</a>
             </span>
             <div class="footer-socials-strip">
               <a
@@ -1073,387 +993,372 @@
             </div>
           </div>
         </div>
-        <!-- /right-panel-inner -->
       </div>
-      <!-- /right-panel -->
     </div>
     <!-- /page-shell -->
 
-    <!-- ══════════════════════════════════════════════
-       FOOTER & WHATSAPP — injected by include.js
-       (same as every other page on the site)
-  ══════════════════════════════════════════════ -->
     <div id="FooterSection"></div>
     <div id="whatsapp_chat"></div>
 
-    <!-- ══════════════════════════════════════════════
-       FREE CONSULTATION MODAL
-       id="gformModal11" matches openModalButton11
-  ══════════════════════════════════════════════ -->
-    <div
-      class="modal fade"
-      id="gformModal11"
-      tabindex="-1"
-      aria-labelledby="gformModal11Label"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title consultation-btn">Free Consultation</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ══════════════════════════════════════════════
-       SITE SCRIPTS — same order as other pages
-  ══════════════════════════════════════════════ -->
-    <!-- Vendor plugins (handles mobile nav, etc.) -->
-    <script src="vendor/plugins/js/plugins.min.js"></script>
-    <!-- Site theme JS (mobile nav toggle, sticky header…) -->
-    <script src="js/theme.js"></script>
-    <script src="js/custom.js"></script>
-    <script src="js/theme.init.js"></script>
-
-    <!-- Bootstrap 5 bundle (Popper included) -->
+    <!-- Site scripts — onerror prevents 404s from crashing the page -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- include.js injects #FooterSection and #whatsapp_chat -->
-    <script src="/assets/js/include.js"></script>
-
-    <!-- Site vendor JS -->
-    <script src="/assets/vendor/aos/aos.js"></script>
-    <script src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
-    <script src="/assets/js/main.js"></script>
+    <script
+      src="/assets/vendor/plugins/js/plugins.min.js"
+      onerror="console.warn('plugins.min.js missing')"
+    ></script>
+    <script
+      src="/assets/js/theme.js"
+      onerror="console.warn('theme.js missing')"
+    ></script>
+    <script
+      src="/assets/js/custom.js"
+      onerror="console.warn('custom.js missing')"
+    ></script>
+    <script
+      src="/assets/js/theme.init.js"
+      onerror="console.warn('theme.init.js missing')"
+    ></script>
+    <script
+      src="/assets/js/include.js"
+      onerror="console.warn('include.js missing')"
+    ></script>
+    <script
+      src="/assets/vendor/aos/aos.js"
+      onerror="console.warn('aos.js missing')"
+    ></script>
+    <script
+      src="/assets/vendor/purecounter/purecounter_vanilla.js"
+      onerror="console.warn('purecounter missing')"
+    ></script>
+    <script
+      src="/assets/js/main.js"
+      onerror="console.warn('main.js missing')"
+    ></script>
 
     <script>
       document.getElementById("footer-year").textContent =
         new Date().getFullYear();
       document.documentElement.classList.add("enquiry-page");
 
-      const openModalBtn = document.getElementById("openModalButton11");
-      if (openModalBtn) {
-        openModalBtn.addEventListener("click", function () {
-          new bootstrap.Modal(document.getElementById("gformModal11")).show();
+      // ════════════════════════════════════════════════════════
+      //  YOUR EmailJS CREDENTIALS — change only these 3 lines
+      // ════════════════════════════════════════════════════════
+      var EJS_PUBLIC_KEY = "3cca92rxbunMTd_11"; // Dashboard → Account → API Keys
+      var EJS_SERVICE_ID = "service_ohiucs9"; // Dashboard → Email Services
+      var EJS_TEMPLATE_ID = "template_c3gj304"; // Dashboard → Email Templates
+      // ════════════════════════════════════════════════════════
+
+      var sdkBanner = document.getElementById("sdk-banner");
+      var submitBtn = document.getElementById("submit-btn");
+      var alertOk = document.getElementById("alert-success");
+      var alertErr = document.getElementById("alert-error");
+      var alertErrBody = document.getElementById("alert-error-body");
+      var charCounter = document.getElementById("char-counter");
+      var msgField = document.getElementById("message");
+      var form = document.getElementById("enquiry-form");
+
+      // ── Dynamically load EmailJS so init() runs INSIDE onload ──────
+      // This is the ONLY reliable way to avoid "public key is required"
+      (function () {
+        var s = document.createElement("script");
+        s.src =
+          "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js";
+
+        s.onload = function () {
+          console.log("SDK loaded");
+          // ✅ SDK is now fully parsed — safe to call init()
+          try {
+            emailjs.init({ publicKey: EJS_PUBLIC_KEY });
+            console.log("EmailJS initialized");
+            // Hide banner, enable button
+            sdkBanner.classList.add("hidden");
+            submitBtn.disabled = false;
+            console.log(
+              "✅ EmailJS ready. Service:",
+              EJS_SERVICE_ID,
+              "| Template:",
+              EJS_TEMPLATE_ID,
+            );
+          } catch (e) {
+            sdkBanner.className = "sdk-banner error";
+            sdkBanner.innerHTML =
+              '<i class="bi bi-exclamation-triangle-fill"></i> EmailJS init failed: ' +
+              e.message;
+            console.error("emailjs.init error:", e);
+          }
+        };
+
+        s.onerror = function () {
+          sdkBanner.className = "sdk-banner error";
+          sdkBanner.innerHTML =
+            '<i class="bi bi-wifi-off"></i> Could not load EmailJS — check your internet connection and reload.';
+          console.error("Failed to load EmailJS CDN script.");
+        };
+
+        document.head.appendChild(s);
+      })();
+
+      // ── Char counter ───────────────────────────────────────────────
+      msgField.addEventListener("input", function () {
+        var len = this.value.length;
+        charCounter.textContent = len + " / 1000 characters";
+        charCounter.className = "char-counter" + (len > 900 ? " warn" : "");
+      });
+
+      // ── Date min = today ───────────────────────────────────────────
+      document
+        .getElementById("travel_date")
+        .setAttribute("min", new Date().toISOString().split("T")[0]);
+
+      // ── Validation helpers ─────────────────────────────────────────
+      function showFieldError(fieldId, errorId, msg) {
+        var f = document.getElementById(fieldId);
+        var e = document.getElementById(errorId);
+        f.classList.add("is-invalid");
+        f.classList.remove("is-valid");
+        if (msg) {
+          var sp = e.querySelector("span");
+          if (sp) sp.textContent = msg;
+        }
+        e.classList.add("show");
+        return false;
+      }
+      function clearFieldError(fieldId, errorId) {
+        var f = document.getElementById(fieldId);
+        var e = document.getElementById(errorId);
+        f.classList.remove("is-invalid");
+        f.classList.add("is-valid");
+        e.classList.remove("show");
+      }
+      function hideAlerts() {
+        alertOk.classList.remove("show");
+        alertErr.classList.remove("show");
+      }
+      function attachBlur(id, fn) {
+        var el = document.getElementById(id);
+        el.addEventListener("blur", fn);
+        el.addEventListener("input", function () {
+          if (this.classList.contains("is-invalid")) fn.call(this);
         });
       }
 
-      (function () {
-        "use strict";
+      // Per-field live validation
+      attachBlur("name", function () {
+        this.value.trim()
+          ? clearFieldError("name", "name-error")
+          : showFieldError("name", "name-error");
+      });
+      attachBlur("email", function () {
+        var v = this.value.trim();
+        if (!v)
+          return showFieldError(
+            "email",
+            "email-error",
+            "Email address is required.",
+          );
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))
+          return showFieldError(
+            "email",
+            "email-error",
+            "Please enter a valid email address.",
+          );
+        clearFieldError("email", "email-error");
+      });
+      attachBlur("phone", function () {
+        var v = this.value.trim().replace(/[\s\-\+\(\)]/g, "");
+        if (!v)
+          return showFieldError(
+            "phone",
+            "phone-error",
+            "Phone number is required.",
+          );
+        if (v.length < 10 || !/^\d+$/.test(v))
+          return showFieldError(
+            "phone",
+            "phone-error",
+            "Enter a valid phone number (min. 10 digits).",
+          );
+        clearFieldError("phone", "phone-error");
+      });
+      attachBlur("city", function () {
+        this.value.trim()
+          ? clearFieldError("city", "city-error")
+          : showFieldError("city", "city-error");
+      });
+      attachBlur("guests", function () {
+        this.value
+          ? clearFieldError("guests", "guests-error")
+          : showFieldError("guests", "guests-error");
+      });
+      attachBlur("travel_date", function () {
+        this.value
+          ? clearFieldError("travel_date", "date-error")
+          : showFieldError("travel_date", "date-error");
+      });
+      attachBlur("message", function () {
+        var v = this.value.trim();
+        if (!v)
+          return showFieldError(
+            "message",
+            "message-error",
+            "Please enter your query.",
+          );
+        if (v.length < 10)
+          return showFieldError(
+            "message",
+            "message-error",
+            "Your query must be at least 10 characters.",
+          );
+        clearFieldError("message", "message-error");
+      });
 
-        // ✅ v4 correct init syntax
-        emailjs.init({ publicKey: "XLVuW_0Sqt-ZRyl47" });
+      function validateAll() {
+        var ok = true;
+        var name = document.getElementById("name").value.trim();
+        var email = document.getElementById("email").value.trim();
+        var phone = document
+          .getElementById("phone")
+          .value.trim()
+          .replace(/[\s\-\+\(\)]/g, "");
+        var city = document.getElementById("city").value.trim();
+        var guests = document.getElementById("guests").value;
+        var date = document.getElementById("travel_date").value;
+        var msg = document.getElementById("message").value.trim();
 
-        const form = document.getElementById("enquiry-form");
-        const submitBtn = document.getElementById("submit-btn");
-        const btnLoading = submitBtn.querySelector(".btn-text-loading");
-        const alertOk = document.getElementById("alert-success");
-        const alertErr = document.getElementById("alert-error");
-        const msgField = document.getElementById("message");
-        const charCounter = document.getElementById("char-counter");
+        if (!name) {
+          showFieldError("name", "name-error");
+          ok = false;
+        } else clearFieldError("name", "name-error");
 
-        msgField.addEventListener("input", function () {
-          const len = this.value.length;
-          charCounter.textContent = len + " / 1000 characters";
-          charCounter.className = "char-counter" + (len > 900 ? " warn" : "");
-        });
+        if (!email) {
+          showFieldError("email", "email-error", "Email address is required.");
+          ok = false;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          showFieldError("email", "email-error", "Please enter a valid email.");
+          ok = false;
+        } else clearFieldError("email", "email-error");
 
-        document
-          .getElementById("travel_date")
-          .setAttribute("min", new Date().toISOString().split("T")[0]);
+        if (!phone) {
+          showFieldError("phone", "phone-error", "Phone number is required.");
+          ok = false;
+        } else if (phone.length < 10 || !/^\d+$/.test(phone)) {
+          showFieldError(
+            "phone",
+            "phone-error",
+            "Enter a valid phone number (min. 10 digits).",
+          );
+          ok = false;
+        } else clearFieldError("phone", "phone-error");
 
-        function showError(fieldId, errorId, msg) {
-          const field = document.getElementById(fieldId);
-          const err = document.getElementById(errorId);
-          field.classList.add("is-invalid");
-          field.classList.remove("is-valid");
-          if (msg) {
-            const span = err.querySelector("span");
-            if (span) span.textContent = msg;
-          }
-          err.classList.add("show");
-          return false;
-        }
-        function clearError(fieldId, errorId) {
-          const field = document.getElementById(fieldId);
-          const err = document.getElementById(errorId);
-          field.classList.remove("is-invalid");
-          field.classList.add("is-valid");
-          err.classList.remove("show");
-        }
-        function hideAlerts() {
-          alertOk.classList.remove("show");
-          alertErr.classList.remove("show");
-        }
+        if (!city) {
+          showFieldError("city", "city-error");
+          ok = false;
+        } else clearFieldError("city", "city-error");
 
-        function attachBlur(id, fn) {
-          const el = document.getElementById(id);
-          el.addEventListener("blur", fn);
-          el.addEventListener("input", function () {
-            if (this.classList.contains("is-invalid")) fn.call(this);
-          });
-        }
+        if (!guests) {
+          showFieldError("guests", "guests-error");
+          ok = false;
+        } else clearFieldError("guests", "guests-error");
 
-        attachBlur("name", function () {
-          this.value.trim()
-            ? clearError("name", "name-error")
-            : showError("name", "name-error");
-        });
-        attachBlur("email", function () {
-          const v = this.value.trim();
-          if (!v)
-            return showError(
-              "email",
-              "email-error",
-              "Email address is required.",
-            );
-          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))
-            return showError(
-              "email",
-              "email-error",
-              "Please enter a valid email address.",
-            );
-          clearError("email", "email-error");
-        });
-        attachBlur("phone", function () {
-          const v = this.value.trim().replace(/[\s\-\+\(\)]/g, "");
-          if (!v)
-            return showError(
-              "phone",
-              "phone-error",
-              "Phone number is required.",
-            );
-          if (v.length < 10 || !/^\d+$/.test(v))
-            return showError(
-              "phone",
-              "phone-error",
-              "Enter a valid phone number (min. 10 digits).",
-            );
-          clearError("phone", "phone-error");
-        });
-        attachBlur("city", function () {
-          this.value.trim()
-            ? clearError("city", "city-error")
-            : showError("city", "city-error");
-        });
-        attachBlur("guests", function () {
-          this.value
-            ? clearError("guests", "guests-error")
-            : showError("guests", "guests-error");
-        });
-        attachBlur("travel_date", function () {
-          this.value
-            ? clearError("travel_date", "date-error")
-            : showError("travel_date", "date-error");
-        });
-        attachBlur("message", function () {
-          const v = this.value.trim();
-          if (!v)
-            return showError(
-              "message",
-              "message-error",
-              "Please enter your query.",
-            );
-          if (v.length < 10)
-            return showError(
-              "message",
-              "message-error",
-              "Your query must be at least 10 characters.",
-            );
-          clearError("message", "message-error");
-        });
+        if (!date) {
+          showFieldError("travel_date", "date-error");
+          ok = false;
+        } else clearFieldError("travel_date", "date-error");
 
-        function validateAll() {
-          let ok = true;
-          const name = document.getElementById("name").value.trim();
-          const email = document.getElementById("email").value.trim();
-          const phone = document
-            .getElementById("phone")
-            .value.trim()
-            .replace(/[\s\-\+\(\)]/g, "");
-          const city = document.getElementById("city").value.trim();
-          const guests = document.getElementById("guests").value;
-          const date = document.getElementById("travel_date").value;
-          const msg = document.getElementById("message").value.trim();
+        if (!msg) {
+          showFieldError(
+            "message",
+            "message-error",
+            "Please enter your query.",
+          );
+          ok = false;
+        } else if (msg.length < 10) {
+          showFieldError(
+            "message",
+            "message-error",
+            "Your query must be at least 10 characters.",
+          );
+          ok = false;
+        } else clearFieldError("message", "message-error");
 
-          if (!name) {
-            showError("name", "name-error");
-            ok = false;
-          } else clearError("name", "name-error");
+        return ok;
+      }
 
-          if (!email) {
-            showError("email", "email-error", "Email address is required.");
-            ok = false;
-          } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            showError(
-              "email",
-              "email-error",
-              "Please enter a valid email address.",
-            );
-            ok = false;
-          } else clearError("email", "email-error");
+      function setLoading(state) {
+        submitBtn.disabled = state;
+        submitBtn.classList.toggle("loading", state);
+        submitBtn.querySelector(".btn-text-loading").style.display = state
+          ? "inline"
+          : "none";
+      }
 
-          if (!phone) {
-            showError("phone", "phone-error", "Phone number is required.");
-            ok = false;
-          } else if (phone.length < 10 || !/^\d+$/.test(phone)) {
-            showError(
-              "phone",
-              "phone-error",
-              "Enter a valid phone number (min. 10 digits).",
-            );
-            ok = false;
-          } else clearError("phone", "phone-error");
-
-          if (!city) {
-            showError("city", "city-error");
-            ok = false;
-          } else clearError("city", "city-error");
-
-          if (!guests) {
-            showError("guests", "guests-error");
-            ok = false;
-          } else clearError("guests", "guests-error");
-
-          if (!date) {
-            showError("travel_date", "date-error");
-            ok = false;
-          } else clearError("travel_date", "date-error");
-
-          if (!msg) {
-            showError("message", "message-error", "Please enter your query.");
-            ok = false;
-          } else if (msg.length < 10) {
-            showError(
-              "message",
-              "message-error",
-              "Your query must be at least 10 characters.",
-            );
-            ok = false;
-          } else clearError("message", "message-error");
-
-          return ok;
+      // ── Submit ─────────────────────────────────────────────────────
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        hideAlerts();
+        if (!validateAll()) {
+          var first = form.querySelector(".is-invalid");
+          if (first) first.focus();
+          return;
         }
 
-        function setLoading(state) {
-          submitBtn.disabled = state;
-          submitBtn.classList.toggle("loading", state);
-          btnLoading.style.display = state ? "inline" : "none";
-        }
+        console.log("Form submitted");
+        setLoading(true);
 
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
-          hideAlerts();
-          if (!validateAll()) {
-            const first = form.querySelector(".is-invalid");
-            if (first) first.focus();
-            return;
-          }
-          setLoading(true);
-          emailjs
-            .sendForm("service_uhf2nhy", "template_nuvj2ss", form)
-            .then(function () {
-              alertOk.classList.add("show");
-              alertOk.scrollIntoView({ behavior: "smooth", block: "nearest" });
-              form.reset();
-              charCounter.textContent = "0 / 1000 characters";
-              charCounter.className = "char-counter";
-              form
-                .querySelectorAll(".is-valid")
-                .forEach((el) => el.classList.remove("is-valid"));
-            })
-            .catch(function (err) {
-              console.error("EmailJS error:", err);
-              alertErr.classList.add("show");
-              alertErr.scrollIntoView({ behavior: "smooth", block: "nearest" });
-            })
-            .finally(function () {
-              setLoading(false);
+        emailjs
+          .sendForm(EJS_SERVICE_ID, EJS_TEMPLATE_ID, form, {
+            publicKey: EJS_PUBLIC_KEY,
+          })
+          .then(function (res) {
+            console.log("Email sent successfully");
+            console.log("✅ EmailJS sent:", res.status, res.text);
+            alertOk.classList.add("show");
+            alertOk.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            form.reset();
+            charCounter.textContent = "0 / 1000 characters";
+            charCounter.className = "char-counter";
+            form.querySelectorAll(".is-valid").forEach(function (el) {
+              el.classList.remove("is-valid");
             });
-        });
-      })();
-    </script>
+          })
+          .catch(function (err) {
+            console.error("EMAILJS FULL ERROR:", err);
+            console.error("STATUS:", err.status);
+            console.error("TEXT:", err.text);
 
-    <!-- ✅ Only ONE sharedModalContainer — duplicate removed -->
-    <div id="sharedModalContainer"></div>
-    <script>
-      document.addEventListener("DOMContentLoaded", async () => {
-        try {
-          const response = await fetch("/services/Free-consult-modal.html");
-          const html = await response.text();
-          document.getElementById("sharedModalContainer").innerHTML = html;
-          const scripts = document
-            .getElementById("sharedModalContainer")
-            .querySelectorAll("script");
-          scripts.forEach((oldScript) => {
-            const newScript = document.createElement("script");
-            if (oldScript.src) {
-              newScript.src = oldScript.src;
-            } else {
-              newScript.textContent = oldScript.textContent;
-            }
-            document.body.appendChild(newScript);
+            alertErrBody.innerHTML =
+              "<strong>EmailJS Error:</strong> " +
+              (err.text || "Unknown error");
+
+            alertErr.classList.add("show");
+            alertErr.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          })
+          .finally(function () {
+            setLoading(false);
           });
-        } catch (error) {
-          console.error("Unable to load consultation modal:", error);
-        }
       });
     </script>
 
+    <!-- ✅ ONE modal container, ONE fetch call -->
     <div id="sharedModalContainer"></div>
     <script>
-      document.addEventListener("DOMContentLoaded", async () => {
-        try {
-          const response = await fetch("./services/Free-consult-modal.html");
-          const html = await response.text();
-          document.getElementById("sharedModalContainer").innerHTML = html;
-          const scripts = document
-            .getElementById("sharedModalContainer")
-            .querySelectorAll("script");
-          scripts.forEach((oldScript) => {
-            const newScript = document.createElement("script");
-            if (oldScript.src) {
-              newScript.src = oldScript.src;
-            } else {
-              newScript.textContent = oldScript.textContent;
-            }
-            document.body.appendChild(newScript);
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("/services/Free-consult-modal.html")
+          .then(function (r) {
+            return r.text();
+          })
+          .then(function (html) {
+            var c = document.getElementById("sharedModalContainer");
+            c.innerHTML = html;
+            c.querySelectorAll("script").forEach(function (old) {
+              var s = document.createElement("script");
+              old.src ? (s.src = old.src) : (s.textContent = old.textContent);
+              document.body.appendChild(s);
+            });
+          })
+          .catch(function (e) {
+            console.warn("Consultation modal not loaded:", e);
           });
-        } catch (error) {
-          console.error("Unable to load consultation modal:", error);
-        }
-      });
-    </script>
-
-    <div id="sharedModalContainer"></div>
-    <script>
-      document.addEventListener("DOMContentLoaded", async () => {
-        try {
-          const response = await fetch("/services/Free-consult-modal.html");
-          const html = await response.text();
-          document.getElementById("sharedModalContainer").innerHTML = html;
-          const scripts = document
-            .getElementById("sharedModalContainer")
-            .querySelectorAll("script");
-          scripts.forEach((oldScript) => {
-            const newScript = document.createElement("script");
-            if (oldScript.src) {
-              newScript.src = oldScript.src;
-            } else {
-              newScript.textContent = oldScript.textContent;
-            }
-            document.body.appendChild(newScript);
-          });
-        } catch (error) {
-          console.error("Unable to load consultation modal:", error);
-        }
       });
     </script>
   </body>

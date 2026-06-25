@@ -44,8 +44,13 @@
   href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
   rel="stylesheet"
 />
-<!-- EmailJS -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<!-- EmailJS is loaded dynamically inside the IIFE below to guarantee
+     init() only runs AFTER the SDK is fully parsed. The static <script src>
+     tag that was here is intentionally removed — when this file is fetched
+     and injected via innerHTML, static src-based script tags are NOT
+     executed by browsers; they must be recreated. Loading dynamically
+     inside the IIFE's onload callback is the only race-condition-free
+     approach that works in both standalone and fetch-injected contexts. -->
 
 <style>
   /* =============================================
@@ -594,73 +599,133 @@
 
 <script>
   (function () {
-    /* =============================================
-     EmailJS Init — replace with your real keys
-  ============================================= */
-    const EMAILJS_PUBLIC_KEY = "EMAILJS_PUBLIC_KEY";
-    const EMAILJS_SERVICE_ID = "EMAILJS_SERVICE_ID";
-    const EMAILJS_TEMPLATE_ID = "EMAILJS_TEMPLATE_ID";
-
-    if (typeof emailjs !== "undefined") {
-      emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+    // Guard: prevent duplicate initialisation if this fragment is ever
+    // injected more than once into the same page.
+    if (window.__fcModalInitialised) {
+      console.warn("[FC Modal] Already initialised — skipping duplicate.");
+      return;
     }
+    window.__fcModalInitialised = true;
 
     /* =============================================
-     DOM References
-  ============================================= */
-    const overlay = document.getElementById("fcModalOverlay");
-    const closeBtn = document.getElementById("fcCloseModal");
-    const form = document.getElementById("fcContactForm");
-    const submitBtn = document.getElementById("fcSubmitBtn");
-    const toastWrap = document.getElementById("fcToastContainer");
+       EmailJS Credentials
+    ============================================= */
+    var EMAILJS_PUBLIC_KEY = "3cca92rxbunMTd_11";
+    var EMAILJS_SERVICE_ID = "service_ohiucs9";
+    var EMAILJS_TEMPLATE_ID = "template_2bhmfyh";
 
     /* =============================================
-     Open / Close
-  ============================================= */
+       DOM References
+    ============================================= */
+    var overlay = document.getElementById("fcModalOverlay");
+    var closeBtn = document.getElementById("fcCloseModal");
+    var form = document.getElementById("fcContactForm");
+    var submitBtn = document.getElementById("fcSubmitBtn");
+    var toastWrap = document.getElementById("fcToastContainer");
+
+    /* =============================================
+       Dynamically load EmailJS SDK
+       ─────────────────────────────────────────────
+       WHY: When this file is fetched via XHR/fetch
+       and injected via innerHTML, static <script src>
+       tags are silently ignored by browsers. Only
+       dynamically-created <script> nodes trigger
+       network fetches. We therefore load the SDK
+       here and call init() inside the onload
+       callback — the ONLY safe moment.
+    ============================================= */
+    var _ejsReady = false; // tracks whether init() succeeded
+
+    (function loadEmailJS() {
+      // If the SDK is already on the page (e.g. contact-us.html also loaded
+      // it), skip the fetch and init immediately.
+      if (typeof emailjs !== "undefined") {
+        console.log("[FC Modal] EmailJS SDK already present on page.");
+        try {
+          emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+          _ejsReady = true;
+          console.log(
+            "[FC Modal] EmailJS initialized. Service:",
+            EMAILJS_SERVICE_ID,
+            "| Template:",
+            EMAILJS_TEMPLATE_ID,
+          );
+        } catch (e) {
+          console.error("[FC Modal] emailjs.init() failed:", e);
+        }
+        return;
+      }
+
+      var s = document.createElement("script");
+      s.src =
+        "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js";
+      s.async = true;
+
+      s.onload = function () {
+        console.log("[FC Modal] EmailJS SDK loaded.");
+        try {
+          emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+          _ejsReady = true;
+          console.log(
+            "[FC Modal] EmailJS initialized. Service:",
+            EMAILJS_SERVICE_ID,
+            "| Template:",
+            EMAILJS_TEMPLATE_ID,
+          );
+        } catch (e) {
+          console.error("[FC Modal] emailjs.init() failed:", e);
+        }
+      };
+
+      s.onerror = function () {
+        console.error(
+          "[FC Modal] Failed to load EmailJS SDK from CDN. Check internet connection.",
+        );
+      };
+
+      document.head.appendChild(s);
+    })();
+
+    /* =============================================
+       Open / Close
+    ============================================= */
     function openModal() {
       overlay.classList.add("active");
       document.body.style.overflow = "hidden";
-      setTimeout(() => closeBtn.focus(), 350);
+      setTimeout(function () {
+        closeBtn.focus();
+      }, 350);
     }
 
     function closeModal() {
       overlay.classList.remove("active");
       document.body.style.overflow = "";
-      if (document.activeElement) {
-        document.activeElement.blur();
-      }
+      if (document.activeElement) document.activeElement.blur();
     }
 
-    /* --------------------------------------------------
-     Global delegation: any .consultation-btn click
-     opens this modal — works across ALL pages that
-     load this file.
-  -------------------------------------------------- */
+    /* Global delegation: any .consultation-btn click opens the modal */
     document.addEventListener("click", function (e) {
-      const trigger = e.target.closest(".consultation-btn");
+      var trigger = e.target.closest(".consultation-btn");
       if (trigger) {
         e.preventDefault();
         openModal();
       }
     });
 
-    /* Close button inside modal */
     closeBtn.addEventListener("click", closeModal);
 
-    /* Close on overlay backdrop click */
     overlay.addEventListener("click", function (e) {
       if (e.target === overlay) closeModal();
     });
 
-    /* Close on Escape key */
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && overlay.classList.contains("active"))
         closeModal();
     });
 
     /* =============================================
-     Form Validation
-  ============================================= */
+       Form Validation
+    ============================================= */
     function getField(id) {
       return document.getElementById(id);
     }
@@ -705,8 +770,8 @@
     }
 
     /* =============================================
-     Toast Notifications
-  ============================================= */
+       Toast Notifications
+    ============================================= */
     function showToast(type, message) {
       var toast = document.createElement("div");
       toast.className = "fc-toast fc-" + type;
@@ -737,9 +802,9 @@
     }
 
     /* =============================================
-     Form Submit — EmailJS
-  ============================================= */
-    form.addEventListener("submit", async function (e) {
+       Form Submit — EmailJS
+    ============================================= */
+    form.addEventListener("submit", function (e) {
       e.preventDefault();
 
       if (!validateForm()) {
@@ -747,8 +812,17 @@
         return;
       }
 
-      submitBtn.classList.add("fc-loading");
-      submitBtn.disabled = true;
+      // ── Verify SDK is ready ──────────────────────
+      if (typeof emailjs === "undefined") {
+        console.error("[FC Modal] Submit blocked: EmailJS SDK not loaded.");
+        showToast(
+          "error",
+          "Email service not ready. Please refresh and try again.",
+        );
+        return;
+      }
+
+      console.log("[FC Modal] Form submit started.");
 
       var templateParams = {
         from_name: getField("fcFullName").value.trim(),
@@ -757,30 +831,41 @@
         message: getField("fcMessage").value.trim(),
       };
 
-      try {
-        if (typeof emailjs !== "undefined") {
-          await emailjs.send(
-            EMAILJS_SERVICE_ID,
-            EMAILJS_TEMPLATE_ID,
-            templateParams,
+      console.log("[FC Modal] Template parameters:", templateParams);
+
+      submitBtn.classList.add("fc-loading");
+      submitBtn.disabled = true;
+
+      // Pass publicKey explicitly at send-time as a Belt-and-Suspenders
+      // guard against the "public key is required" error in EmailJS v4
+      // (can happen if init() was skipped or called before SDK parsed).
+      emailjs
+        .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, {
+          publicKey: EMAILJS_PUBLIC_KEY,
+        })
+        .then(function (res) {
+          console.log("[FC Modal] Email sent successfully.");
+          console.log("[FC Modal] EmailJS response:", res.status, res.text);
+          showToast("success", "Message sent! We'll be in touch shortly. ✈");
+          form.reset();
+          clearErrors();
+          setTimeout(closeModal, 1800);
+        })
+        .catch(function (err) {
+          console.error("[FC Modal] EMAILJS FULL ERROR:", err);
+          console.error("[FC Modal] STATUS:", err.status);
+          console.error("[FC Modal] TEXT:", err.text);
+          showToast(
+            "error",
+            "EmailJS Error: " +
+              (err.text ||
+                "Unknown error. Please try again or email us directly."),
           );
-        } else {
-          throw new Error("EmailJS not loaded");
-        }
-        showToast("success", "Message sent! We'll be in touch shortly. ✈");
-        form.reset();
-        clearErrors();
-        setTimeout(closeModal, 1800);
-      } catch (err) {
-        console.error("EmailJS error:", err);
-        showToast(
-          "error",
-          "Something went wrong. Please try again or contact us directly.",
-        );
-      } finally {
-        submitBtn.classList.remove("fc-loading");
-        submitBtn.disabled = false;
-      }
+        })
+        .finally(function () {
+          submitBtn.classList.remove("fc-loading");
+          submitBtn.disabled = false;
+        });
     });
-  })(); // end IIFE — keeps all variables scoped, no global pollution
+  })(); // end IIFE
 </script>
